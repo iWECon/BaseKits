@@ -11,53 +11,45 @@ import UIKit
 class SecondRootController: IWViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return datas.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell:UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+        var cell:UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "mycell", for: indexPath)
         if cell==nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         }
-        cell.textLabel?.text = "这是第" + "行"
+        cell.textLabel?.text = "这个是第\(datas[indexPath.row].0)个" + datas[indexPath.row].2 + "盒子，编号:" + String(datas[indexPath.row].1)
         return cell
     }
     
     
     var tableView: UITableView!
-    var datas: NSMutableArray!
+    var datas: [(String,Int,String)]!
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.backgroundColor = .red
-
-        // Do any additional setup after loading the view.
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        view.backgroundColor = .red
+//        self.prepareUI()
+//
+//        // Do any additional setup after loading the view.
+//    }
     
     override func prepareUI() {
         super.prepareUI()
-        
-        view.backgroundColor = UIColor.orange
-        
+
+        datas = [("1",8,"大"),("2",9,"中"),("3",3,"小")]
+
         tableView = UITableView(frame: view.bounds, style: .grouped)
-        tableView.backgroundColor = UIColor.gray
+        tableView.backgroundColor = UIColor.white
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
-        
-        
-        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "mycell")
     }
-    
-    override func bindViewModel() {
-        super.bindViewModel()
-    }
-    
-    
 
     /*
     // MARK: - Navigation

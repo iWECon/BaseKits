@@ -10,6 +10,10 @@ import UIKit
 
 class SecondRootViewModel: IWViewModel {
     
+    override var instanceController: IWViewControllerable {
+        return SecondRootController.init(viewModel: self)
+    }
+    
     override func initialized() {
         super.initialized()
         

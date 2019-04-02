@@ -42,6 +42,7 @@ class IWViewController: UIViewController, IWViewControllerable {
         prepareUI()
         updateUI()
         bindViewModel()
+        Console.log("111 \(self)")
     }
     
     func prepareUI() -> Void { }
