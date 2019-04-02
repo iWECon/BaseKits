@@ -8,12 +8,6 @@
 
 import UIKit
 
-//extension UIViewController {
-//
-////    static func initFromStoryBoard(_ name: "") ->
-//
-//}
-
 extension IWViewControllerable where Self: UIViewController {
     
     static func from(storyboard name: String = "Main") -> Self {

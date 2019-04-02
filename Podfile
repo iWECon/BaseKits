@@ -13,7 +13,7 @@ pod 'NSObject+Rx'
 pod 'Moya/RxSwift', '~> 12.0'
 pod 'ReachabilitySwift', '~> 4.0'
 
-pod 'HandyJSON'
+#pod 'HandyJSON'
 #pod 'ViewAnimator'
 #
 #pod 'HandyJSON'
