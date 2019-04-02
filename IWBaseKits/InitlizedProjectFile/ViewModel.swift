@@ -73,5 +73,59 @@ class ViewModel: IWViewModel {
         
         //self.provider.login(account: <#T##String#>, password: <#T##String#>)
     }
+    
+    
+    //test
+    struct UserInter {
+        var checkTouchEvent: Driver<Void> //按钮点击
+        var interTextDiver :Observable <String> //输入框
+    }
+    struct UserShow {
+        var hasShow: Driver<Bool>  //label 显示
+    }
+    
+    var interPer = BehaviorRelay<String>.init(value: "")
+    
+    func userPermissions(inter: UserInter) ->UserShow {
+        
+        let userTouch = inter.checkTouchEvent
+        userTouch.onNext { [weak self] (_) in
+            
+            guard let self = self else { return }
+            
+            //检查输入框：
+            //self.showPer.accept("我是管理员")
+            
+            var str = self.interPer.value
+            
+            if (str == "我是管理员"){
+                str = "你才不是管理员"
+            }
+            self.interPer.accept(str)
+            
+        }.disposed(by: rx.disposeBag)
+        
+        
+        inter.interTextDiver.subscribeOnNext { (testStr) in
+            Console.log(testStr)
+            
+            if (testStr == "123456"){
+                self.interPer.accept("我是管理员")
+            }else{
+                self.interPer.accept("我不是管理员")
+            }
+            
+        }.disposed(by: rx.disposeBag)
+        
+        let hasShow = Observable<String>.combineLatest([inter.interTextDiver]).asObservable().map { (result) -> Bool in
+            //            let result1 = result.first.check({$0.count > 6 })
+            //            Console.log(result.first)
+            //            print("33333")
+            return true
+        }.asDriver(onErrorJustReturn: false)
+        
+        return UserShow.init(hasShow: hasShow)
+        
+    }
 
 }

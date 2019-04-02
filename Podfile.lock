@@ -3,6 +3,7 @@ PODS:
   - CocoaLumberjack/Core (3.5.2)
   - CocoaLumberjack/Swift (3.5.2):
     - CocoaLumberjack/Core
+  - HandyJSON (4.2.1)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
@@ -21,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
+  - HandyJSON
   - Moya/RxSwift (~> 12.0)
   - "NSObject+Rx"
   - ReachabilitySwift (~> 4.0)
@@ -31,6 +33,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - CocoaLumberjack
+    - HandyJSON
     - Moya
     - "NSObject+Rx"
     - ReachabilitySwift
@@ -42,6 +45,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
+  HandyJSON: d0c5fc80204f29056d59d3e5c4587fa0b16b60a8
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
@@ -50,6 +54,6 @@ SPEC CHECKSUMS:
   RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
 
-PODFILE CHECKSUM: 6712c1020569adb02d17c5c0a6a7668339220a21
+PODFILE CHECKSUM: 76389163dd76a0d7d137179ec74721d53a9aaca7
 
 COCOAPODS: 1.5.3

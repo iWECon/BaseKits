@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="54c-Oh-ukh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="54c-Oh-ukh">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,19 +38,55 @@
                                 <rect key="frame" x="20" y="238" width="108" height="30"/>
                                 <state key="normal" title="服务器模式切换"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2d-Cx-3Du">
+                                <rect key="frame" x="15" y="318" width="384" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1fC-rz-wVw"/>
+                                </constraints>
+                                <state key="normal" title="确认"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待确认" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAC-XG-EQF">
+                                <rect key="frame" x="15" y="273" width="384" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YJM-Y1-gK0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入你的身份id" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="whV-nV-MrJ">
+                                <rect key="frame" x="15" y="363" width="384" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2sW-gM-sST"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="nAC-XG-EQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="4lF-aW-4c8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nAC-XG-EQF" secondAttribute="trailing" constant="15" id="78C-ha-HS4"/>
+                            <constraint firstItem="whV-nV-MrJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="A16-qM-nVd"/>
+                            <constraint firstItem="V2d-Cx-3Du" firstAttribute="top" secondItem="nAC-XG-EQF" secondAttribute="bottom" constant="5" id="CMf-5Y-sAa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V2d-Cx-3Du" secondAttribute="trailing" constant="15" id="Cud-rW-fUA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="whV-nV-MrJ" secondAttribute="trailing" constant="15" id="GNZ-Zk-aHk"/>
                             <constraint firstItem="O7g-XX-Nf4" firstAttribute="top" secondItem="yUJ-xL-KuE" secondAttribute="bottom" constant="10" id="IjZ-Vb-dH1"/>
                             <constraint firstItem="Of3-d1-2cs" firstAttribute="centerY" secondItem="Ixl-Rn-GhQ" secondAttribute="centerY" id="MwF-iG-mOU"/>
                             <constraint firstItem="Ixl-Rn-GhQ" firstAttribute="leading" secondItem="O7g-XX-Nf4" secondAttribute="leading" id="Mya-ve-mzy"/>
+                            <constraint firstItem="V2d-Cx-3Du" firstAttribute="top" secondItem="nAC-XG-EQF" secondAttribute="bottom" constant="5" id="O6g-yQ-aMC"/>
                             <constraint firstItem="Of3-d1-2cs" firstAttribute="top" secondItem="O7g-XX-Nf4" secondAttribute="bottom" constant="20" id="diG-iJ-HCR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yUJ-xL-KuE" secondAttribute="trailing" constant="20" id="eOa-8q-ef0"/>
+                            <constraint firstItem="V2d-Cx-3Du" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="fPo-xH-Psg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Of3-d1-2cs" secondAttribute="trailing" constant="20" id="iI8-dN-gKR"/>
                             <constraint firstItem="O7g-XX-Nf4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jBy-oB-KoJ"/>
                             <constraint firstItem="yUJ-xL-KuE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="jM2-6i-Eev"/>
+                            <constraint firstItem="nAC-XG-EQF" firstAttribute="top" secondItem="Of3-d1-2cs" secondAttribute="bottom" constant="5" id="lkr-FI-ijI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O7g-XX-Nf4" secondAttribute="trailing" constant="20" id="qEG-0w-Bgd"/>
+                            <constraint firstItem="whV-nV-MrJ" firstAttribute="top" secondItem="V2d-Cx-3Du" secondAttribute="bottom" constant="5" id="vGM-hE-zhh"/>
                             <constraint firstItem="yUJ-xL-KuE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yW8-rJ-I0W"/>
+                            <constraint firstItem="whV-nV-MrJ" firstAttribute="top" secondItem="V2d-Cx-3Du" secondAttribute="bottom" constant="5" id="zCM-4o-rsB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -60,6 +96,9 @@
                         <outlet property="loginButton" destination="Of3-d1-2cs" id="Iq6-P2-shR"/>
                         <outlet property="passwordTextField" destination="O7g-XX-Nf4" id="4oa-Np-bKK"/>
                         <outlet property="switchServiceModeButton" destination="Ixl-Rn-GhQ" id="mrW-Qu-hkl"/>
+                        <outlet property="userButton" destination="V2d-Cx-3Du" id="eS8-kh-Ime"/>
+                        <outlet property="userLabel" destination="nAC-XG-EQF" id="2yp-ho-0TW"/>
+                        <outlet property="userTextField" destination="whV-nV-MrJ" id="KS2-TP-wix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
