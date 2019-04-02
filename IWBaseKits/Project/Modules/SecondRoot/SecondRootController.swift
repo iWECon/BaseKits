@@ -8,10 +8,32 @@
 
 import UIKit
 
-class SecondRootController: IWViewController {
+class SecondRootController: IWViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell:UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        if cell==nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        cell.textLabel?.text = "这是第" + "行"
+        return cell
+    }
+    
+    
+    var tableView: UITableView!
+    var datas: NSMutableArray!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.backgroundColor = .red
 
         // Do any additional setup after loading the view.
     }
@@ -19,8 +41,22 @@ class SecondRootController: IWViewController {
     override func prepareUI() {
         super.prepareUI()
         
-        view.backgroundColor = .green
+        view.backgroundColor = UIColor.orange
+        
+        tableView = UITableView(frame: view.bounds, style: .grouped)
+        tableView.backgroundColor = UIColor.gray
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        
+        
+        
     }
+    
+    override func bindViewModel() {
+        super.bindViewModel()
+    }
+    
     
 
     /*

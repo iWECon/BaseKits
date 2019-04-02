@@ -75,7 +75,7 @@ class ViewModel: IWViewModel {
     }
     
     
-    //test
+    //learn test
     struct UserInter {
         var checkTouchEvent: Driver<Void> //按钮点击
         var interTextDiver :Observable <String> //输入框
