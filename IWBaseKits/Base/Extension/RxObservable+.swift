@@ -12,7 +12,8 @@ import RxCocoa
 
 extension Observable {
     
-    func subscribeOnNext(_ onNext: ((Element) -> Void)?) -> Disposable {
+    /// .subscribe(_ onNext: )
+    func onNext(_ onNext: ((Element) -> Void)?) -> Disposable {
         return self.subscribe(onNext: onNext, onError: nil, onCompleted: nil, onDisposed: nil)
     }
     
@@ -21,8 +22,18 @@ extension Observable {
 
 extension SharedSequenceConvertibleType where Self.SharingStrategy == RxCocoa.DriverSharingStrategy {
     
+    /// .subscribe(_ onNext: )
     func onNext(_ onNext: ((Self.E) -> Void)?) -> Disposable {
         return self.drive(onNext: onNext, onCompleted: nil, onDisposed: nil)
+    }
+    
+}
+
+extension ObservableType {
+    
+    /// .subscribe(_ onNext: )
+    func onNext(_ onNext: ((Self.E) -> Void)?) -> Disposable {
+        return self.subscribe(onNext: onNext, onError: nil, onCompleted: nil, onDisposed: nil)
     }
     
 }

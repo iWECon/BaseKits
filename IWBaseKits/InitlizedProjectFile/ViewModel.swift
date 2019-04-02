@@ -106,7 +106,7 @@ class ViewModel: IWViewModel {
         }.disposed(by: rx.disposeBag)
         
         
-        inter.interTextDiver.subscribeOnNext { (testStr) in
+        inter.interTextDiver.onNext { (testStr) in
             Console.log(testStr)
             
             if (testStr == "123456"){

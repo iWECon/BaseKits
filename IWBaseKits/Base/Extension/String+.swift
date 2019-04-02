@@ -8,19 +8,26 @@
 
 import UIKit
 
-//extension String {
-//
-//    func check(_ process: (String) -> Bool) -> Bool {
-//        return process(self ?? "")
-//    }
-//
-//}
-
-
 extension Optional where Wrapped == String {
     
+    /// Check if the value meets the conditions(process)
+    ///
+    /// - Parameter process: Check process.
+    /// - Returns: Bool
     func check(_ process: (String) -> Bool) -> Bool {
         return process(self ?? "")
+    }
+    
+}
+
+extension String {
+    
+    /// Check if the value meets the conditions(process)
+    ///
+    /// - Parameter process: Check process.
+    /// - Returns: Bool
+    func check(_ process: (String) -> Bool) -> Bool {
+        return process(self)
     }
     
 }
