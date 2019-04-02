@@ -8,20 +8,20 @@
 
 import UIKit
 
-struct IWBaseKitsConfigs {
-    
-    enum Router {
-        case home
-        
-        var instance: IWViewControllerable? {
-            switch self {
-            case .home: break
-                
-            default:
-                break
-            }
-            return nil
-        }
-    }
-    
-}
+//struct IWBaseKitsConfigs {
+//
+//    enum Router {
+//        case home
+//
+//        var instance: IWViewControllerable? {
+//            switch self {
+//            case .home: break
+//
+//            default:
+//                break
+//            }
+//            return nil
+//        }
+//    }
+//
+//}

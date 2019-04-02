@@ -28,31 +28,20 @@ extension IWViewable {
 
 extension UIView: IWViewable { }
 
+
+fileprivate let _TAPKEY: String = "_iwe_tap"
 extension IWView where Base: UIView {
     
     var tap: UITapGestureRecognizer {
         if base.gestureRecognizers != nil {
             for gesture in base.gestureRecognizers! {
-                if gesture is UITapGestureRecognizer {
-//                    if #available(iOS 11.0, *) {
-//                        if gesture.name != nil, gesture.name! == "_iwe_tap" {
-//                            return gesture as! UITapGestureRecognizer
-//                        }
-//                    } else {
-//                        // Fallback on earlier versions
-//                        
-//                    }
+                if gesture is UITapGestureRecognizer, gesture.mark == _TAPKEY {
+                    return gesture as! UITapGestureRecognizer
                 }
-                
             }
         }
         let _tap = UITapGestureRecognizer.init()
-//        if #available(iOS 11.0, *) {
-//            _tap.name = "_iwe_tap"
-//        } else {
-//            // Fallback on earlier versions
-//
-//        }
+        _tap.mark = _TAPKEY
         base.addGestureRecognizer(_tap)
         return _tap
     }

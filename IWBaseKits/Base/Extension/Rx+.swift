@@ -1,5 +1,5 @@
 //
-//  RxObservable+.swift
+//  Rx+.swift
 //  IWBaseKits
 //
 //  Created by 未来 on 2019/3/29.
@@ -38,16 +38,6 @@ extension ObservableType {
     
 }
 
-
-//extension ControlEvent where PropertyType == UIView {
-//    
-////    var tap: ControlEvent<UITapGestureRecognizer> {
-////
-////    }
-//    
-//}
-
-
 extension IWView where Base: UIView {
     
     var rx: Reactive<Base> {
@@ -55,7 +45,6 @@ extension IWView where Base: UIView {
     }
     
 }
-
 extension Reactive where Base: UIView {
     
     var tap: ControlEvent<UITapGestureRecognizer> {
