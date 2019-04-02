@@ -6,16 +6,16 @@ target 'IWBaseKits' do
 # Rx
 pod 'RxSwift', '~> 4.4.0'
 pod 'RxCocoa', '~> 4.4.0'
-#pod 'RxReachability'
-
 pod 'NSObject+Rx'
 
+# TableView & CollectionView
+pod 'RxDataSources', '~> 3.1.0'
+
+# Network
 pod 'Moya/RxSwift', '~> 12.0'
 pod 'ReachabilitySwift', '~> 4.0'
 
-#pod 'HandyJSON'
-#pod 'ViewAnimator'
-#
+# Model
 #pod 'HandyJSON'
 
 # Log 日志

@@ -3,6 +3,7 @@ PODS:
   - CocoaLumberjack/Core (3.5.2)
   - CocoaLumberjack/Swift (3.5.2):
     - CocoaLumberjack/Core
+  - Differentiator (3.1.0)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
@@ -16,6 +17,10 @@ PODS:
   - RxAtomic (4.4.2)
   - RxCocoa (4.4.2):
     - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.4.2):
     - RxAtomic (>= 4.4.2, ~> 4.4)
 
@@ -25,31 +30,36 @@ DEPENDENCIES:
   - "NSObject+Rx"
   - ReachabilitySwift (~> 4.0)
   - RxCocoa (~> 4.4.0)
+  - RxDataSources (~> 3.1.0)
   - RxSwift (~> 4.4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - CocoaLumberjack
+    - Differentiator
     - Moya
     - "NSObject+Rx"
     - ReachabilitySwift
     - Result
     - RxAtomic
     - RxCocoa
+    - RxDataSources
     - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
   RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
 
-PODFILE CHECKSUM: 79de975c8afff11c6b1487d7d1a171f4bfb6cb51
+PODFILE CHECKSUM: 2b91e38e627387a89625926b089fc52957d97877
 
 COCOAPODS: 1.5.3
