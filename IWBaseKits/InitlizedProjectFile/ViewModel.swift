@@ -118,10 +118,8 @@ class ViewModel: IWViewModel {
         }.disposed(by: rx.disposeBag)
         
         let hasShow = Observable<String>.combineLatest([inter.interTextDiver]).asObservable().map { (result) -> Bool in
-            //            let result1 = result.first.check({$0.count > 6 })
-            //            Console.log(result.first)
-            //            print("33333")
-            return true
+            let isResult = result.first.check({$0.count > 0 })
+            return isResult
         }.asDriver(onErrorJustReturn: false)
         
         return UserShow.init(hasShow: hasShow)
