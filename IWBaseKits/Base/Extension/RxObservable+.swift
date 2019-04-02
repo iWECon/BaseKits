@@ -37,3 +37,38 @@ extension ObservableType {
     }
     
 }
+
+
+//extension ControlEvent where PropertyType == UIView {
+//    
+////    var tap: ControlEvent<UITapGestureRecognizer> {
+////
+////    }
+//    
+//}
+
+
+extension IWView where Base: UIView {
+    
+    var rx: Reactive<Base> {
+        return base.rx
+    }
+    
+}
+
+extension Reactive where Base: UIView {
+    
+    var tap: ControlEvent<UITapGestureRecognizer> {
+        return base.iwe.tap.rx.event
+    }
+    
+}
+
+
+extension Reactive where Base: UIButton {
+    
+    var touchUpInside: Driver<()> {
+        return base.rx.controlEvent(.touchUpInside).asDriver()
+    }
+    
+}

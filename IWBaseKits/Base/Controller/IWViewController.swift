@@ -49,6 +49,20 @@ class IWViewController: UIViewController, IWViewControllerable {
     func bindViewModel() -> Void {
         if viewModel != nil {
             viewModel.navigationBarTitle.asObservable().bind(to: navigationItem.rx.title).disposed(by: rx.disposeBag)
+            
+            viewModel.backgroundColor.asObservable().bind(to: view.rx.backgroundColor).disposed(by: rx.disposeBag)
+//            viewModel.touchViewHiddenKeyboard.asDriver().onNext { [weak self] (value) in
+//                guard let self = self else { return }
+//
+//                self.view.rx.tap.onNext({ (_) in
+//
+//                    if value {
+//                        self.view.endEditing(true)
+//                    }
+//
+//                }).disposed(by: self.rx.disposeBag)
+//
+//            }.disposed(by: rx.disposeBag)
         }
     }
     

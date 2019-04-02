@@ -36,6 +36,8 @@
 		922AA833224DF94D00C8549F /* SecondRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AA832224DF94D00C8549F /* SecondRootController.swift */; };
 		922AA835224DF95600C8549F /* ThirdRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AA834224DF95600C8549F /* ThirdRootController.swift */; };
 		922AA837224DF95E00C8549F /* FourthRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AA836224DF95E00C8549F /* FourthRootController.swift */; };
+		9234D79B225350D2009679B8 /* IWView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D79A225350D2009679B8 /* IWView+.swift */; };
+		9234D79D22535C19009679B8 /* Gesture+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D79C22535C19009679B8 /* Gesture+.swift */; };
 		923F0E692251A6980079551E /* IWMagicApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E682251A6980079551E /* IWMagicApi.swift */; };
 		923F0E6B2251A6D70079551E /* IWMagicApiPact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E6A2251A6D70079551E /* IWMagicApiPact.swift */; };
 		923F0E6D225208E50079551E /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E6C225208E50079551E /* ResponseModel.swift */; };
@@ -107,6 +109,8 @@
 		922AA832224DF94D00C8549F /* SecondRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRootController.swift; sourceTree = "<group>"; };
 		922AA834224DF95600C8549F /* ThirdRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdRootController.swift; sourceTree = "<group>"; };
 		922AA836224DF95E00C8549F /* FourthRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthRootController.swift; sourceTree = "<group>"; };
+		9234D79A225350D2009679B8 /* IWView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IWView+.swift"; sourceTree = "<group>"; };
+		9234D79C22535C19009679B8 /* Gesture+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gesture+.swift"; sourceTree = "<group>"; };
 		923F0E682251A6980079551E /* IWMagicApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWMagicApi.swift; sourceTree = "<group>"; };
 		923F0E6A2251A6D70079551E /* IWMagicApiPact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWMagicApiPact.swift; sourceTree = "<group>"; };
 		923F0E6C225208E50079551E /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				9200DAAD224F0043000E3D4E /* Operators.swift */,
 				9200DAAF224F01C5000E3D4E /* String+.swift */,
 				9200DAB1224F041F000E3D4E /* Controller+.swift */,
+				9234D79C22535C19009679B8 /* Gesture+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 			children = (
 				922AA802224DBF3C00C8549F /* IWViewControllerable.swift */,
 				922AA804224DBF9000C8549F /* IWViewModelable.swift */,
+				9234D79A225350D2009679B8 /* IWView+.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -646,7 +652,9 @@
 				92264489224B76D500373746 /* IWViewController.swift in Sources */,
 				922AA80B224DE4E900C8549F /* IWTabbarViewModel.swift in Sources */,
 				922AA816224DED1B00C8549F /* IWNavigationController.swift in Sources */,
+				9234D79B225350D2009679B8 /* IWView+.swift in Sources */,
 				9261368E224C8F63007CC47A /* IWRoterProtocol.swift in Sources */,
+				9234D79D22535C19009679B8 /* Gesture+.swift in Sources */,
 				922AA805224DBF9000C8549F /* IWViewModelable.swift in Sources */,
 				9200DAAE224F0043000E3D4E /* Operators.swift in Sources */,
 				922AA81E224DF3AD00C8549F /* EntranceViewModel.swift in Sources */,

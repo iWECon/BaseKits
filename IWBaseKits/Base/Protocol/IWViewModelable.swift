@@ -20,4 +20,6 @@ protocol IWViewModelable {
     
     var backgroundColor: BehaviorRelay<UIColor> { get }
 //    var backgroundColorDriver: Driver<UIColor> { get }
+    
+    var touchViewHiddenKeyboard: BehaviorRelay<Bool> { get }
 }

@@ -48,6 +48,7 @@ class IWViewModel: NSObject, IWViewModelable {
     var navigationBackTitle: String? = ""
     
     var backgroundColor: BehaviorRelay<UIColor> = BehaviorRelay<UIColor>.init(value: .white)
+    var touchViewHiddenKeyboard: BehaviorRelay<Bool> = BehaviorRelay<Bool>.init(value: false)
 }
 
 extension IWViewModel: IWRouterViewModelable {

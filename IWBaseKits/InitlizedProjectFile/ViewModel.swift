@@ -35,6 +35,12 @@ class ViewModel: IWViewModel {
         var checkPass: Driver<Bool>
     }
     
+    override func initialized() {
+        super.initialized()
+        
+        touchViewHiddenKeyboard.accept(true)
+    }
+    
     func transform(input: Input) -> Output {
         
         let loginTriggered = input.loginControlEvent
