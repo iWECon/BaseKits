@@ -65,7 +65,6 @@ class ViewController: IWViewController {
             
             self.userButton.isEnabled = value
             self.isEnabledShow(isEnable: value)
-            Console.debug("\(Thread.current.isMainThread)") //当前是否是在主线程
             
         }.disposed(by: rx.disposeBag)
         
@@ -80,22 +79,20 @@ class ViewController: IWViewController {
             self.view.endEditing(true)
         }.disposed(by: rx.disposeBag)
         
-        userButton.rx.controlEvent(.touchUpInside).bind { [weak self] (_) in
+        userButton.rx.touchUpInside.onNext { [weak self] (_) in
             guard let self = self else { return }
-            self.touchInsideShow()
+            
+            self.touchOutsideShow()
         }.disposed(by: rx.disposeBag)
         
-        userButton.rx.controlEvent(.touchUpOutside).bind { [weak self] (_) in
+        userButton.rx.touchUpOutside.onNext { [weak self] (_) in
             guard let self = self else { return }
+            
             self.touchOutsideShow()
         }.disposed(by: rx.disposeBag)
         
         // 绑定操作
         vm.interPer.bind(to: userLabel.rx.text).disposed(by: rx.disposeBag)
-        
-//        vm.interPer.subscribe(onNext: { (result) in
-//            self.userLabel.text = result
-//        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
     }
     
     func normalShow() {

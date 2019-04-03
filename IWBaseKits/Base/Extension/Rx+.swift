@@ -22,7 +22,7 @@ extension Observable {
 
 extension SharedSequenceConvertibleType where Self.SharingStrategy == RxCocoa.DriverSharingStrategy {
     
-    /// .subscribe(_ onNext: )
+    /// .drive(_ onNext: )
     func onNext(_ onNext: ((Self.E) -> Void)?) -> Disposable {
         return self.drive(onNext: onNext, onCompleted: nil, onDisposed: nil)
     }
@@ -58,6 +58,10 @@ extension Reactive where Base: UIButton {
     
     var touchUpInside: Driver<()> {
         return base.rx.controlEvent(.touchUpInside).asDriver()
+    }
+    
+    var touchUpOutside: Driver<()> {
+        return base.rx.controlEvent(.touchUpOutside).asDriver()
     }
     
 }
