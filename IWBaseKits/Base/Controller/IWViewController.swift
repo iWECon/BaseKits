@@ -44,7 +44,7 @@ class IWViewController: UIViewController, IWViewControllerable {
         prepareUI()
         updateUI()
         bindViewModel()
-        Console.log("Current ViewController :\(self)")
+        Console.log("Current ViewController :\(self) withTitle:\(viewModel.navigationBarTitle.value)")
     }
     
     func prepareUI() -> Void { }

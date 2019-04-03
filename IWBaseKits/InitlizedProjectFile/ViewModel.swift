@@ -99,7 +99,7 @@ class ViewModel: IWViewModel {
             //Console.log("点击了效验按钮-可以对ViewModel做些什么事")
             let vm = SecondRootViewModel.init()
             vm.present(true, completion: nil)
-            
+//            vm.push(true)//push过去后，暂时无法pop返回
         }.disposed(by: rx.disposeBag)
         
         inter.interTextDiver.onNext { (testStr) in

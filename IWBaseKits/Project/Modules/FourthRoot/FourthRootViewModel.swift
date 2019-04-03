@@ -10,11 +10,20 @@ import UIKit
 
 class FourthRootViewModel: IWViewModel {
     
+    override var instanceController: IWViewControllerable {
+        return FourthRootController.init(viewModel: self)
+    }
+    
     override func initialized() {
         super.initialized()
         
         
         navigationBarTitle.accept("控制器4")
+        autoAddBackBarButton = true
+
     }
+    
+    
+    
 
 }
