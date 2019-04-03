@@ -38,7 +38,7 @@ extension ObservableType {
     
 }
 
-extension IWView where Base: UIView {
+extension IWViewBridge where Base: UIView {
     
     var rx: Reactive<Base> {
         return base.rx

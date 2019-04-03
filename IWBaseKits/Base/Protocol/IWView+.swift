@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IWView<Base> {
+class IWViewBridge<Base> {
     let base: Base
     init(view: Base) {
         self.base = view
@@ -16,13 +16,13 @@ class IWView<Base> {
 }
 
 protocol IWViewable {
-    associatedtype IWE
-    var iwe: IWE { get }
+    associatedtype Base
+    var iwe: Base { get }
 }
 
 extension IWViewable {
-    var iwe: IWView<Self> {
-        return IWView(view: self)
+    var iwe: IWViewBridge<Self> {
+        return IWViewBridge(view: self)
     }
 }
 
@@ -30,7 +30,7 @@ extension UIView: IWViewable { }
 
 
 fileprivate let _TAPKEY: String = "_iwe_tap"
-extension IWView where Base: UIView {
+extension IWViewBridge where Base: UIView {
     
     var tap: UITapGestureRecognizer {
         if base.gestureRecognizers != nil {
@@ -44,6 +44,14 @@ extension IWView where Base: UIView {
         _tap.mark = _TAPKEY
         base.addGestureRecognizer(_tap)
         return _tap
+    }
+    
+    func removeTap() -> Void {
+        for gesture in base.gestureRecognizers! {
+            if gesture is UITapGestureRecognizer, gesture.mark == _TAPKEY {
+                base.removeGestureRecognizer(gesture)
+            }
+        }
     }
     
 }

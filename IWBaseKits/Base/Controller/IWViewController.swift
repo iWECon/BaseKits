@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class IWViewController: UIViewController, IWViewControllerable {
     
@@ -48,22 +50,12 @@ class IWViewController: UIViewController, IWViewControllerable {
     func prepareUI() -> Void { }
     func updateUI() -> Void { }
     func bindViewModel() -> Void {
+        
         if viewModel != nil {
             viewModel.navigationBarTitle.asObservable().bind(to: navigationItem.rx.title).disposed(by: rx.disposeBag)
-            
             viewModel.backgroundColor.asObservable().bind(to: view.rx.backgroundColor).disposed(by: rx.disposeBag)
-//            viewModel.touchViewHiddenKeyboard.asDriver().onNext { [weak self] (value) in
-//                guard let self = self else { return }
-//
-//                self.view.rx.tap.onNext({ (_) in
-//
-//                    if value {
-//                        self.view.endEditing(true)
-//                    }
-//
-//                }).disposed(by: self.rx.disposeBag)
-//
-//            }.disposed(by: rx.disposeBag)
+            
+            _autoCheck()
         }
     }
     
@@ -72,4 +64,14 @@ class IWViewController: UIViewController, IWViewControllerable {
         self.viewModel = (viewModel as! IWViewModelable)
     }
     
+    private func _autoCheck() -> Void {
+        if viewModel.autoAddBackBarButton {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: nil, action: nil)
+            self.navigationItem.leftBarButtonItem?.rx.tap.onNext({ [weak self] (_) in
+                guard let self = self else { return }
+                
+                self.viewModel.destroy()
+            }).disposed(by: rx.disposeBag)
+        }
+    }
 }

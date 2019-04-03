@@ -96,7 +96,10 @@ class ViewModel: IWViewModel {
         
         let userTouch = inter.checkTouchEvent
         userTouch.onNext { (_) in
-            Console.log("点击了效验按钮-可以对ViewModel做些什么事")
+            //Console.log("点击了效验按钮-可以对ViewModel做些什么事")
+            let vm = SecondRootViewModel.init()
+            vm.present(true, completion: nil)
+            
         }.disposed(by: rx.disposeBag)
         
         inter.interTextDiver.onNext { (testStr) in
