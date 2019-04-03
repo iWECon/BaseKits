@@ -30,9 +30,9 @@ class IWViewModel: NSObject, IWViewModelable {
     /// 网络请求
     let provider: IWMagicApi = AppDelegate.shared.provider
     ///
-    var params: [String: Any]?
+    var params: Any?
     
-    init(with params: [String: Any]? = nil) {
+    init(with params: Any? = nil) {
         super.init()
         
         self.params = params
