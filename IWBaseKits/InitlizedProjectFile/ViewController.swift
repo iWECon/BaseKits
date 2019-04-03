@@ -82,7 +82,7 @@ class ViewController: IWViewController {
         userButton.rx.touchUpInside.onNext { [weak self] (_) in
             guard let self = self else { return }
             
-            self.touchOutsideShow()
+            self.touchInsideShow()
         }.disposed(by: rx.disposeBag)
         
         userButton.rx.touchUpOutside.onNext { [weak self] (_) in
