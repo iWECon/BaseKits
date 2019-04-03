@@ -47,6 +47,8 @@
 		9234D7AB22545067009679B8 /* CollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7AA22545067009679B8 /* CollectionView+.swift */; };
 		9234D7AD2254547D009679B8 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7AC2254547D009679B8 /* Dictionary+.swift */; };
 		9234D7AF22545563009679B8 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7AE22545563009679B8 /* Array+.swift */; };
+		9234D7B222547A05009679B8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7B122547A05009679B8 /* Common.swift */; };
+		9234D7B522547D66009679B8 /* IWDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7B422547D66009679B8 /* IWDevice.swift */; };
 		923F0E692251A6980079551E /* IWMagicApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E682251A6980079551E /* IWMagicApi.swift */; };
 		923F0E6B2251A6D70079551E /* IWMagicApiPact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E6A2251A6D70079551E /* IWMagicApiPact.swift */; };
 		923F0E6D225208E50079551E /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E6C225208E50079551E /* ResponseModel.swift */; };
@@ -129,6 +131,8 @@
 		9234D7AA22545067009679B8 /* CollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+.swift"; sourceTree = "<group>"; };
 		9234D7AC2254547D009679B8 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		9234D7AE22545563009679B8 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		9234D7B122547A05009679B8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		9234D7B422547D66009679B8 /* IWDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWDevice.swift; sourceTree = "<group>"; };
 		923F0E682251A6980079551E /* IWMagicApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWMagicApi.swift; sourceTree = "<group>"; };
 		923F0E6A2251A6D70079551E /* IWMagicApiPact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWMagicApiPact.swift; sourceTree = "<group>"; };
 		923F0E6C225208E50079551E /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		921856CC224A222700B52702 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9234D7B322547D58009679B8 /* CustomerClass */,
 				922AA7FE224DB4F600C8549F /* Rx+.swift */,
 				9200DAAD224F0043000E3D4E /* Operators.swift */,
 				9200DAAF224F01C5000E3D4E /* String+.swift */,
@@ -303,9 +308,26 @@
 			path = FourthRoot;
 			sourceTree = "<group>";
 		};
+		9234D7B0225479F6009679B8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9234D7B122547A05009679B8 /* Common.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9234D7B322547D58009679B8 /* CustomerClass */ = {
+			isa = PBXGroup;
+			children = (
+				9234D7B422547D66009679B8 /* IWDevice.swift */,
+			);
+			path = CustomerClass;
+			sourceTree = "<group>";
+		};
 		92613688224C60FE007CC47A /* Instance */ = {
 			isa = PBXGroup;
 			children = (
+				9234D7B0225479F6009679B8 /* Common */,
 				92613695224C9FEB007CC47A /* Network */,
 				9261368C224C8F45007CC47A /* Router */,
 				92613689224C6107007CC47A /* Console */,
@@ -682,6 +704,7 @@
 				92613697224CA2F0007CC47A /* IWProvider.swift in Sources */,
 				9226448C224B7D6900373746 /* IWServiceConfigs.swift in Sources */,
 				9261368B224C6114007CC47A /* Console.swift in Sources */,
+				9234D7B522547D66009679B8 /* IWDevice.swift in Sources */,
 				92264489224B76D500373746 /* IWViewController.swift in Sources */,
 				922AA80B224DE4E900C8549F /* IWTabbarViewModel.swift in Sources */,
 				922AA816224DED1B00C8549F /* IWNavigationController.swift in Sources */,
@@ -721,6 +744,7 @@
 				929220A72249FC77009F6DF8 /* IWService.swift in Sources */,
 				922AA814224DE9BD00C8549F /* IWRouterNavigationControllerStack.swift in Sources */,
 				9200DAB2224F041F000E3D4E /* Controller+.swift in Sources */,
+				9234D7B222547A05009679B8 /* Common.swift in Sources */,
 				922AA82A224DF48900C8549F /* FourthRootViewModel.swift in Sources */,
 				922AA812224DE91500C8549F /* IWEntranceTabBarController.swift in Sources */,
 				929220A42249FB70009F6DF8 /* IWViewModel.swift in Sources */,

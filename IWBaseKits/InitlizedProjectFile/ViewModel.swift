@@ -38,7 +38,7 @@ class ViewModel: IWViewModel {
     override func initialized() {
         super.initialized()
         
-        touchViewHiddenKeyboard.accept(true)
+//        touchViewHiddenKeyboard.accept(true)
     }
     
     func transform(input: Input) -> Output {

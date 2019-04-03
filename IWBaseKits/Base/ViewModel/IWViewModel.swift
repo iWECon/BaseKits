@@ -55,6 +55,7 @@ class IWViewModel: NSObject, IWViewModelable {
 }
 
 extension IWViewModel: IWRouterViewModelable {
+    
     func back(_ animated: Bool) {
         guard let viewController = UIViewController.current else { return }
         if viewController.iwe.isPresentered {
@@ -63,7 +64,6 @@ extension IWViewModel: IWRouterViewModelable {
             self.pop(animated)
         }
     }
-    
     
     func push(_ animated: Bool = true) -> Void {
         router.push(viewModel: self, animated: animated)

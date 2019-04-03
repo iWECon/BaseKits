@@ -70,7 +70,7 @@ class IWViewController: UIViewController, IWViewControllerable {
             self.navigationItem.leftBarButtonItem?.rx.tap.onNext({ [weak self] (_) in
                 guard let self = self else { return }
                 
-                self.viewModel.destroy()
+                self.viewModel.destroy(true)
             }).disposed(by: rx.disposeBag)
         }
     }

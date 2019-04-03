@@ -65,6 +65,13 @@ extension IWRouterNavigationControllerStack {
             
         }.disposed(by: stackDisposeBag)
         
+        router.popSubject.bind { [weak self] (tuple) in
+            guard let self = self else { return }
+            
+            let (animated) = tuple as! (Bool)
+            self.navigationControllers.last?.popViewController(animated: animated)
+        }.disposed(by: stackDisposeBag)
+        
         router.presentSubject.bind { [weak self] (tuple) in
             guard let self = self else { return }
             
@@ -77,16 +84,6 @@ extension IWRouterNavigationControllerStack {
             }
             self.push(navigationController: viewController as! UINavigationController)
             presentingViewController?.present(viewController, animated: animated, completion: completion)
-//            UIViewController *viewController = (UIViewController *)[MHRouter.sharedInstance viewControllerForViewModel:tuple.first];
-//
-//            UINavigationController *presentingViewController = self.navigationControllers.lastObject;
-//            if (![viewController isKindOfClass:UINavigationController.class]) {
-//                viewController = [[MHNavigationController alloc] initWithRootViewController:viewController];
-//            }
-//            [self pushNavigationController:(UINavigationController *)viewController];
-//
-//            [presentingViewController presentViewController:viewController animated:[tuple.second boolValue] completion:tuple.third];
-            
             
         }.disposed(by: stackDisposeBag)
         
