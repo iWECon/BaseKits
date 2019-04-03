@@ -45,8 +45,7 @@ class IWProvider<Target> where Target: Moya.TargetType {
         let actualRequest = provider.rx.request(token)
         
         return online.ignore(value: false).take(1).flatMap { _ in
-            return actualRequest.filterSuccessfulStatusCodes().do(onSuccess: { (response) in
-            }, onError: { (error) in
+            return actualRequest.filterSuccessfulStatusCodes().do(onError: { (error) in
                 if let error = error as? MoyaError {
                     switch error {
                     case .statusCode(let response):
@@ -76,11 +75,6 @@ struct IWNetworking: IWNetworkingType {
 extension IWNetworkingType {
     
     static func networking() -> IWNetworking {
-//        return IWNetworking.init(provider: IWProvider<CommonAPI>.init(endpointClosure: IWNetworking.endpointsClosure(),
-//                                                                      requestClosure: IWNetworking.endpointResolver(),
-//                                                                      stubClosure: MoyaProvider.immediatelyStub,
-//                                                                      online: .just(true)))
-        
         return IWNetworking.init(provider: IWProvider<CommonAPI>.init())
     }
     

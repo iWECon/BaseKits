@@ -48,10 +48,6 @@ class ViewController: IWViewController {
         
         output.checkPass.drive(loginButton.rx.isEnabled).disposed(by: rx.disposeBag)
         
-        vm.login()
-        
-        
-        
         //learn test
         // .rx.text.orEmpty 因为文本框的 text 默认值可能为 nil, 加上 orEmpty 之后会自动转换为空字符串 ""
         let userInter = ViewModel.UserInter.init(checkTouchEvent: userButton.rx.tap.asDriver(),

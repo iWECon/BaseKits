@@ -19,7 +19,7 @@ public struct Common {
         #endif
     }()
     
-    static var current: UIViewController? {
+    static var currentViewController: UIViewController? {
         return GetCurrentViewController
     }
     
@@ -38,7 +38,15 @@ public struct Common {
     public struct Device {
         private init() { }
         
-        static let version = UIDevice.current.systemVersion
+        public static let version = UIDevice.current.systemVersion
+        
+        public static let iPhone: Bool = IWDevice.iPhone
+        public static let iPad: Bool = IWDevice.iPad
+        
+        public static let platform = IWDevice.current.systemName
+        public static let aboutName = IWDevice.current.name
+        
+        public static let localPhoneModel = IWDevice.current.localizedModel
     }
     
     public struct Platform {
@@ -52,8 +60,6 @@ public struct Common {
             return isSim
         }()
         
-        public static let iPhone: Bool = IWDevice.iPhone
-        public static let iPad: Bool = IWDevice.iPad
     }
     
     public struct Queue {
@@ -95,7 +101,8 @@ public struct Common {
         
         typealias Task = (_ cancel: Bool) -> Void
         /// Running.
-        @discardableResult static func execution(delay dly: TimeInterval, toRun task: @escaping () -> ()) -> Task? {
+        @discardableResult
+        static func execution(delay dly: TimeInterval, toRun task: @escaping () -> ()) -> Task? {
             func dispatch_later(block: @escaping ()->()) {
                 let t = DispatchTime.now() + dly
                 DispatchQueue.main.asyncAfter(deadline: t, execute: block)

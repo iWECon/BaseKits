@@ -18,6 +18,16 @@ extension Optional where Wrapped == String {
         return process(self ?? "")
     }
     
+    var url: URL? {
+        if self == nil {
+            return nil
+        }
+        return URL.init(string: self!)
+    }
+    
+    var urlValue: URL {
+        return url!
+    }
 }
 
 extension String {
@@ -30,4 +40,11 @@ extension String {
         return process(self)
     }
     
+    var url: URL? {
+        return URL.init(string: self)
+    }
+    
+    var urlValue: URL {
+        return url!
+    }
 }
