@@ -38,6 +38,15 @@
 		922AA837224DF95E00C8549F /* FourthRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AA836224DF95E00C8549F /* FourthRootController.swift */; };
 		9234D79B225350D2009679B8 /* IWView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D79A225350D2009679B8 /* IWView+.swift */; };
 		9234D79D22535C19009679B8 /* Gesture+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D79C22535C19009679B8 /* Gesture+.swift */; };
+		9234D79F225449DB009679B8 /* Label+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D79E225449DB009679B8 /* Label+.swift */; };
+		9234D7A122544A5F009679B8 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7A022544A5F009679B8 /* Color+.swift */; };
+		9234D7A322544ADE009679B8 /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7A222544ADE009679B8 /* DispatchQueue+.swift */; };
+		9234D7A522544C0B009679B8 /* BasicType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7A422544C0B009679B8 /* BasicType+.swift */; };
+		9234D7A722544FD3009679B8 /* RectCorner+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7A622544FD3009679B8 /* RectCorner+.swift */; };
+		9234D7A92254502C009679B8 /* Control+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7A82254502C009679B8 /* Control+.swift */; };
+		9234D7AB22545067009679B8 /* CollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7AA22545067009679B8 /* CollectionView+.swift */; };
+		9234D7AD2254547D009679B8 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7AC2254547D009679B8 /* Dictionary+.swift */; };
+		9234D7AF22545563009679B8 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7AE22545563009679B8 /* Array+.swift */; };
 		923F0E692251A6980079551E /* IWMagicApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E682251A6980079551E /* IWMagicApi.swift */; };
 		923F0E6B2251A6D70079551E /* IWMagicApiPact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E6A2251A6D70079551E /* IWMagicApiPact.swift */; };
 		923F0E6D225208E50079551E /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E6C225208E50079551E /* ResponseModel.swift */; };
@@ -111,6 +120,15 @@
 		922AA836224DF95E00C8549F /* FourthRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthRootController.swift; sourceTree = "<group>"; };
 		9234D79A225350D2009679B8 /* IWView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IWView+.swift"; sourceTree = "<group>"; };
 		9234D79C22535C19009679B8 /* Gesture+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gesture+.swift"; sourceTree = "<group>"; };
+		9234D79E225449DB009679B8 /* Label+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+.swift"; sourceTree = "<group>"; };
+		9234D7A022544A5F009679B8 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		9234D7A222544ADE009679B8 /* DispatchQueue+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+.swift"; sourceTree = "<group>"; };
+		9234D7A422544C0B009679B8 /* BasicType+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicType+.swift"; sourceTree = "<group>"; };
+		9234D7A622544FD3009679B8 /* RectCorner+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RectCorner+.swift"; sourceTree = "<group>"; };
+		9234D7A82254502C009679B8 /* Control+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Control+.swift"; sourceTree = "<group>"; };
+		9234D7AA22545067009679B8 /* CollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+.swift"; sourceTree = "<group>"; };
+		9234D7AC2254547D009679B8 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
+		9234D7AE22545563009679B8 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		923F0E682251A6980079551E /* IWMagicApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWMagicApi.swift; sourceTree = "<group>"; };
 		923F0E6A2251A6D70079551E /* IWMagicApiPact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWMagicApiPact.swift; sourceTree = "<group>"; };
 		923F0E6C225208E50079551E /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
@@ -181,6 +199,15 @@
 				9200DAAF224F01C5000E3D4E /* String+.swift */,
 				9200DAB1224F041F000E3D4E /* Controller+.swift */,
 				9234D79C22535C19009679B8 /* Gesture+.swift */,
+				9234D79E225449DB009679B8 /* Label+.swift */,
+				9234D7A022544A5F009679B8 /* Color+.swift */,
+				9234D7A222544ADE009679B8 /* DispatchQueue+.swift */,
+				9234D7A422544C0B009679B8 /* BasicType+.swift */,
+				9234D7A622544FD3009679B8 /* RectCorner+.swift */,
+				9234D7A82254502C009679B8 /* Control+.swift */,
+				9234D7AA22545067009679B8 /* CollectionView+.swift */,
+				9234D7AC2254547D009679B8 /* Dictionary+.swift */,
+				9234D7AE22545563009679B8 /* Array+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -646,9 +673,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9234D79F225449DB009679B8 /* Label+.swift in Sources */,
 				923F0E6D225208E50079551E /* ResponseModel.swift in Sources */,
 				922AA803224DBF3C00C8549F /* IWViewControllerable.swift in Sources */,
 				922AA837224DF95E00C8549F /* FourthRootController.swift in Sources */,
+				9234D7A92254502C009679B8 /* Control+.swift in Sources */,
 				9261369B224CB386007CC47A /* IWReachability.swift in Sources */,
 				92613697224CA2F0007CC47A /* IWProvider.swift in Sources */,
 				9226448C224B7D6900373746 /* IWServiceConfigs.swift in Sources */,
@@ -675,14 +704,19 @@
 				922AA7FF224DB4F600C8549F /* Rx+.swift in Sources */,
 				923F0E6B2251A6D70079551E /* IWMagicApiPact.swift in Sources */,
 				922AA828224DF47200C8549F /* ThirdRootViewModel.swift in Sources */,
+				9234D7AF22545563009679B8 /* Array+.swift in Sources */,
 				9200DAB0224F01C5000E3D4E /* String+.swift in Sources */,
+				9234D7A322544ADE009679B8 /* DispatchQueue+.swift in Sources */,
 				92613692224C9014007CC47A /* IWRouterParams.swift in Sources */,
 				9292206F2249FADB009F6DF8 /* ViewController.swift in Sources */,
 				922AA826224DF46800C8549F /* SecondRootViewModel.swift in Sources */,
+				9234D7A522544C0B009679B8 /* BasicType+.swift in Sources */,
 				921856D4224A2F4300B52702 /* IWServiceHeadersModel.swift in Sources */,
+				9234D7A122544A5F009679B8 /* Color+.swift in Sources */,
 				922AA81C224DF34A00C8549F /* EntranceController.swift in Sources */,
 				923F0E692251A6980079551E /* IWMagicApi.swift in Sources */,
 				9292206D2249FADB009F6DF8 /* AppDelegate.swift in Sources */,
+				9234D7AB22545067009679B8 /* CollectionView+.swift in Sources */,
 				92613690224C8FA2007CC47A /* IWRoutable.swift in Sources */,
 				929220A72249FC77009F6DF8 /* IWService.swift in Sources */,
 				922AA814224DE9BD00C8549F /* IWRouterNavigationControllerStack.swift in Sources */,
@@ -690,6 +724,8 @@
 				922AA82A224DF48900C8549F /* FourthRootViewModel.swift in Sources */,
 				922AA812224DE91500C8549F /* IWEntranceTabBarController.swift in Sources */,
 				929220A42249FB70009F6DF8 /* IWViewModel.swift in Sources */,
+				9234D7AD2254547D009679B8 /* Dictionary+.swift in Sources */,
+				9234D7A722544FD3009679B8 /* RectCorner+.swift in Sources */,
 				922AA824224DF44800C8549F /* FirstRootViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

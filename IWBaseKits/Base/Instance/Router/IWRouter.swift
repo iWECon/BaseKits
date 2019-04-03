@@ -80,8 +80,8 @@ extension IWRouter: IWRouterServices {
         _popRootSubject.onNext(animated)
     }
     
-    func present(viewModel: IWViewModel, animated: Bool) {
-        _presentSubject.onNext((viewModel, animated))
+    func present(viewModel: IWViewModel, animated: Bool, completion: (() -> Void)?) {
+        _presentSubject.onNext((viewModel, animated, completion))
     }
     
     func dismiss(_ animated: Bool, completion: (() -> Void)?) {

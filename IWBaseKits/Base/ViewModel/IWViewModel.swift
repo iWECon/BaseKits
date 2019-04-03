@@ -48,10 +48,22 @@ class IWViewModel: NSObject, IWViewModelable {
     var navigationBackTitle: String? = ""
     
     var backgroundColor: BehaviorRelay<UIColor> = BehaviorRelay<UIColor>.init(value: .white)
-    var touchViewHiddenKeyboard: BehaviorRelay<Bool> = BehaviorRelay<Bool>.init(value: false)
+    var autoAddBackBarButton: Bool = false
+    func destroy(_ animated: Bool = true) {
+        self.back(animated)
+    }
 }
 
 extension IWViewModel: IWRouterViewModelable {
+    func back(_ animated: Bool) {
+        guard let viewController = UIViewController.current else { return }
+        if viewController.iwe.isPresentered {
+            self.dismiss(animated, completion: nil)
+        } else {
+            self.pop(animated)
+        }
+    }
+    
     
     func push(_ animated: Bool = true) -> Void {
         router.push(viewModel: self, animated: animated)
@@ -65,16 +77,12 @@ extension IWViewModel: IWRouterViewModelable {
         router.popToRootViewModel(animated)
     }
     
-    func present(_ animated: Bool = true) -> Void {
-        router.present(viewModel: self, animated: animated)
+    func present(_ animated: Bool, completion: (() -> Void)?) {
+        router.present(viewModel: self, animated: animated, completion: completion)
     }
     
     func dismiss(_ animated: Bool = true, completion: (() -> Void)? = nil) -> Void {
         router.dismiss(animated, completion: completion)
-    }
-    
-    func back(_ animated: Bool) {
-        Console.debug("Editing is about to be done here")
     }
     
     func reset() {

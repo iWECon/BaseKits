@@ -16,4 +16,12 @@ protocol IWViewControllerable {
     /// - Returns: Void
     func attach(viewModel: Any) -> Void
     
+    static var `class`: String { get }
+}
+
+extension IWViewControllerable {
+    
+    static var `class`: String {
+        return "\(self)"
+    }
 }
