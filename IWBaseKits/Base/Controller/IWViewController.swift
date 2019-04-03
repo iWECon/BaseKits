@@ -42,7 +42,7 @@ class IWViewController: UIViewController, IWViewControllerable {
         prepareUI()
         updateUI()
         bindViewModel()
-        Console.log("111 \(self)")
+        Console.log("Current ViewController :\(self)")
     }
     
     func prepareUI() -> Void { }
