@@ -51,6 +51,9 @@ extension Reactive where Base: UIView {
         return base.iwe.tap.rx.event
     }
     
+    var frame: Observable<CGRect?> {
+        return base.rx.observe(CGRect.self, "frame")
+    }
 }
 
 

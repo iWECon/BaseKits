@@ -34,6 +34,11 @@ class ViewController: IWViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+//        view.rx.frame.onNext { (value) in
+//
+//            Console.debug(value!)
+//
+//        }.disposed(by: rx.disposeBag)
     }
     
     override func bindViewModel() {

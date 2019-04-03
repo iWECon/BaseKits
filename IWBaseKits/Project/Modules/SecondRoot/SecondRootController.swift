@@ -42,7 +42,7 @@ class SecondRootController: IWViewController{
         tableView.rx.modelSelected((String,Int,String).self).subscribe(onNext: { (item) in
             Console.log("第\(item.0)个" + item.2 + "盒子，编号:" + String(item.1))
             
-            let vm = FourthRootViewModel.init(with: <#T##[String : Any]?#>)
+            let vm = FourthRootViewModel.init(with: "123")
             vm.present(true, completion: nil)
             
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)

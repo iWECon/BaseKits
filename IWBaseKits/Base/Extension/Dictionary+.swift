@@ -14,4 +14,7 @@ public extension Dictionary {
         return self.keys.contains(key) ? self[key] : nil
     }
     
+    func has(key: Key) -> Bool {
+        return index(forKey: key) != nil
+    }
 }

@@ -66,15 +66,14 @@ extension UIViewController {
     
     /// 是否为 present 出来的 controller
     var isPresentered: Bool {
-        return backType == .dismiss
-//        var tmpViewController: UIViewController = iwe
-//        if let navC = tmpViewController.navigationController {
-//            if navC.viewControllers.first! != tmpViewController {
-//                return false
-//            }
-//            tmpViewController = navC
-//        }
-//        return tmpViewController.presentingViewController?.presentedViewController == tmpViewController
+        var tmpViewController: UIViewController = base
+        if let navC = tmpViewController.navigationController {
+            if navC.viewControllers.first! != tmpViewController {
+                return false
+            }
+            tmpViewController = navC
+        }
+        return tmpViewController.presentingViewController?.presentedViewController == tmpViewController
     }
     
     /// 返回

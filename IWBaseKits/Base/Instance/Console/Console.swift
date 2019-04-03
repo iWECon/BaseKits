@@ -8,6 +8,8 @@
 
 import UIKit
 import CocoaLumberjack
+import RxSwift
+import RxCocoa
 
 public struct Console {
     private init() {}
@@ -19,7 +21,7 @@ public struct Console {
     }
     
     private static func _infos() -> Void {
-        self.log("""
+        self.debug("""
 日志初始化成功...
 ------- 本次运行设备信息
 版本型号: \(Common.Device.aboutName), \(IWDevice.modelName), \(Common.Device.platform) \(Common.Device.version), \(IWDevice.modelIdentifier)
@@ -33,25 +35,29 @@ public struct Console {
         self.verbose(str ?? "")
     }
     
-    static func debug(_ str: String?) -> Void {
-        DDLogDebug("💚 DEBUG:\n" + (str ?? ""))
+    static func debug(_ item: Any) -> Void {
+        DDLogDebug("💚   DEBUG: \(item)")
     }
     
     static func info(_ str: String?) -> Void {
-        DDLogInfo("💙 INFO:\n" + (str ?? ""))
+        DDLogInfo("💙    INFO: " + (str ?? ""))
     }
     
     static func verbose(_ str: String?) -> Void {
-        DDLogVerbose("💜 VERBOSE:\n" + (str ?? ""))
+        DDLogVerbose("💜 VERBOSE: " + (str ?? ""))
     }
     
     static func error(_ str: String?) -> Void {
-        DDLogError("❤️ ERROR:\n" + (str ?? ""))
+        DDLogError("❤️   ERROR: " + (str ?? ""))
     }
     
     static func warn(_ str: String?) -> Void {
-        DDLogWarn("💛 WARN:\n" + (str ?? ""))
+        DDLogWarn("💛    WARN: " + (str ?? ""))
     }
     
-    
+    static func logResourcesCount() -> Void {
+//        #if DEBUG
+//            self.warn("RxSwift resources count: \(RxSwift.Resources.total)")
+//        #endif
+    }
 }
