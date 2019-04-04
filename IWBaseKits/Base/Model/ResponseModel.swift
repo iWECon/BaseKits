@@ -12,20 +12,46 @@
     import UIKit
 #endif
 
-//import HandyJSON
+import HandyJSON
 
-/// 可自行调整键名
-
-/// 拿到数据后生成的通用 Model
-//struct ResponseModel<T>: HandyJSON {
-//    var status: String?
-//    var message: String?
-//    var data: T?
+//protocol IWResponseModelable {
+//    var status: String? { get }
+//    var message: String?{ get }
+//    var data: IWModel?  { get }
 //}
 //
-///// 拿到数据后生成的通用 Models
-//struct ReponseModels<T>: HandyJSON {
-//    var status: String?
-//    var message: String?
-//    var data: [T]?
+//protocol IWResponseModelsable {
+//    var status: String? { get }
+//    var message: String?{ get }
+//    var data: [IWModel]?  { get }
 //}
+
+enum ResponseStatus {
+    case success
+    case failed
+    
+    var value: String {
+        switch self {
+        case .success:
+            return "successed"
+        default:
+            return "failed"
+        }
+    }
+}
+
+// 可自行调整键名
+
+/// 拿到数据后生成的通用 Model
+struct ResponseModel<T>: HandyJSON where T: IWModel {
+    var status: String?
+    var message: String?
+    var data: T?
+}
+
+/// 拿到数据后生成的通用 Models
+struct ResponseModels<T>: HandyJSON where T: IWModel {
+    var status: String?
+    var message: String?
+    var data: [T]?
+}

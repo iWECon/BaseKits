@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Moya
-//import HandyJSON
+import HandyJSON
 
 class IWMagicApi: NSObject {
     
@@ -56,16 +56,15 @@ private extension IWMagicApi {
     func request(_ target: CommonAPI) -> Single<Any> {
         return provider.request(target).mapJSON().observeOn(MainScheduler.instance).asSingle()
     }
-    
     func requestWithoutMap(_ target: CommonAPI) -> Single<Moya.Response> {
         return provider.request(target).observeOn(MainScheduler.init()).asSingle()
     }
     
-    func requestObject<T: Codable>(_ target: CommonAPI, type: T.Type) -> Single<T> {
-        return provider.request(target).map(T.self).observeOn(MainScheduler.instance).asSingle()
+    func requestObject<T: IWModel>(_ target: CommonAPI, type: T.Type) -> Single<T> {
+        return provider.request(target).retry(3).responseModel(type.self).map({ $0.data! }).asSingle()
+    }
+    func requestObjects<T: IWModel>(_ target: CommonAPI, type: T.Type) -> Single<[T]> {
+        return provider.request(target).retry(3).responseModels(type.self).map({ $0.data! }).asSingle()
     }
     
-//    func requestArray<T: Codable>(_ target: CommonAPI, type: T.Type) -> Single<[T]> {
-//        return
-//    }
 }

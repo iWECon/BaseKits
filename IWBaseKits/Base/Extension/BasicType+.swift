@@ -558,7 +558,9 @@ public extension Data {
     }
     
     var json: Any? {
-        return try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
+        let a = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
+        Console.debug(a.any)
+        return a
     }
     var jsonValue: Any {
         return json.despair("The date to json is nil.")

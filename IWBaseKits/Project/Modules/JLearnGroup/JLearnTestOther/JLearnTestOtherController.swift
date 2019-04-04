@@ -36,7 +36,7 @@ class JLearnTestOtherController: IWViewController {
         view.addSubview(aButton)
         
         aButton.rx.controlEvent(.touchDown).subscribe(onNext: {[weak self] (_) in
-             
+            
             guard let self = self else { return }
             
             self.vm.pop()

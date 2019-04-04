@@ -11,6 +11,8 @@
 		9200DAB0224F01C5000E3D4E /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200DAAF224F01C5000E3D4E /* String+.swift */; };
 		9200DAB2224F041F000E3D4E /* Controller+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200DAB1224F041F000E3D4E /* Controller+.swift */; };
 		9200DAB4224F4769000E3D4E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200DAB3224F4769000E3D4E /* UserModel.swift */; };
+		9215AEC62255B117009549BB /* ResponseMode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215AEC52255B117009549BB /* ResponseMode+.swift */; };
+		9215AEC82255B7A9009549BB /* IWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215AEC72255B7A9009549BB /* IWModel.swift */; };
 		921856D0224A2C6D00B52702 /* CommonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921856CF224A2C6D00B52702 /* CommonAPI.swift */; };
 		921856D4224A2F4300B52702 /* IWServiceHeadersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921856D3224A2F4300B52702 /* IWServiceHeadersModel.swift */; };
 		92264489224B76D500373746 /* IWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92264488224B76D500373746 /* IWViewController.swift */; };
@@ -113,6 +115,8 @@
 		9200DAAF224F01C5000E3D4E /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		9200DAB1224F041F000E3D4E /* Controller+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Controller+.swift"; sourceTree = "<group>"; };
 		9200DAB3224F4769000E3D4E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		9215AEC52255B117009549BB /* ResponseMode+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResponseMode+.swift"; sourceTree = "<group>"; };
+		9215AEC72255B7A9009549BB /* IWModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWModel.swift; sourceTree = "<group>"; };
 		921856CF224A2C6D00B52702 /* CommonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAPI.swift; sourceTree = "<group>"; };
 		921856D3224A2F4300B52702 /* IWServiceHeadersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWServiceHeadersModel.swift; sourceTree = "<group>"; };
 		92264488224B76D500373746 /* IWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 				9256FD9A2254B28E00307395 /* Date+.swift */,
 				9256FD9C2254B37700307395 /* URLRequest+.swift */,
 				9256FD9E2254B3D800307395 /* Color+.swift */,
+				9215AEC52255B117009549BB /* ResponseMode+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				923F0E6C225208E50079551E /* ResponseModel.swift */,
+				9215AEC72255B7A9009549BB /* IWModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -736,6 +742,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
@@ -751,6 +758,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
@@ -837,12 +845,14 @@
 				923F0E6B2251A6D70079551E /* IWMagicApiPact.swift in Sources */,
 				922AA828224DF47200C8549F /* ThirdRootViewModel.swift in Sources */,
 				9256FD8F2254994600307395 /* Image+.swift in Sources */,
+				9215AEC62255B117009549BB /* ResponseMode+.swift in Sources */,
 				9256FD912254ABD000307395 /* URL+.swift in Sources */,
 				9256FDA12254BA0700307395 /* IWRegex.swift in Sources */,
 				9234D7AF22545563009679B8 /* Array+.swift in Sources */,
 				9200DAB0224F01C5000E3D4E /* String+.swift in Sources */,
 				9256FD992254B27600307395 /* UserDefault+.swift in Sources */,
 				F6911E052255ADF800E93670 /* JLearnTestOtherViewModel.swift in Sources */,
+				9215AEC82255B7A9009549BB /* IWModel.swift in Sources */,
 				9234D7A322544ADE009679B8 /* DispatchQueue+.swift in Sources */,
 				92613692224C9014007CC47A /* IWRouterParams.swift in Sources */,
 				9292206F2249FADB009F6DF8 /* ViewController.swift in Sources */,

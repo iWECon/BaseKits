@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import HandyJSON
 
-struct UserModel: Codable {
+//struct UserModel: IWModel {
+//
+//    var status: String?
+//    var message: String?
+//    var data: String?
+//
+//}
+
+class UserModel: IWModel {
     
     var status: String?
     var message: String?
     var data: String?
-    
 }
