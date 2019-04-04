@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
 class ViewModel: IWViewModel {
     
     var httpDisposeBag = DisposeBag.init()
@@ -38,7 +39,6 @@ class ViewModel: IWViewModel {
     override func initialized() {
         super.initialized()
         
-//        touchViewHiddenKeyboard.accept(true)
     }
     
     func transform(input: Input) -> Output {
@@ -49,10 +49,9 @@ class ViewModel: IWViewModel {
             guard let self = self else { return }
             
             self.provider.login(account: "admin", password: "123123").subscribe(onSuccess: { (userModel) in
-                Console.log("\(userModel)")
-                Console.log("\(userModel.message ?? "Not message.")")
+                
             }, onError: { (error) in
-                Console.log("\(error.localizedDescription)")
+                
             }).disposed(by: self.rx.disposeBag)
             
         }.disposed(by: rx.disposeBag)
@@ -70,16 +69,4 @@ class ViewModel: IWViewModel {
         return Output.init(loginTriggered: loginTriggered, checkPass: checkPass)
     }
     
-    func login() -> Void {
-//        self.provider.login(account: "admin", password: "123123").debug().observeOn(MainScheduler.instance).subscribe(onSuccess: { (userModel) in
-//            Console.log("\(userModel)")
-//        }) { (error) in
-//            Console.error(error.localizedDescription)
-//        }.disposed(by: rx.disposeBag)
-        
-        //self.provider.login(account: <#T##String#>, password: <#T##String#>)
-    }
-    
-    
-
 }

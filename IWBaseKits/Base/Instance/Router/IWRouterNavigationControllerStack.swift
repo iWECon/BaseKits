@@ -74,6 +74,13 @@ extension IWRouterNavigationControllerStack {
             self.navigationControllers.last?.popViewController(animated: animated)
         }.disposed(by: stackDisposeBag)
         
+        router.popRootSubject.bind { [weak self] (tuple) in
+            guard let self = self else { return }
+            
+            let (animated) = tuple as! (Bool)
+            self.navigationControllers.last?.popToRootViewController(animated: animated)
+        }.disposed(by: stackDisposeBag)
+        
         router.presentSubject.bind { [weak self] (tuple) in
             guard let self = self else { return }
             

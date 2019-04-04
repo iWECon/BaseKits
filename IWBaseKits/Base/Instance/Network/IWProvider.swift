@@ -83,7 +83,7 @@ extension IWNetworkingType {
 extension IWNetworking {
     
     func request(_ token: CommonAPI) -> Observable<Moya.Response> {
-        let request = self.provider.request(token)
+        let request = self.provider.request(token).share(replay: 1, scope: .forever)
         return request
     }
     
