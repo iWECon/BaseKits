@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Moya
-import HandyJSON
+//import HandyJSON
 
 class IWMagicApi: NSObject {
     
