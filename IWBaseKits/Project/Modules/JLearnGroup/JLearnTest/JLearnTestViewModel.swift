@@ -17,6 +17,12 @@ class JLearnTestViewModel: IWViewModel {
         return JLearnTestController.init(viewModel:self)
     }
     
+    override func initialized() {
+        super.initialized()
+        navigationBarTitle.accept("test")
+        autoAddBackBarButton = true
+    }
+    
     //learn test
     struct UserInter {
         var checkTouchEvent: Driver<Void> //按钮点击
@@ -32,10 +38,10 @@ class JLearnTestViewModel: IWViewModel {
         
         let userTouch = inter.checkTouchEvent
         userTouch.onNext { (_) in
-            //Console.log("点击了效验按钮-可以对ViewModel做些什么事")
-            let vm = SecondRootViewModel.init()
+//            Console.log("点击了效验按钮-可以对ViewModel做些什么事")
+            let vm = JLearnTestOtherViewModel.init()
             vm.present(true, completion: nil)
-            //            vm.push(true)//push过去后，暂时无法pop返回
+//            vm.push(true)//push过去后，暂时无法pop返回
             }.disposed(by: rx.disposeBag)
         
         inter.interTextDiver.onNext { (testStr) in

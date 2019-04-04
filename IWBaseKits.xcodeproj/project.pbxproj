@@ -85,6 +85,8 @@
 		F6324418225590C400DC46BF /* JLearnTestMoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6324417225590C400DC46BF /* JLearnTestMoreViewModel.swift */; };
 		F632441D22559BB100DC46BF /* JLearnBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632441C22559BB100DC46BF /* JLearnBoxViewController.swift */; };
 		F632441F22559BC100DC46BF /* JLearnBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632441E22559BC100DC46BF /* JLearnBoxViewModel.swift */; };
+		F6911E052255ADF800E93670 /* JLearnTestOtherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6911E042255ADF800E93670 /* JLearnTestOtherViewModel.swift */; };
+		F6911E072255AE0E00E93670 /* JLearnTestOtherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6911E062255AE0E00E93670 /* JLearnTestOtherController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,8 @@
 		F6324417225590C400DC46BF /* JLearnTestMoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestMoreViewModel.swift; sourceTree = "<group>"; };
 		F632441C22559BB100DC46BF /* JLearnBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnBoxViewController.swift; sourceTree = "<group>"; };
 		F632441E22559BC100DC46BF /* JLearnBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnBoxViewModel.swift; sourceTree = "<group>"; };
+		F6911E042255ADF800E93670 /* JLearnTestOtherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestOtherViewModel.swift; sourceTree = "<group>"; };
+		F6911E062255AE0E00E93670 /* JLearnTestOtherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestOtherController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -552,6 +556,7 @@
 				F632441922559B4500DC46BF /* JLearnBox */,
 				F632441A22559B4F00DC46BF /* JLearnTest */,
 				F632441B22559B6000DC46BF /* JLearnTestMore */,
+				F6911E032255ADE300E93670 /* JLearnTestOther */,
 			);
 			path = JLearnGroup;
 			sourceTree = "<group>";
@@ -581,6 +586,15 @@
 				F6324415225590B000DC46BF /* JLearnTestMoreController.swift */,
 			);
 			path = JLearnTestMore;
+			sourceTree = "<group>";
+		};
+		F6911E032255ADE300E93670 /* JLearnTestOther */ = {
+			isa = PBXGroup;
+			children = (
+				F6911E042255ADF800E93670 /* JLearnTestOtherViewModel.swift */,
+				F6911E062255AE0E00E93670 /* JLearnTestOtherController.swift */,
+			);
+			path = JLearnTestOther;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -787,6 +801,7 @@
 				9256FD952254AE8E00307395 /* Optional+.swift in Sources */,
 				92613697224CA2F0007CC47A /* IWProvider.swift in Sources */,
 				9234D7B72254933C009679B8 /* View+.swift in Sources */,
+				F6911E072255AE0E00E93670 /* JLearnTestOtherController.swift in Sources */,
 				9226448C224B7D6900373746 /* IWServiceConfigs.swift in Sources */,
 				9261368B224C6114007CC47A /* Console.swift in Sources */,
 				9234D7B522547D66009679B8 /* IWDevice.swift in Sources */,
@@ -827,6 +842,7 @@
 				9234D7AF22545563009679B8 /* Array+.swift in Sources */,
 				9200DAB0224F01C5000E3D4E /* String+.swift in Sources */,
 				9256FD992254B27600307395 /* UserDefault+.swift in Sources */,
+				F6911E052255ADF800E93670 /* JLearnTestOtherViewModel.swift in Sources */,
 				9234D7A322544ADE009679B8 /* DispatchQueue+.swift in Sources */,
 				92613692224C9014007CC47A /* IWRouterParams.swift in Sources */,
 				9292206F2249FADB009F6DF8 /* ViewController.swift in Sources */,

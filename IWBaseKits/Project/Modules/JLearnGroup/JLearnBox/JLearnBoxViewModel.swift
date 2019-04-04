@@ -32,9 +32,9 @@ class JLearnBoxViewModel: IWViewModel {
     
     func initDataForUI () {
         datas = Observable.just([
-            ("1",8,"大"),
-            ("2",9,"中"),
-            ("3",3,"小")
+                ("JLearn_Test",1,"JLearnTestController"),
+                ("JLearn_More",2,"JLearnTestMoreController"),
+                ("JLearn_Other",3,"JLearnTestOtherController")
             ])
     }
 

@@ -20,6 +20,7 @@ class ViewModel: IWViewModel {
         return a
     }
     
+    
     var account = BehaviorRelay<String>.init(value: "")
     var password = BehaviorRelay<String>.init(value: "")
     

@@ -52,8 +52,6 @@ class JLearnTestController: IWViewController {
             }.disposed(by: rx.disposeBag)
         
         
-        //页面按钮控制
-        self.normalShow()
         // 记得加上 [weak self] 和 guard let self = self else { return }
         //observeOn(MainScheduler.instance) 使操作在主线程内执行（加在.bind等之前）
         checkButton.rx.controlEvent(.touchDown).observeOn(MainScheduler.instance).bind { [weak self] (_) in
@@ -78,9 +76,6 @@ class JLearnTestController: IWViewController {
         vm.interPer.bind(to: infoLabel.rx.text).disposed(by: rx.disposeBag)
     }
     
-    func normalShow() {
-        self.buttonCustomShow(color: .white, btnTitle: "User validation requires Id entry")
-    }
     func isEnabledShow(isEnable:Bool) -> Void {
         if isEnable {
             self.buttonCustomShow(color: .green, btnTitle: "Authenticate")
@@ -89,15 +84,12 @@ class JLearnTestController: IWViewController {
             self.buttonCustomShow(color: .red, btnTitle: "Currently unable to authenticate")
         }
     }
-    
-    func touchInsideShow() {
-        self.buttonCustomShow(color: .red, btnTitle: "You cannot use APP")
-    }
-    
     func touchDownShow() {
         self.buttonCustomShow(color: .orange, btnTitle: "To check the reason：touchUp Outside")
     }
-    
+    func touchInsideShow() {
+        self.buttonCustomShow(color: .red, btnTitle: "You cannot use APP")
+    }
     func touchOutsideShow() {
         self.buttonCustomShow(color: .yellow, btnTitle: "Have no legal power.")
     }
@@ -122,7 +114,7 @@ class JLearnTestController: IWViewController {
     
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 44)
+        label.frame = CGRect(x: 20, y: 80+20, width: UIScreen.main.bounds.width-40, height: 44)
         label.textColor = .green
         label.textAlignment = .center
         label.text = ""
@@ -131,18 +123,21 @@ class JLearnTestController: IWViewController {
     
     private lazy var checkButton: UIButton = {
         let button = UIButton()
-        button.frame = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 44)
+        button.frame = CGRect(x: 20, y: 80+70, width: UIScreen.main.bounds.width-40, height: 44)
+        button.setTitle("User validation requires Id entry",for: .normal)
+        button.backgroundColor = .white
         return button
     }()
     
     private lazy var interTextField: UITextField = {
         let textField = UITextField()
-        textField.frame = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 44)
+        textField.frame = CGRect(x: 20, y: 80+120, width: UIScreen.main.bounds.width-40, height: 44)
+        textField.borderStyle = .roundedRect
         textField.textColor = .green
         textField.textAlignment = .center
         textField.text = ""
+        textField.placeholder = "请输入您的id"
         return textField
     }()
-    
 
 }

@@ -44,16 +44,28 @@ class JLearnBoxViewController: IWViewController {
             //注意：! 与 ?
             let cell = tableView.dequeueReusableCell(withIdentifier: "mycell")!
             //            let cell = tableView.dequeueReusableCell(withIdentifier: "mycell")
-            cell.textLabel?.text = "第\(item.0)个" + item.2 + "盒子，编号:" + String(item.1)
+            cell.textLabel?.text = String(item.1) + "-" + "\(item.0)"
             return cell
             
             }.disposed(by: rx.disposeBag)
         
         tableView.rx.modelSelected((String,Int,String).self).subscribe(onNext: { (item) in
-            Console.log("第\(item.0)个" + item.2 + "盒子，编号:" + String(item.1))
             
-            let vm = JLearnTestMoreViewModel.init(with: {"haoba"})
-            vm.present(true, completion: nil)
+            if (item.1 == 1){
+                let vm = JLearnTestViewModel.init(with: {item.1})
+                vm.present(true, completion: nil)
+            }else if (item.1 == 2){
+                let vm = JLearnTestMoreViewModel.init(with: {item.1})
+                vm.present(true, completion: nil)
+            }else if (item.1 == 3){
+                let vm = JLearnTestOtherViewModel.init(with: {item.1})
+                vm.push()
+//                vm.present(true, completion: nil)
+            }else{
+                
+            }
+
+            
             
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
         
@@ -62,3 +74,5 @@ class JLearnBoxViewController: IWViewController {
             }.disposed(by: rx.disposeBag)
     }
 }
+
+
