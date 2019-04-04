@@ -17,7 +17,7 @@ pod 'Moya/RxSwift', '~> 12.0'
 pod 'ReachabilitySwift', '~> 4.0' # https://github.com/ashleymills/Reachability.swift
 
 # Model
-#pod 'HandyJSON'
+pod 'HandyJSON', '4.2.0'     # https://github.com/alibaba/HandyJSON
 
 # Log 日志
 pod 'CocoaLumberjack/Swift'

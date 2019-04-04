@@ -14,7 +14,4 @@ struct UserModel: Codable {
     var message: String?
     var data: String?
     
-//    var account: String?
-//    var id: String?
-    
 }

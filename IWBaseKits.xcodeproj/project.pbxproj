@@ -215,6 +215,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9215AEC42255A0D7009549BB /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mediator;
+			sourceTree = "<group>";
+		};
 		921856CC224A222700B52702 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +272,7 @@
 		922AA817224DF21E00C8549F /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				9215AEC42255A0D7009549BB /* Mediator */,
 				922AA819224DF22B00C8549F /* Model */,
 				922AA818224DF22200C8549F /* Modules */,
 			);
@@ -286,7 +294,6 @@
 		922AA819224DF22B00C8549F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				923F0E6C225208E50079551E /* ResponseModel.swift */,
 				9200DAB3224F4769000E3D4E /* UserModel.swift */,
 			);
 			path = Model;
@@ -483,6 +490,7 @@
 		9292209E2249FB2F009F6DF8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				923F0E6C225208E50079551E /* ResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -672,6 +680,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
@@ -687,6 +696,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
