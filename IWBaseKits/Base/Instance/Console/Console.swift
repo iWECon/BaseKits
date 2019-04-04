@@ -27,7 +27,9 @@ public struct Console {
 版本型号: \(Common.Device.aboutName), \(IWDevice.modelName), \(Common.Device.platform) \(Common.Device.version), \(IWDevice.modelIdentifier)
 设计尺寸(W*H): \(Common.Screen.size)
 物理尺寸(W*H): (\(Common.Screen.width * Common.Screen.scale), \(Common.Screen.height * Common.Screen.scale))
-是否越狱: \(IWDevice.isJailbroken ? "是" : "否")
+是否越狱: \(IWDevice.isJailbroken.yesOrNo)
+是否异型全面屏: \(IWDevice.shaped.yesOrNo)
+--------
 """)
     }
     

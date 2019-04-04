@@ -84,7 +84,7 @@ extension IWRouterNavigationControllerStack {
             if !(viewController is UINavigationController) {
                 viewController = IWNavigationController.init(rootViewController: viewController)
             }
-            Console.debug("You entered \(viewModel.instanceController) from \(presentingViewController!) by present.")
+            Console.debug("You entered \(viewModel.instanceController) from \(self.navigationControllers.last.value.viewControllers.last.value) by present.")
             self.push(navigationController: viewController as! UINavigationController)
             presentingViewController?.present(viewController, animated: animated, completion: completion)
             

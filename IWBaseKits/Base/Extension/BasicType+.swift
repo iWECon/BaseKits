@@ -158,6 +158,10 @@ public extension Bool {
         self = false
     }
     
+    var yesOrNo: String {
+        return self ? "是" : "否"
+    }
+    
     /// (或)
     /// eg: a || b || c || d
     /// ->: a.or(b).or(c).or(d)

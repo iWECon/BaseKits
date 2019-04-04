@@ -20,12 +20,12 @@ class IWViewController: UIViewController, IWViewControllerable {
     var snapshot: UIView?
     
     
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
-    init(viewModel: IWViewModelable) {
-        super.init(nibName: nil, bundle: nil)
+//
+    public convenience init(viewModel: IWViewModelable) {
+        self.init(nibName: nil, bundle: nil)
         
         self.viewModel = viewModel
     }
