@@ -7,23 +7,26 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 class FourthRootController: IWViewController {
-
+    
+    var vm: FourthRootViewModel {
+        return viewModel as! FourthRootViewModel
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        
         // Do any additional setup after loading the view.
     }
     
     override func prepareUI() {
         super.prepareUI()
         
-        
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -35,3 +38,5 @@ class FourthRootController: IWViewController {
     */
 
 }
+
+

@@ -69,6 +69,12 @@
 		929220A72249FC77009F6DF8 /* IWService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929220A62249FC77009F6DF8 /* IWService.swift */; };
 		929220A9224A09C2009F6DF8 /* IWServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929220A8224A09C2009F6DF8 /* IWServiceModel.swift */; };
 		A88C0845D1FF64BD673DBD6A /* Pods_IWBaseKits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAE22ED6470B075B2D28DD9C /* Pods_IWBaseKits.framework */; };
+		F63244122255908000DC46BF /* JLearnTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63244112255908000DC46BF /* JLearnTestViewModel.swift */; };
+		F63244142255909800DC46BF /* JLearnTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63244132255909800DC46BF /* JLearnTestController.swift */; };
+		F6324416225590B000DC46BF /* JLearnTestMoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6324415225590B000DC46BF /* JLearnTestMoreController.swift */; };
+		F6324418225590C400DC46BF /* JLearnTestMoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6324417225590C400DC46BF /* JLearnTestMoreViewModel.swift */; };
+		F632441D22559BB100DC46BF /* JLearnBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632441C22559BB100DC46BF /* JLearnBoxViewController.swift */; };
+		F632441F22559BC100DC46BF /* JLearnBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632441E22559BC100DC46BF /* JLearnBoxViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +165,12 @@
 		929220A62249FC77009F6DF8 /* IWService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWService.swift; sourceTree = "<group>"; };
 		929220A8224A09C2009F6DF8 /* IWServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWServiceModel.swift; sourceTree = "<group>"; };
 		DAE22ED6470B075B2D28DD9C /* Pods_IWBaseKits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IWBaseKits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63244112255908000DC46BF /* JLearnTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestViewModel.swift; sourceTree = "<group>"; };
+		F63244132255909800DC46BF /* JLearnTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestController.swift; sourceTree = "<group>"; };
+		F6324415225590B000DC46BF /* JLearnTestMoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestMoreController.swift; sourceTree = "<group>"; };
+		F6324417225590C400DC46BF /* JLearnTestMoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestMoreViewModel.swift; sourceTree = "<group>"; };
+		F632441C22559BB100DC46BF /* JLearnBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnBoxViewController.swift; sourceTree = "<group>"; };
+		F632441E22559BC100DC46BF /* JLearnBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnBoxViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +257,7 @@
 		922AA818224DF22200C8549F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F63244022254B99000DC46BF /* JLearnGroup */,
 				922AA82E224DF92E00C8549F /* FourthRoot */,
 				922AA82D224DF92B00C8549F /* ThirdRoot */,
 				922AA82C224DF92700C8549F /* SecondRoot */,
@@ -503,6 +516,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F63244022254B99000DC46BF /* JLearnGroup */ = {
+			isa = PBXGroup;
+			children = (
+				F632441922559B4500DC46BF /* JLearnBox */,
+				F632441A22559B4F00DC46BF /* JLearnTest */,
+				F632441B22559B6000DC46BF /* JLearnTestMore */,
+			);
+			path = JLearnGroup;
+			sourceTree = "<group>";
+		};
+		F632441922559B4500DC46BF /* JLearnBox */ = {
+			isa = PBXGroup;
+			children = (
+				F632441E22559BC100DC46BF /* JLearnBoxViewModel.swift */,
+				F632441C22559BB100DC46BF /* JLearnBoxViewController.swift */,
+			);
+			path = JLearnBox;
+			sourceTree = "<group>";
+		};
+		F632441A22559B4F00DC46BF /* JLearnTest */ = {
+			isa = PBXGroup;
+			children = (
+				F63244112255908000DC46BF /* JLearnTestViewModel.swift */,
+				F63244132255909800DC46BF /* JLearnTestController.swift */,
+			);
+			path = JLearnTest;
+			sourceTree = "<group>";
+		};
+		F632441B22559B6000DC46BF /* JLearnTestMore */ = {
+			isa = PBXGroup;
+			children = (
+				F6324417225590C400DC46BF /* JLearnTestMoreViewModel.swift */,
+				F6324415225590B000DC46BF /* JLearnTestMoreController.swift */,
+			);
+			path = JLearnTestMore;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -696,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9234D79F225449DB009679B8 /* Label+.swift in Sources */,
+				F6324416225590B000DC46BF /* JLearnTestMoreController.swift in Sources */,
 				923F0E6D225208E50079551E /* ResponseModel.swift in Sources */,
 				922AA803224DBF3C00C8549F /* IWViewControllerable.swift in Sources */,
 				922AA837224DF95E00C8549F /* FourthRootController.swift in Sources */,
@@ -706,6 +757,7 @@
 				9261368B224C6114007CC47A /* Console.swift in Sources */,
 				9234D7B522547D66009679B8 /* IWDevice.swift in Sources */,
 				92264489224B76D500373746 /* IWViewController.swift in Sources */,
+				F63244142255909800DC46BF /* JLearnTestController.swift in Sources */,
 				922AA80B224DE4E900C8549F /* IWTabbarViewModel.swift in Sources */,
 				922AA816224DED1B00C8549F /* IWNavigationController.swift in Sources */,
 				9234D79B225350D2009679B8 /* IWView+.swift in Sources */,
@@ -716,7 +768,10 @@
 				922AA81E224DF3AD00C8549F /* EntranceViewModel.swift in Sources */,
 				922AA801224DBA0900C8549F /* ViewModel.swift in Sources */,
 				921856D0224A2C6D00B52702 /* CommonAPI.swift in Sources */,
+				F632441D22559BB100DC46BF /* JLearnBoxViewController.swift in Sources */,
+				F6324418225590C400DC46BF /* JLearnTestMoreViewModel.swift in Sources */,
 				922AA80E224DE72E00C8549F /* IWTabBarController.swift in Sources */,
+				F63244122255908000DC46BF /* JLearnTestViewModel.swift in Sources */,
 				922AA810224DE7A000C8549F /* IWTabBar.swift in Sources */,
 				922AA809224DE39300C8549F /* IWRouter.swift in Sources */,
 				9200DAB4224F4769000E3D4E /* UserModel.swift in Sources */,
@@ -750,6 +805,7 @@
 				929220A42249FB70009F6DF8 /* IWViewModel.swift in Sources */,
 				9234D7AD2254547D009679B8 /* Dictionary+.swift in Sources */,
 				9234D7A722544FD3009679B8 /* RectCorner+.swift in Sources */,
+				F632441F22559BC100DC46BF /* JLearnBoxViewModel.swift in Sources */,
 				922AA824224DF44800C8549F /* FirstRootViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

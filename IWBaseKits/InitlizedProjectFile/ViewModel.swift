@@ -81,42 +81,5 @@ class ViewModel: IWViewModel {
     }
     
     
-    //learn test
-    struct UserInter {
-        var checkTouchEvent: Driver<Void> //按钮点击
-        var interTextDiver :Observable <String> //输入框
-    }
-    struct UserShow {
-        var hasShow: Driver<Bool>  //label 显示
-    }
-    
-    var interPer = BehaviorRelay<String>.init(value: "身份待确认")
-    
-    func userPermissions(inter: UserInter) ->UserShow {
-        
-        let userTouch = inter.checkTouchEvent
-        userTouch.onNext { (_) in
-            //Console.log("点击了效验按钮-可以对ViewModel做些什么事")
-            let vm = SecondRootViewModel.init()
-            vm.present(true, completion: nil)
-//            vm.push(true)//push过去后，暂时无法pop返回
-        }.disposed(by: rx.disposeBag)
-        
-        inter.interTextDiver.onNext { (testStr) in
-            
-            //设置管理员id为“123456”
-            self.interPer.accept(testStr=="123456" ? "您是管理员":"您的id："+testStr)
-        }.disposed(by: rx.disposeBag)
-        
-        let hasShow = Observable<String>.combineLatest([inter.interTextDiver,self.interPer.asObservable()]).asObservable().map { (result) -> Bool in
-            let isResult = result.first.check({$0.count > 3 })
-            let isResult2 =  result.last.check({$0=="您是管理员"})
-            return isResult && isResult2
-            
-        }.asDriver(onErrorJustReturn: false)
-        
-        return UserShow.init(hasShow: hasShow)
-        
-    }
 
 }
