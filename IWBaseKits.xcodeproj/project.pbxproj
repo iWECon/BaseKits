@@ -807,11 +807,8 @@
 				F632441D22559BB100DC46BF /* JLearnBoxViewController.swift in Sources */,
 				F6324418225590C400DC46BF /* JLearnTestMoreViewModel.swift in Sources */,
 				922AA80E224DE72E00C8549F /* IWTabBarController.swift in Sources */,
-<<<<<<< HEAD
 				F63244122255908000DC46BF /* JLearnTestViewModel.swift in Sources */,
-=======
 				9256FD972254B1A200307395 /* TextField+.swift in Sources */,
->>>>>>> f8f7d1c55a19e14c2d58acaf982e4a1e64edfcb4
 				922AA810224DE7A000C8549F /* IWTabBar.swift in Sources */,
 				922AA809224DE39300C8549F /* IWRouter.swift in Sources */,
 				9256FD9D2254B37700307395 /* URLRequest+.swift in Sources */,
