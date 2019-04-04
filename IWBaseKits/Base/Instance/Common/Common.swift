@@ -129,3 +129,19 @@ public struct Common {
         
     }
 }
+
+// MARK:- 正则操作符
+/// 正则操作符号
+infix operator =~
+/// (正则操作, 左边参数为文本, 右边参数为表达式).
+public func =~ (content: String, matchs: String) -> Bool {
+    return IWRegex.match(matchs, content)
+}
+
+
+public func MakeSize(_ width: CGFloat, _ height: CGFloat) -> IWSize {
+    return IWSize.init(width: width, height: height)
+}
+public func MakeRect(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+    return CGRect.init(x: x, y: y, width: width, height: height)
+}

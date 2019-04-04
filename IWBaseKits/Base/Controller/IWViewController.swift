@@ -14,17 +14,18 @@ class IWViewController: UIViewController, IWViewControllerable {
     
     deinit {
         Console.debug("\(self) is deinit.")
+        Console.logResourcesCount()
     }
     
     var snapshot: UIView?
     
     
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
-    init(viewModel: IWViewModelable) {
-        super.init(nibName: nil, bundle: nil)
+//
+    public convenience init(viewModel: IWViewModelable) {
+        self.init(nibName: nil, bundle: nil)
         
         self.viewModel = viewModel
     }
@@ -44,7 +45,12 @@ class IWViewController: UIViewController, IWViewControllerable {
         prepareUI()
         updateUI()
         bindViewModel()
-        Console.log("Current ViewController :\(self) withTitle:\(viewModel.navigationBarTitle.value)")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        Console.logResourcesCount()
     }
     
     func prepareUI() -> Void { }
@@ -65,13 +71,11 @@ class IWViewController: UIViewController, IWViewControllerable {
     }
     
     private func _autoCheck() -> Void {
-        if viewModel.autoAddBackBarButton {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: nil, action: nil)
-            self.navigationItem.leftBarButtonItem?.rx.tap.onNext({ [weak self] (_) in
-                guard let self = self else { return }
-                
-                self.viewModel.destroy(true)
-            }).disposed(by: rx.disposeBag)
+        if viewModel.autoAddBackBarButton && self.iwe.isPresentered {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(_autoBack))
         }
+    }
+    @objc private func _autoBack() -> Void {
+        self.viewModel.destroy(true)
     }
 }

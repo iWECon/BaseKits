@@ -17,7 +17,6 @@ class EntranceViewModel: IWViewModel {
     var first: ViewModel!
     var second: SecondRootViewModel!
     var third: ThirdRootViewModel!
-    var fourth: FourthRootViewModel!
     
     override func initialized() {
         super.initialized()
@@ -25,6 +24,5 @@ class EntranceViewModel: IWViewModel {
         first = ViewModel.init()
         second = SecondRootViewModel.init()
         third = ThirdRootViewModel.init()
-        fourth = FourthRootViewModel.init()
     }
 }

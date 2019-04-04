@@ -25,6 +25,14 @@ class FourthRootController: IWViewController {
     override func prepareUI() {
         super.prepareUI()
         
+<<<<<<< HEAD
+=======
+        let v = UIView.init(frame: MakeRect(0, 0, 50, 50))
+        v.backgroundColor = .red
+        self.view.addSubview(v)
+        v.top = 80
+        v.absRight = 30
+>>>>>>> f8f7d1c55a19e14c2d58acaf982e4a1e64edfcb4
     }
     
     /*
