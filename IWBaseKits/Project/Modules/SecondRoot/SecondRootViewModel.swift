@@ -22,19 +22,6 @@ class SecondRootViewModel: IWViewModel {
         backgroundColor.accept(.green)
         navigationBarTitle.accept("控制器2")
         
-        self.initDataForUI();
     }
-    
-    var datas : Observable<[(String,Int,String)]>?
-    
-    func initDataForUI () {
-        datas = Observable.just([
-            ("1",8,"大"),
-            ("2",9,"中"),
-            ("3",3,"小")
-            ])
-    }
-
-
 }
  
