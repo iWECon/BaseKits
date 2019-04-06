@@ -48,10 +48,13 @@ class ViewModel: IWViewModel {
             
             guard let self = self else { return }
             
-            self.provider.login(account: "admin", password: "123123").subscribe(onSuccess: { (userModel) in
-                
-            }, onError: { (error) in
-                
+//            self.provider.login(account: "admin", password: "iwantfuck").subscribe(onSuccess: { (model) in
+//                Console.debug(model)
+//            }, onError: { (error) in
+//                Console.error(error.localizedDescription)
+//            }).disposed(by: self.rx.disposeBag)
+            self.request(.login(account: "admin", password: "iwantfuck")).onNext({ (response) in
+                Console.debug(response)
             }).disposed(by: self.rx.disposeBag)
             
         }.disposed(by: rx.disposeBag)

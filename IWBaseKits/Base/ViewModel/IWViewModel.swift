@@ -23,13 +23,13 @@ class IWViewModel: NSObject, IWViewModelable {
         return v
     }
     
-    var router: IWRouter! {
-        return AppDelegate.shared.router
-    }
+    /// 路由器
+    let router: IWRouter = AppDelegate.shared.router
     
-    /// 网络请求
-    let provider: IWMagicApi = AppDelegate.shared.provider
-    ///
+    /// 网络请求通用实例
+    let provider: IWProvider<CommonAPI> = AppDelegate.shared.provider
+    
+    /// 初始化的时候带上的 params, 虽然叫 params 但类型是 Any 可以给任意值
     var params: Any?
     
     init(with params: Any? = nil) {
@@ -51,6 +51,12 @@ class IWViewModel: NSObject, IWViewModelable {
     var autoAddBackBarButton: Bool = false
     func destroy(_ animated: Bool = true) {
         self.back(animated)
+    }
+    func requestError(_ status: ResponseStatus) {
+        
+    }
+    func requestRetry(_ status: ResponseStatus) {
+        
     }
 }
 
@@ -87,6 +93,43 @@ extension IWViewModel: IWRouterViewModelable {
     
     func reset() {
         router.reset(root: self)
+    }
+    
+}
+
+extension IWViewModel {
+    
+    func request(_ target: CommonAPI) -> Observable<MediatorModel> {
+        return Observable.create({ [weak self] (observer) -> Disposable in
+            guard let self = self else { return Disposables.create() }
+            
+            self.provider.request(target).retry(3).filterSuccessfulStatusCodes().subscribe(onNext: { (response) in
+                
+                Console.debug(response)
+                
+//                Common.Queue.main {
+//                    self.requestError(ResponseStatus.failed)
+//                }
+                
+            }, onError: { (error) in
+                
+                Common.Queue.main {
+                    self.requestError(ResponseStatus.failed)
+                }
+                
+                observer.onError(error)
+                
+            }, onCompleted: {
+                Console.debug("Completed.")
+                
+            }, onDisposed: {
+                Console.debug("Disposed.")
+                
+            }).disposed(by: self.rx.disposeBag)
+            
+            return Disposables.create()
+        })
+        
     }
     
 }

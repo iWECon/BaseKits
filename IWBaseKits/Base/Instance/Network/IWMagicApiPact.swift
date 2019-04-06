@@ -12,6 +12,6 @@ import RxCocoa
 
 protocol IWMagicApiPact {
     
-    func login(account: String, password: String) -> Single<UserModel>
+    func login(account: String, password: String) -> Single<MediatorModel>
     
 }

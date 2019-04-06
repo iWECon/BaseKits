@@ -24,4 +24,9 @@ protocol IWViewModelable {
     var autoAddBackBarButton: Bool { get set }
     
     func destroy(_ animated: Bool) -> Void
+    
+    /// execution error callback, if request error happend
+    func requestError(_ status: ResponseStatus) -> Void
+    /// execution error retry callback, if request error happend
+    func requestRetry(_ status: ResponseStatus) -> Void
 }
