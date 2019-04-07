@@ -28,14 +28,20 @@ class JLearnBoxViewModel: IWViewModel {
 
     }
     
-    var datas : Observable<[(String,Int,String)]>?
+    var datas = BehaviorRelay<[(String,Int,String)]>.init(value: [])
     
     func initDataForUI () {
-        datas = Observable.just([
-                ("JLearn_Test",1,"JLearnTestController"),
-                ("JLearn_More",2,"JLearnTestMoreController"),
-                ("JLearn_Other",3,"JLearnTestOtherController")
+        datas.accept([
+            ("JLearn_Test",1,"JLearnTestController"),
+            ("JLearn_More",2,"JLearnTestMoreController"),
+            ("JLearn_Other",3,"JLearnTestOtherController")
             ])
+//        datas.value
+//        datas = Observable.just([
+//                ("JLearn_Test",1,"JLearnTestController"),
+//                ("JLearn_More",2,"JLearnTestMoreController"),
+//                ("JLearn_Other",3,"JLearnTestOtherController")
+//            ])
     }
 
 }

@@ -23,6 +23,13 @@ class JLearnBoxViewController: IWViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        // vm, title, datasSources
+        // vm,
+        //
+        // datas.count
+        //
+        // datas[section].datasSrouces.count
     }
     
     override func prepareUI() {
@@ -40,7 +47,7 @@ class JLearnBoxViewController: IWViewController {
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "mycell")
         
-        vm.datas?.bind(to:tableView.rx.items) {(tableView,row,item) in
+        vm.datas.asObservable().bind(to:tableView.rx.items) {(tableView,row,item) in
             //注意：! 与 ?
             let cell = tableView.dequeueReusableCell(withIdentifier: "mycell")!
             //            let cell = tableView.dequeueReusableCell(withIdentifier: "mycell")

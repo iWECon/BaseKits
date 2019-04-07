@@ -12,14 +12,12 @@ import RxCocoa
 import RxDataSources
 class JLearnTestMoreController: IWViewController {
     
-    var mainTable :UITableView!
-    
+    var mainTable : UITableView!
     
     var vm: JLearnTestMoreViewModel{
         return viewModel as!JLearnTestMoreViewModel
     }//viewModel为基类，在此使用时强转为当前类的viewModel-vm
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,8 +27,13 @@ class JLearnTestMoreController: IWViewController {
     override func prepareUI() {
         super.prepareUI()
         
-        self.test()
-        
+        self.learnBinderTest()
+        self.learnObservableTest()
+        self.learnTableTest()
+    }
+    
+    /* Binder  的学习*/
+    func learnBinderTest() {
         //as Any -强转为any   as? String-可以转为string，但是不确定是否会转成功
         infoLabel.text = vm.params as Any as? String
         view.addSubview(infoLabel)
@@ -63,7 +66,7 @@ class JLearnTestMoreController: IWViewController {
                 
             }) {
                 
-        }.disposed(by: rx.disposeBag)
+            }.disposed(by: rx.disposeBag)
         
         //let bableVar = Observable.of(1,2,3)
         
@@ -73,8 +76,19 @@ class JLearnTestMoreController: IWViewController {
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
     }
     
+    /*  页面显示一个label展示选择的盒子 点击后出现弹框（使用-原来的数量改变、不使用-返回） */
+    //'lazy' must not be used on a computed property-不能用于计算属性
+    private lazy var infoLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 44)
+        label.textColor = .green
+        label.textAlignment = .center
+        label.text = ""
+        return label
+    }()   //????-上面的VM都不是这样写的，若按照vm的写法，去掉“=”和句尾的“()”，xcode则会提示去掉“lazy”
+    
     /* observable 的学习 */
-    func test() {
+    func learnObservableTest() {
 
         let observable = Observable.of("索隆","路飞","罗宾","乔巴","娜美")
         
@@ -114,18 +128,61 @@ class JLearnTestMoreController: IWViewController {
         
     }
     
+    /* table 的学习*/
+    func learnTableTest() {
+        mainTable = UITableView(frame: CGRect(x: 0, y: infoLabel.y + infoLabel.height + 20, width: self.view.width, height: self.view.height-200), style: .grouped)
+        mainTable.backgroundColor = UIColor.white
+        view.addSubview(mainTable)
+        
+        mainTable.register(UITableViewCell.self, forCellReuseIdentifier: "teamCell")
+        
+        mainTable.rx.modelSelected(String.self).onNext { (values) in
+            
+        }.disposed(by: rx.disposeBag)
+        
+        
+        
+        let items = Observable.just([SectionModel(model: "*", items: ["2","7"]),
+                                      SectionModel(model: "#", items: ["1","5","9"]),
+                                      SectionModel(model: "_", items: ["3","4","6","8"])])
+        
     
-    /*  页面显示一个label展示选择的盒子 点击后出现弹框（使用-原来的数量改变、不使用-返回） */
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String,String>> (configureCell: { (dataSource, mainTable, indexPath, element) -> UITableViewCell in
+            let cell = mainTable.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
+            let str = dataSource[indexPath.section].model + element
+            
+            Console.log(dataSource[indexPath.section].model)
+            cell.textLabel?.text = "该行的值:\(str)"  
+            return cell
+        })
+        
+        dataSource.titleForHeaderInSection = {(data,section) in
+            return data.sectionModels[section].model
+        }
     
-    //'lazy' must not be used on a computed property-不能用于计算属性
-    private lazy var infoLabel: UILabel = {
-        let label = UILabel()
-        label.frame = CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 44)
-        label.textColor = .green
-        label.textAlignment = .center
-        label.text = ""
-        return label
-    }()   //????-上面的VM都不是这样写的，若按照vm的写法，去掉“=”和句尾的“()”，xcode则会提示去掉“lazy”
+        items.bind(to: mainTable.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+        
+        
+        
+//        mainTable.rx.modelSelected((String, JLearnTestMoreViewModel.UserInfo).self).subscribe(onNext: { (teamInfo) in
+//
+//            let (_, _) = teamInfo
+//
+//        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        
+//        vm.datas.asObservable().bind(to:mainTable.rx.items(dataSource: RxTableViewDataSourceType & UITableViewDataSource)){ (mainTable,row,item) in
+//            ()
+//        }
+//        vm.datas.asObservable().bind(to:tableView.rx.items) {(tableView,row,item) in
+//            //注意：! 与 ?
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "mycell")!
+//            //            let cell = tableView.dequeueReusableCell(withIdentifier: "mycell")
+//            cell.textLabel?.text = String(item.1) + "-" + "\(item.0)"
+//            return cell
+//
+//            }.disposed(by: rx.disposeBag)
+        
+    }
 }
 
 extension UILabel{
