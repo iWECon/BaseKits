@@ -341,7 +341,7 @@ public extension String {
         return .hex(self)
     }
     /// Convert to UIColor
-    func color(alpha: Float) -> IWColor {
+    func color(alpha: CGFloat) -> IWColor {
         return .hex(self, alpha)
     }
     
@@ -558,8 +558,7 @@ public extension Data {
     }
     
     var json: Any? {
-        let a = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
-        Console.debug(a.any)
+        let a = try? JSONSerialization.jsonObject(with: self, options: .mutableContainers)
         return a
     }
     var jsonValue: Any {

@@ -29,4 +29,6 @@ protocol IWViewModelable {
     func requestError(_ status: ResponseStatus) -> Void
     /// execution error retry callback, if request error happend
     func requestRetry(_ status: ResponseStatus) -> Void
+    
+    var dataSources: BehaviorRelay<Any> { get }
 }

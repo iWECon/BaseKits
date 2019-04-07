@@ -12,6 +12,7 @@ import Moya
 public class IWServiceModel: NSObject {
     
     enum Scheme {
+        /// if you used this, please remember change App Transport Security in app's `Info.plist` file.
         case http
         case https
         case ftp

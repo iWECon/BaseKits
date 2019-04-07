@@ -14,9 +14,13 @@
 
 import HandyJSON
 
-enum ResponseStatus {
+enum ResponseStatus: Swift.Error {
     case success
     case failed
+    case null
+    case jsonFailed
+    case mediatorFailed
+    case mediatorDataNull
     
     var value: String {
         switch self {
@@ -25,6 +29,10 @@ enum ResponseStatus {
         default:
             return "failed"
         }
+    }
+    
+    var localizedDescription: String {
+        return value
     }
 }
 

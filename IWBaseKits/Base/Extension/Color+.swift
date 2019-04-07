@@ -179,7 +179,7 @@ public extension IWColor {
     }
     
     /// (十六进制颜色).
-    static func hex(_ hex: String, _ alpha: Float = 1.0) -> IWColor {
+    static func hex(_ hex: String, _ alpha: CGFloat = 1.0) -> IWColor {
         var color = IWColor.red
         var cStr : String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         
@@ -210,6 +210,15 @@ public extension IWColor {
                         blue: CGFloat(b) / 255.0,
                         alpha: CGFloat(alpha))
         return color
+    }
+    
+    static func hex(_ hex: UInt, _ alpha: CGFloat = 1.0) -> IWColor {
+        
+        let limit = 255.0.cgFloat
+        let r: CGFloat = CGFloat((hex & 0xFF000000) >> 24) / limit
+        let g: CGFloat = CGFloat((hex & 0x00FF0000) >> 16) / limit
+        let b: CGFloat = CGFloat((hex & 0x0000FF00) >> 8) / limit
+        return IWColor(red: r, green: g, blue: b, alpha: alpha)
     }
     
     #if os(iOS)

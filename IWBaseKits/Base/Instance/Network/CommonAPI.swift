@@ -19,11 +19,15 @@ public enum CommonAPI {
 
 extension CommonAPI: TargetType {
     
+    public func request() -> Observable<Moya.Response> {
+        return AppDelegate.shared.provider.request(self).asObservable()
+    }
+    
     /// 需要做对应的接口路径处理
     public var path: String {
         switch self {
         case .login(account: _, password: _):
-            return "/login"
+            return "/Index/loginDo"
         default:
             return ""
         }
@@ -41,8 +45,8 @@ extension CommonAPI: TargetType {
         var _params: [String: Any] = [:]
         switch self {
         case .login(account: let act, password: let psd):
-            _params["a"] = act
-            _params["p"] = psd
+            _params["user_name"] = act
+            _params["passwd"] = psd
         default:
             break
         }

@@ -79,11 +79,13 @@ extension Observable where Element: Moya.Response {
 
 extension Observable where Element == MediatorModel {
     
-    func take<T>(model class: T.Type) -> Observable<T> {
+    /// Mediator.data convert to T
+    func take<T>(_ cls: T.Type) -> Observable<T> {
         return self.map({ $0.data! as! T }).asObservable()
     }
     
-    func take<T>(models class: T.Type) -> Observable<[T]> {
+    /// Mediator.data convert to [T]
+    func takes<T>(_ cls: T.Type) -> Observable<[T]> {
         return self.map({ $0.data! as! [T] }).asObservable()
     }
     
