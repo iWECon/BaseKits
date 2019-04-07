@@ -16,7 +16,7 @@ enum TakeError: Error {
     case jsonFailed
     case responseFailed
     case modelFailed
-    case modelNone
+    case dataNone
 }
 
 fileprivate let RESPOND_FAILED_JSON = """
@@ -31,6 +31,15 @@ fileprivate let RESPOND_FAILED_JSON = """
 
 extension Observable where Element: Moya.Response {
     
+    func responseMediator() -> Observable<MediatorModel> {
+        return self.map({ (element) -> MediatorModel in
+            
+            let dic = try? JSONSerialization.jsonObject(with: element.data, options: .mutableContainers) as? [String: Any]
+            let model = MediatorModel.deserialize(from: dic!)
+            return model!
+        }).share(replay: 1, scope: .forever).asObservable()
+    }
+    
     /// 解析为 ResponseModel
     func responseModel<T>(_ cls: T.Type) -> Observable<ResponseModel<T>> where T: IWModel {
         
@@ -40,13 +49,14 @@ extension Observable where Element: Moya.Response {
             if dic.isNone {
                 dic = try! JSONSerialization.jsonObject(with: RESPOND_FAILED_JSON.data(using: .utf8)!, options: .mutableContainers) as? [String: Any]
             }
-            dic = try! JSONSerialization.jsonObject(with: RESPOND_FAILED_JSON.data(using: .utf8)!, options: .mutableContainers) as? [String: Any]
             let model = ResponseModel<T>.deserialize(from: dic!)
             if model.isNone {
                 throw TakeError.responseFailed
             }
             if dic![safe: "data"].isSome && model!.data.isNone {
                 throw TakeError.modelFailed
+            } else if (dic![safe: "data"].isNone) {
+                throw TakeError.dataNone
             }
             Console.debug(model.any)
             return model!
@@ -66,19 +76,17 @@ extension Observable where Element: Moya.Response {
     
 }
 
-//extension Observable where Element: Moya.Response {
-//
-//    func responseModel() throws -> Observable<ResponseModel> {
-//        return self.map({ (element) -> ResponseModel in
-//
-//            let dic = try? JSONSerialization.jsonObject(with: element.data, options: .mutableContainers) as? [String: Any]
-//            let model = ResponseModel.deserialize(from: dic!)
-//            if model.isNone {
-//                throw TakeError.responseFailed
-//            } else if (model.isSome.and(model!.data.isNone)) {
-//                throw TakeError.modelNone
-//            }
-//            return model!
-//        }).share(replay: 1, scope: .forever).asObservable()
-//    }
-//}
+
+extension Observable where Element == MediatorModel {
+    
+    /// Mediator.data convert to T
+    func take<T>(_ cls: T.Type) -> Observable<T> {
+        return self.map({ $0.data! as! T }).asObservable()
+    }
+    
+    /// Mediator.data convert to [T]
+    func takes<T>(_ cls: T.Type) -> Observable<[T]> {
+        return self.map({ $0.data! as! [T] }).asObservable()
+    }
+    
+}

@@ -14,21 +14,13 @@
 
 import HandyJSON
 
-//protocol IWResponseModelable {
-//    var status: String? { get }
-//    var message: String?{ get }
-//    var data: IWModel?  { get }
-//}
-//
-//protocol IWResponseModelsable {
-//    var status: String? { get }
-//    var message: String?{ get }
-//    var data: [IWModel]?  { get }
-//}
-
-enum ResponseStatus {
+enum ResponseStatus: Swift.Error {
     case success
     case failed
+    case null
+    case jsonFailed
+    case mediatorFailed
+    case mediatorDataNull
     
     var value: String {
         switch self {
@@ -37,6 +29,10 @@ enum ResponseStatus {
         default:
             return "failed"
         }
+    }
+    
+    var localizedDescription: String {
+        return value
     }
 }
 
@@ -54,4 +50,11 @@ struct ResponseModels<T>: HandyJSON where T: IWModel {
     var status: String?
     var message: String?
     var data: [T]?
+}
+
+/// 生成通用数据模型，然后通过 take(model cls:) 去转换
+struct MediatorModel: HandyJSON {
+    var status: String?
+    var message: String?
+    var data: Any?
 }

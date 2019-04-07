@@ -46,20 +46,15 @@ class ViewModel: IWViewModel {
     func transform(input: Input) -> Output {
         
         let loginTriggered = input.loginControlEvent
-        loginTriggered.onNext { [weak self] (_) in
+        loginTriggered.onNext { (_) in
             
-            guard let self = self else { return }
-            
-            self.provider.login(account: "admin", password: "123123").subscribe(onSuccess: { (userModel) in
-                
-            }, onError: { (error) in
-                
-            }).disposed(by: self.rx.disposeBag)
+            //self?.request(.login(account: "13203007472", password: "111111"))
             
         }.disposed(by: rx.disposeBag)
         
-        input.switchDriver.onNext({
+        input.switchDriver.onNext({ (_) in
             IWService.shared.switchMode()
+            
         }).disposed(by: rx.disposeBag)
         
         let checkPass = Observable<String>.combineLatest([input.accountDriver, input.passwordDriver]).asObservable().map { (tuple) -> Bool in

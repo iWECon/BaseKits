@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     /// 请求
-    var provider: IWMagicApi = IWMagicApi.init(provider: IWNetworking.networking())
+    var provider: IWProvider<CommonAPI> = IWProvider<CommonAPI>.init() //IWMagicApi.init(provider: IWNetworking.networking())
     /// 路由器
     let router: IWRouter = IWRouter.init()
     /// router stack for navigation
@@ -74,7 +74,8 @@ extension AppDelegate {
     }
     
     private func initForProvider() -> Void {
-        let release = IWServiceModel.init(scheme: .https, host: "api.baige.in", path: "/user")
+        //let release = IWServiceModel.init(scheme: .https, host: "api.baige.in", path: "/user")
+        let release = IWServiceModel.init(scheme: .http, host: "app.juxiu.site", path: "/index.php/Home")
         IWService.shared.bind(release: release, debug: nil)
     }
     

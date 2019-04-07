@@ -32,6 +32,7 @@ PODS:
   - RxSwiftExt/RxCocoa (3.4.0):
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
+  - Then (2.4.0)
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - RxDataSources (~> 3.1.0)
   - RxSwift (~> 4.4.0)
   - RxSwiftExt (~> 3.4.0)
+  - Then (~> 2.4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -59,6 +61,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - RxSwiftExt
+    - Then
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -74,7 +77,12 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: c0caf472205f922a6b8ec9bdf27ed0f0bbc9ea16
+=======
+PODFILE CHECKSUM: b8aaae755866a5d86988c7e3d9cad6faa4268967
+>>>>>>> 62f229b1e9808834be1782d304202329c34de077
 
 COCOAPODS: 1.5.3

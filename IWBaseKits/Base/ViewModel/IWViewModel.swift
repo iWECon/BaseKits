@@ -23,13 +23,13 @@ class IWViewModel: NSObject, IWViewModelable {
         return v
     }
     
-    var router: IWRouter! {
-        return AppDelegate.shared.router
-    }
+    /// 路由器
+    let router: IWRouter = AppDelegate.shared.router
     
-    /// 网络请求
-    let provider: IWMagicApi = AppDelegate.shared.provider
-    ///
+    /// 网络请求通用实例
+    let provider: IWProvider<CommonAPI> = AppDelegate.shared.provider
+    
+    /// 初始化的时候带上的 params, 虽然叫 params 但类型是 Any 可以给任意值
     var params: Any?
     
     init(with params: Any? = nil) {
@@ -52,6 +52,9 @@ class IWViewModel: NSObject, IWViewModelable {
     func destroy(_ animated: Bool = true) {
         self.back(animated)
     }
+    func requestError(_ status: ResponseStatus) { }
+    func requestRetry(_ status: ResponseStatus) { }
+    var dataSources: BehaviorRelay<Any> = BehaviorRelay<Any>.init(value: "")
 }
 
 extension IWViewModel: IWRouterViewModelable {
@@ -87,6 +90,66 @@ extension IWViewModel: IWRouterViewModelable {
     
     func reset() {
         router.reset(root: self)
+    }
+    
+}
+
+extension IWViewModel {
+    
+    func request(_ target: CommonAPI) -> Observable<MediatorModel> {
+        
+        return Observable.create({ [weak self] (observer) -> Disposable in
+            // WARNING: 这里有个问题, 就是用下面这句话之后, 会导致 vm 无法在控制器销毁时释放, 也就是说无法在控制器销毁时取消网络请求 = =, 我也很迷糊
+            // 所以切记在这里面做修改用 weak 类型的 self, 也就是 self?
+            // guard let self = self else { return Disposables.create() }
+            
+            self?.provider.request(target).distinctUntilChanged().retry(3).filterSuccessfulStatusCodes().subscribe(onNext: { (response) in
+                
+                if response.data.count <= 0 {
+                    observer.onError(ResponseStatus.null)
+                    Console.debug("Error.null")
+                    return
+                }
+                Console.debug("data.count > 0")
+                
+                guard let json = response.data.json else {
+                    observer.onError(ResponseStatus.jsonFailed)
+                    Console.debug("json failed")
+                    return
+                }
+                
+                guard let model = MediatorModel.deserialize(from: json as? [String: Any]) else {
+                    observer.onError(ResponseStatus.mediatorFailed)
+                    Console.debug("mediator failed")
+                    return
+                }
+                
+//                if model.data.isNone {
+//                    observer.onError(ResponseStatus.mediatorDataNull)
+//                    return
+//                }
+                
+                observer.onNext(model)
+                observer.onCompleted()
+                
+            }, onError: { (error) in
+                
+                Common.Queue.main {
+                    self?.requestError(ResponseStatus.failed)
+                }
+                
+                observer.onError(error)
+                
+            }, onCompleted: {
+                Console.debug("Completed.")
+                
+            }, onDisposed: {
+                Console.debug("Disposed.")
+                
+            }).disposed(by: self?.rx.disposeBag ?? DisposeBag())
+            
+            return Disposables.create()
+        })
     }
     
 }

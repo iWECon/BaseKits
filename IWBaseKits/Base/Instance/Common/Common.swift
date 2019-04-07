@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 public struct Common {
     private init() { }
@@ -89,6 +91,7 @@ public struct Common {
     }
     
     public struct Assert {
+        private init() { }
         
         static func failure(_ condition: Bool, msg message: String) -> Void {
             if condition {
@@ -98,6 +101,7 @@ public struct Common {
     }
     
     public struct Delay {
+        private init() { }
         
         typealias Task = (_ cancel: Bool) -> Void
         /// Running.
@@ -144,4 +148,7 @@ public func MakeSize(_ width: CGFloat, _ height: CGFloat) -> IWSize {
 }
 public func MakeRect(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
     return CGRect.init(x: x, y: y, width: width, height: height)
+}
+public func MakePoint(_ x: CGFloat, _ y: CGFloat) -> CGPoint {
+    return CGPoint.init(x: x, y: y)
 }

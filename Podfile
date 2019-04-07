@@ -22,6 +22,9 @@ pod 'HandyJSON', '= 4.2.0' #:tag=> '4.2.0', :git => 'https://github.com/alibaba/
 # Log 日志
 pod 'CocoaLumberjack/Swift'
 
+# Then/do 继续/do something
+pod 'Then', '~> 2.4.0'          # https://github.com/devxoul/Then
+
 end
 
 

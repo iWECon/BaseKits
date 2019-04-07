@@ -45,26 +45,33 @@ extension IWMagicApi {
 
 extension IWMagicApi: IWMagicApiPact {
 
-    func login(account: String, password: String) -> Single<UserModel> {
-        return requestObject(.login(account: account, password: password), type: UserModel.self)
+    func login(account: String, password: String) -> Single<MediatorModel> {
+        return requestMediator(.login(account: account, password: password))
     }
 
 }
 
 private extension IWMagicApi {
     
-    func request(_ target: CommonAPI) -> Single<Any> {
+    func requestJSON(_ target: CommonAPI) -> Single<Any> {
         return provider.request(target).mapJSON().observeOn(MainScheduler.instance).asSingle()
     }
     func requestWithoutMap(_ target: CommonAPI) -> Single<Moya.Response> {
         return provider.request(target).observeOn(MainScheduler.init()).asSingle()
     }
     
-    func requestObject<T: IWModel>(_ target: CommonAPI, type: T.Type) -> Single<T> {
-        return provider.request(target).retry(3).responseModel(type.self).map({ $0.data! }).asSingle()
+    func requestMediator(_ target: CommonAPI) -> Single<MediatorModel> {
+        return provider.request(target).retry(3).responseMediator().asSingle()
     }
-    func requestObjects<T: IWModel>(_ target: CommonAPI, type: T.Type) -> Single<[T]> {
-        return provider.request(target).retry(3).responseModels(type.self).map({ $0.data! }).asSingle()
-    }
+//    func requestObject<T: IWModel>(_ target: CommonAPI, type: T.Type) -> Single<T> {
+//
+////        return provider.request(target).retry(3).responseModel(type.self).map({ (responseModel) -> T in
+////            return responseModel.data.despair("The data(Model) is nil.")
+////        }).observeOn(MainScheduler.instance).asSingle()
+//
+//    }
+//    func requestObjects<T: IWModel>(_ target: CommonAPI, type: T.Type) -> Single<[T]> {
+//        //return provider.request(target).retry(3).responseModels(type.self).map({ $0.data! }).asSingle()
+//    }
     
 }
