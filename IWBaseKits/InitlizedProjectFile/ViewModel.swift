@@ -40,6 +40,7 @@ class ViewModel: IWViewModel {
     override func initialized() {
         super.initialized()
         
+        navigationBarTitle.accept("首页")
     }
     
     func transform(input: Input) -> Output {

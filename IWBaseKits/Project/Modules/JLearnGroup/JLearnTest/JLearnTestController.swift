@@ -51,7 +51,6 @@ class JLearnTestController: IWViewController {
             
             }.disposed(by: rx.disposeBag)
         
-        
         // 记得加上 [weak self] 和 guard let self = self else { return }
         //observeOn(MainScheduler.instance) 使操作在主线程内执行（加在.bind等之前）
         checkButton.rx.controlEvent(.touchDown).observeOn(MainScheduler.instance).bind { [weak self] (_) in
@@ -94,8 +93,9 @@ class JLearnTestController: IWViewController {
         self.buttonCustomShow(color: .yellow, btnTitle: "Have no legal power.")
     }
     
-    //inout 需要在函数中修改当前传入参数时使用，加在参数类型前
-    //？当前d参数可为空时使用，加在参数类型后
+    //inout-需要在函数中修改当前传入参数时使用，加在参数类型前
+    //“？”-当前d参数可为空时使用，加在参数类型后
+    //当参数有默认值时，可以在参数后加设置默认值，且在使用函数时可以直接不传值
     func buttonCustomShow(color:UIColor,btnTitle: String) -> Void {
         
         if color==UIColor.red {

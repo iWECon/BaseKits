@@ -4,7 +4,7 @@ PODS:
   - CocoaLumberjack/Swift (3.5.2):
     - CocoaLumberjack/Core
   - Differentiator (3.1.0)
-  - HandyJSON (5.0.0-beta.1)
+  - HandyJSON (4.2.0)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
@@ -35,7 +35,7 @@ PODS:
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
-  - HandyJSON (from `https://github.com/alibaba/HandyJSON`, tag `5.0.0-beta.1`)
+  - HandyJSON (= 4.2.0)
   - Moya/RxSwift (~> 12.0)
   - "NSObject+Rx (~> 4.4.1)"
   - ReachabilitySwift (~> 4.0)
@@ -49,6 +49,7 @@ SPEC REPOS:
     - Alamofire
     - CocoaLumberjack
     - Differentiator
+    - HandyJSON
     - Moya
     - "NSObject+Rx"
     - ReachabilitySwift
@@ -59,21 +60,11 @@ SPEC REPOS:
     - RxSwift
     - RxSwiftExt
 
-EXTERNAL SOURCES:
-  HandyJSON:
-    :git: https://github.com/alibaba/HandyJSON
-    :tag: 5.0.0-beta.1
-
-CHECKOUT OPTIONS:
-  HandyJSON:
-    :git: https://github.com/alibaba/HandyJSON
-    :tag: 5.0.0-beta.1
-
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
+  HandyJSON: 9dfc026c7d7adc1f0f8ba8b181495f0e0763b0f4
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
@@ -84,6 +75,6 @@ SPEC CHECKSUMS:
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
 
-PODFILE CHECKSUM: 8d82f83640423ca866f7c6d966ace0114d23dd0f
+PODFILE CHECKSUM: c0caf472205f922a6b8ec9bdf27ed0f0bbc9ea16
 
 COCOAPODS: 1.5.3
