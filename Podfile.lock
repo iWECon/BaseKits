@@ -4,7 +4,7 @@ PODS:
   - CocoaLumberjack/Swift (3.5.2):
     - CocoaLumberjack/Core
   - Differentiator (3.1.0)
-  - HandyJSON (4.2.0)
+  - HandyJSON (5.0.0-beta.1)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
@@ -13,6 +13,9 @@ PODS:
     - RxSwift (~> 4.0)
   - "NSObject+Rx (4.4.1)":
     - RxSwift (~> 4.3)
+  - R.swift (5.0.3):
+    - R.swift.Library (~> 5.0.0)
+  - R.swift.Library (5.0.1)
   - ReachabilitySwift (4.3.0)
   - Result (4.1.0)
   - RxAtomic (4.4.2)
@@ -32,18 +35,21 @@ PODS:
   - RxSwiftExt/RxCocoa (3.4.0):
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
+  - SnapKit (4.2.0)
   - Then (2.4.0)
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
-  - HandyJSON (= 4.2.0)
+  - HandyJSON (from `https://github.com/alibaba/HandyJSON`, tag `5.0.0-beta.1`)
   - Moya/RxSwift (~> 12.0)
   - "NSObject+Rx (~> 4.4.1)"
+  - R.swift (~> 5.0.3)
   - ReachabilitySwift (~> 4.0)
   - RxCocoa (~> 4.4.0)
   - RxDataSources (~> 3.1.0)
   - RxSwift (~> 4.4.0)
   - RxSwiftExt (~> 3.4.0)
+  - SnapKit (~> 4.2.0)
   - Then (~> 2.4.0)
 
 SPEC REPOS:
@@ -51,9 +57,10 @@ SPEC REPOS:
     - Alamofire
     - CocoaLumberjack
     - Differentiator
-    - HandyJSON
     - Moya
     - "NSObject+Rx"
+    - R.swift
+    - R.swift.Library
     - ReachabilitySwift
     - Result
     - RxAtomic
@@ -61,15 +68,28 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - RxSwiftExt
+    - SnapKit
     - Then
+
+EXTERNAL SOURCES:
+  HandyJSON:
+    :git: https://github.com/alibaba/HandyJSON
+    :tag: 5.0.0-beta.1
+
+CHECKOUT OPTIONS:
+  HandyJSON:
+    :git: https://github.com/alibaba/HandyJSON
+    :tag: 5.0.0-beta.1
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  HandyJSON: 9dfc026c7d7adc1f0f8ba8b181495f0e0763b0f4
+  HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
+  R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
@@ -77,12 +97,9 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-<<<<<<< HEAD
-PODFILE CHECKSUM: c0caf472205f922a6b8ec9bdf27ed0f0bbc9ea16
-=======
-PODFILE CHECKSUM: b8aaae755866a5d86988c7e3d9cad6faa4268967
->>>>>>> 62f229b1e9808834be1782d304202329c34de077
+PODFILE CHECKSUM: 59cd164a0345a8bff4ab090036d593321ceef76a
 
 COCOAPODS: 1.5.3
