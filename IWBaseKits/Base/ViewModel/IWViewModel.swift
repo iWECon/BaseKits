@@ -54,7 +54,7 @@ class IWViewModel: NSObject, IWViewModelable {
     }
     func requestError(_ status: ResponseStatus) { }
     func requestRetry(_ status: ResponseStatus) { }
-    var dataSources: BehaviorRelay<Any> = BehaviorRelay<Any>.init(value: "")
+    //var dataSources: BehaviorRelay<Any> = BehaviorRelay<Any>.init(value: "")
 }
 
 extension IWViewModel: IWRouterViewModelable {

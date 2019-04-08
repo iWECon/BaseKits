@@ -15,6 +15,7 @@ public enum CommonAPI {
     case none
     case login(account: String, password: String)
     case download(url: URL, fileName: String?)
+    case userProfile
 }
 
 extension CommonAPI: TargetType {
@@ -28,6 +29,8 @@ extension CommonAPI: TargetType {
         switch self {
         case .login(account: _, password: _):
             return "/Index/loginDo"
+        case .userProfile:
+            return "/Newapi/get_shop_info"
         default:
             return ""
         }
@@ -47,6 +50,8 @@ extension CommonAPI: TargetType {
         case .login(account: let act, password: let psd):
             _params["user_name"] = act
             _params["passwd"] = psd
+        case .userProfile:
+            _params["shop_id"] = "7"
         default:
             break
         }

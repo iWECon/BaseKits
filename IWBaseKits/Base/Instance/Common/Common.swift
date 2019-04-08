@@ -162,4 +162,4 @@ public let BottomSpacing : CGFloat = IWDevice.isShaped ? 34.0 : 0.0
 public let ScreenBounds  : CGRect  = Common.Screen.bounds
 public let ScreenSize    : CGSize  = Common.Screen.size
 public let ScreenHeight  : CGFloat = Common.Screen.height
-public let ScrrenWidth   : CGFloat = Common.Screen.width
+public let ScreenWidth   : CGFloat = Common.Screen.width

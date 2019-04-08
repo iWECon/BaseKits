@@ -3,27 +3,45 @@ use_frameworks!
 
 target 'IWBaseKits' do
 
+    
 # Rx
 pod 'RxSwift', '~> 4.4.0'
 pod 'RxCocoa', '~> 4.4.0'
 pod 'NSObject+Rx', '~> 4.4.1'   # https://github.com/RxSwiftCommunity/NSObject-Rx
 pod 'RxSwiftExt', '~> 3.4.0'    # https://github.com/RxSwiftCommunity/RxSwiftExt
 
+
+# Tools
+pod 'R.swift', '~> 5.0.3'       # https://github.com/mac-cain13/R.swift
+
+
 # TableView & CollectionView
 pod 'RxDataSources', '~> 3.1.0' # https://github.com/RxSwiftCommunity/RxDataSources
+
 
 # Network
 pod 'Moya/RxSwift', '~> 12.0'
 pod 'ReachabilitySwift', '~> 4.0' # https://github.com/ashleymills/Reachability.swift
 
+
 # Model
-pod 'HandyJSON', '= 4.2.0' #:tag=> '4.2.0', :git => 'https://github.com/alibaba/HandyJSON'     # https://github.com/alibaba/HandyJSON
+# Xcode 10.2
+pod 'HandyJSON', :tag=> '5.0.0-beta.1', :git => 'https://github.com/alibaba/HandyJSON'     # https://github.com/alibaba/HandyJSON
+# Xcode 10.1
+#pod 'HandyJSON', '= 4.2.0'
+
+
+# layout
+pod 'SnapKit', '~> 4.2.0'       # https://github.com/SnapKit/SnapKit
+
 
 # Log 日志
 pod 'CocoaLumberjack/Swift'
 
+
 # Then/do 继续/do something
 pod 'Then', '~> 2.4.0'          # https://github.com/devxoul/Then
+
 
 end
 
