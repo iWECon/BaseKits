@@ -152,3 +152,14 @@ public func MakeRect(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGF
 public func MakePoint(_ x: CGFloat, _ y: CGFloat) -> CGPoint {
     return CGPoint.init(x: x, y: y)
 }
+
+
+// MARK:- Constant
+public let NavBarHeight  : CGFloat = IWDevice.isShaped ? 88.0 : 64.0
+public let TopSpacing    : CGFloat = IWDevice.isShaped ? 24.0 : 0.0
+public let TabBarHeight  : CGFloat = IWDevice.isShaped ? 83.0 : 49.0
+public let BottomSpacing : CGFloat = IWDevice.isShaped ? 34.0 : 0.0
+public let ScreenBounds  : CGRect  = Common.Screen.bounds
+public let ScreenSize    : CGSize  = Common.Screen.size
+public let ScreenHeight  : CGFloat = Common.Screen.height
+public let ScrrenWidth   : CGFloat = Common.Screen.width

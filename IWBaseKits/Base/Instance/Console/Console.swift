@@ -56,7 +56,7 @@ public struct Console {
 设计尺寸(W*H): \(Common.Screen.size)
 物理尺寸(W*H): (\(Common.Screen.width * Common.Screen.scale), \(Common.Screen.height * Common.Screen.scale))
      是否越狱: \(IWDevice.isJailbroken.yesOrNo)
-是否异型全面屏: \(IWDevice.shaped.yesOrNo)
+是否异型全面屏: \(IWDevice.isShaped.yesOrNo)
  本次运行UUID: \(NSUUID.init().uuidString)
 ------------
 """)

@@ -19,7 +19,7 @@ public class IWDevice: UIDevice {
     }()
     
     /// 是否为异型全面屏 (X, Xs, Xr, Max)
-    public static let shaped: Bool = {
+    public static let isShaped: Bool = {
         
         if #available(iOS 11.0, *) {
             let window = AppDelegate.shared.window
