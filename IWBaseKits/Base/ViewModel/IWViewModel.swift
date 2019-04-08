@@ -14,7 +14,7 @@ import RxCocoa
 class IWViewModel: NSObject, IWViewModelable {
     
     deinit {
-        Console.debug("\(self) is deinit.")
+        Console.debug("The <\(type(of: self))> is deinit.")
     }
     /// 这里只能这样设计, 若是改成 store 属性, 会造成内存无法释放...
     /// ⚠️ 注意: 这个只用来初始化, 不干其它事情, 也不要在 viewModel 里面用 self.instanceController !!!

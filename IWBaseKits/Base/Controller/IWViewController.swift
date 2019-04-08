@@ -13,7 +13,7 @@ import RxCocoa
 class IWViewController: UIViewController, IWViewControllerable {
     
     deinit {
-        Console.debug("\(self) is deinit.")
+        Console.debug("The <\(type(of: self))> is deinit.")
         Console.logResourcesCount()
     }
     

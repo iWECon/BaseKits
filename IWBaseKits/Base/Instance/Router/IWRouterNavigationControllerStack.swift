@@ -61,7 +61,7 @@ extension IWRouterNavigationControllerStack {
                 topViewController.snapshot = self.navigationControllers.last?.view.snapshotView(afterScreenUpdates: false)
             }
             let viewController = viewModel.instanceController
-            Console.debug("You entered \(viewController) from \(self.navigationControllers.last!) by push.")
+            Console.debug("You entered <\(type(of: viewController))> from <\(type(of: self.navigationControllers.last!.viewControllers.last.value))> by push.")
             self.navigationControllers.last?.pushViewController(viewController as! UIViewController, animated: animated)
             
         }.disposed(by: stackDisposeBag)
@@ -70,7 +70,7 @@ extension IWRouterNavigationControllerStack {
             guard let self = self else { return }
             
             let (animated) = tuple as! (Bool)
-            Console.debug("You exited \(self.navigationControllers.last!) by pop.")
+            Console.debug("You exited <\(type(of: self.navigationControllers.last!.viewControllers.last.value))> by pop.")
             self.navigationControllers.last?.popViewController(animated: animated)
         }.disposed(by: stackDisposeBag)
         
@@ -78,6 +78,7 @@ extension IWRouterNavigationControllerStack {
             guard let self = self else { return }
             
             let (animated) = tuple as! (Bool)
+            Console.debug("You exited <\(type(of: self.navigationControllers.last!.viewControllers.last.value))> by popRoot.")
             self.navigationControllers.last?.popToRootViewController(animated: animated)
         }.disposed(by: stackDisposeBag)
         
@@ -91,7 +92,7 @@ extension IWRouterNavigationControllerStack {
             if !(viewController is UINavigationController) {
                 viewController = IWNavigationController.init(rootViewController: viewController)
             }
-            Console.debug("You entered \(viewModel.instanceController) from \(self.navigationControllers.last.value.viewControllers.last.value) by present.")
+            Console.debug("You entered <\(type(of: viewModel.instanceController))> from <\(type(of: self.navigationControllers.last.value.viewControllers.last.value))> by present.")
             self.push(navigationController: viewController as! UINavigationController)
             presentingViewController?.present(viewController, animated: animated, completion: completion)
             
@@ -101,7 +102,7 @@ extension IWRouterNavigationControllerStack {
             guard let self = self else { return }
             
             let (animated, completion) = tuple as! (Bool, (() -> Void)?)
-            Console.debug("You exited \(self.navigationControllers.last!) by dimiss.")
+            Console.debug("You exited <\(type(of: self.navigationControllers.last!.viewControllers.first.value))> by dimiss.")
             self.popNavigationController()
             self.navigationControllers.last?.dismiss(animated: animated, completion: completion)
         }.disposed(by: rx.disposeBag)
@@ -122,7 +123,7 @@ extension IWRouterNavigationControllerStack {
                 self.push(navigationController: navController)
                 viewController = navController
             }
-            Console.debug("You reset with \(viewModel).")
+            Console.debug("You reset with <\(type(of: viewModel))>.")
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = viewController
             
