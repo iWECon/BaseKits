@@ -136,39 +136,67 @@ class JLearnTestMoreController: IWViewController {
         
         mainTable.register(UITableViewCell.self, forCellReuseIdentifier: "teamCell")
         
-        mainTable.rx.modelSelected(String.self).onNext { (values) in
+//        mainTable.rx.modelSelected(String.self).onNext { (values) in
+//
+//        }.disposed(by: rx.disposeBag)
+        
+        //ViewModel处的数据
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String,JLearnTestMoreViewModel.UserInfo>> (configureCell: {(datas, mainTable, indexPath, userInfo) -> UITableViewCell in
             
-        }.disposed(by: rx.disposeBag)
+            var cell:UITableViewCell!
+            cell = mainTable.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
+            if (cell == nil){
+                cell = UITableViewCell(style: .subtitle, reuseIdentifier: "teamCell")
+            }
+            cell.textLabel?.text = "\(userInfo.title)---\(userInfo.name)"
+            cell.detailTextLabel?.text = "梦想：\(userInfo.dream)"
+            return cell
+        })
         
+        dataSource.titleForHeaderInSection = {(datas,section) in
+            return datas.sectionModels[section].model
+        }
         
+        //因为vm.tableDatas是BehaviorRelay，进行bind时需要转成可观察者“.asObservable()”
+        vm.tableDatas.asObservable().bind(to: mainTable.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+        
+        //table 选中事件  JLearnTestMoreViewModel.UserInfo-UserInfo是JLearnTestMoreViewModel.UserInfo中的石头肉
+        
+//        mainTable.rx.modelSelected((JLearnTestMoreViewModel.UserInfo).self).subscribe(onNext: { (teamInfo) in
+//            
+//                Console.log("梦想：\(teamInfo.1.dream)")
+//        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        
+        /*测试数据-固定的数据
         
         let items = Observable.just([SectionModel(model: "*", items: ["2","7"]),
                                       SectionModel(model: "#", items: ["1","5","9"]),
                                       SectionModel(model: "_", items: ["3","4","6","8"])])
         
     
+        RxTableViewSectionedReloadDataSource<SectionModel...固定写法，可看做是     var datas = BehaviorRelay<[[String]]>.init(value: [])//BehaviorRelay<[(String,[UserInfo])]>.init(value: [])  //相当于一个可变数组-添加观察时用“.asObservable()”
+         参照：    public typealias ConfigureCell = (CollectionViewSectionedDataSource<S>, UICollectionView, IndexPath, I) -> UICollectionViewCell
+
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String,String>> (configureCell: { (dataSource, mainTable, indexPath, element) -> UITableViewCell in
+
             let cell = mainTable.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
             let str = dataSource[indexPath.section].model + element
-            
+
             Console.log(dataSource[indexPath.section].model)
-            cell.textLabel?.text = "该行的值:\(str)"  
+            cell.textLabel?.text = "该行的值:\(str)"
             return cell
         })
-        
-        dataSource.titleForHeaderInSection = {(data,section) in
-            return data.sectionModels[section].model
+
+        //   参照： public typealias TitleForHeaderInSection = (TableViewSectionedDataSource<S>, Int) -> String?
+        dataSource.titleForHeaderInSection = {(ds,section) in
+            return ds.sectionModels[section].model  //ds-自己的数据源，section-区
         }
-    
+        //为Table的item绑定数据源
         items.bind(to: mainTable.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
+    */
         
         
-        
-//        mainTable.rx.modelSelected((String, JLearnTestMoreViewModel.UserInfo).self).subscribe(onNext: { (teamInfo) in
-//
-//            let (_, _) = teamInfo
-//
-//        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+       
         
 //        vm.datas.asObservable().bind(to:mainTable.rx.items(dataSource: RxTableViewDataSourceType & UITableViewDataSource)){ (mainTable,row,item) in
 //            ()

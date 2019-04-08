@@ -95,6 +95,9 @@
 		F632441F22559BC100DC46BF /* JLearnBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632441E22559BC100DC46BF /* JLearnBoxViewModel.swift */; };
 		F6911E052255ADF800E93670 /* JLearnTestOtherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6911E042255ADF800E93670 /* JLearnTestOtherViewModel.swift */; };
 		F6911E072255AE0E00E93670 /* JLearnTestOtherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6911E062255AE0E00E93670 /* JLearnTestOtherController.swift */; };
+		F692D08E225ADFD900B478FB /* JLearnMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F692D08C225ADFD900B478FB /* JLearnMoreCell.swift */; };
+		F692D08F225ADFD900B478FB /* JLearnMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F692D08D225ADFD900B478FB /* JLearnMoreCell.xib */; };
+		F692D091225ADFF900B478FB /* JLearnMoreItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F692D090225ADFF900B478FB /* JLearnMoreItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +215,9 @@
 		F632441E22559BC100DC46BF /* JLearnBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnBoxViewModel.swift; sourceTree = "<group>"; };
 		F6911E042255ADF800E93670 /* JLearnTestOtherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestOtherViewModel.swift; sourceTree = "<group>"; };
 		F6911E062255AE0E00E93670 /* JLearnTestOtherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestOtherController.swift; sourceTree = "<group>"; };
+		F692D08C225ADFD900B478FB /* JLearnMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnMoreCell.swift; sourceTree = "<group>"; };
+		F692D08D225ADFD900B478FB /* JLearnMoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JLearnMoreCell.xib; sourceTree = "<group>"; };
+		F692D090225ADFF900B478FB /* JLearnMoreItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnMoreItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -617,6 +623,9 @@
 			children = (
 				F6324417225590C400DC46BF /* JLearnTestMoreViewModel.swift */,
 				F6324415225590B000DC46BF /* JLearnTestMoreController.swift */,
+				F692D090225ADFF900B478FB /* JLearnMoreItemViewModel.swift */,
+				F692D08C225ADFD900B478FB /* JLearnMoreCell.swift */,
+				F692D08D225ADFD900B478FB /* JLearnMoreCell.xib */,
 			);
 			path = JLearnTestMore;
 			sourceTree = "<group>";
@@ -741,6 +750,7 @@
 				929220772249FADC009F6DF8 /* LaunchScreen.storyboard in Resources */,
 				92709C37225AFD72000A39CF /* Localizable.strings in Resources */,
 				929220742249FADC009F6DF8 /* Assets.xcassets in Resources */,
+				F692D08F225ADFD900B478FB /* JLearnMoreCell.xib in Resources */,
 				929220722249FADB009F6DF8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,9 +868,11 @@
 				F6324416225590B000DC46BF /* JLearnTestMoreController.swift in Sources */,
 				923F0E6D225208E50079551E /* ResponseModel.swift in Sources */,
 				922AA803224DBF3C00C8549F /* IWViewControllerable.swift in Sources */,
+				F692D08E225ADFD900B478FB /* JLearnMoreCell.swift in Sources */,
 				922AA837224DF95E00C8549F /* FourthRootController.swift in Sources */,
 				9234D7A92254502C009679B8 /* Control+.swift in Sources */,
 				9261369B224CB386007CC47A /* IWReachability.swift in Sources */,
+				F692D091225ADFF900B478FB /* JLearnMoreItemViewModel.swift in Sources */,
 				9256FD952254AE8E00307395 /* Optional+.swift in Sources */,
 				92613697224CA2F0007CC47A /* IWProvider.swift in Sources */,
 				9234D7B72254933C009679B8 /* View+.swift in Sources */,
