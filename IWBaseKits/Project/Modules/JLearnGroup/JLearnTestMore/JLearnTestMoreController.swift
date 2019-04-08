@@ -160,15 +160,22 @@ class JLearnTestMoreController: IWViewController {
         //因为vm.tableDatas是BehaviorRelay，进行bind时需要转成可观察者“.asObservable()”
         vm.tableDatas.asObservable().bind(to: mainTable.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
         
-        //table 选中事件  JLearnTestMoreViewModel.UserInfo-UserInfo是JLearnTestMoreViewModel.UserInfo中的石头肉
         
-//        mainTable.rx.modelSelected((JLearnTestMoreViewModel.UserInfo).self).subscribe(onNext: { (teamInfo) in
-//            
+        //Table 选中的索引
+        mainTable.rx.itemSelected.subscribe(onNext: { indexPath in
+            print("选中项的indexPath为：\(indexPath)")
+        }).disposed(by: rx.disposeBag)
+        mainTable.rx.itemSelected.sub
+        
+        //table 选中事件  JLearnTestMoreViewModel.UserInfo-UserInfo是JLearnTestMoreViewModel.UserInfo中的struct
+        
+//        mainTable.rx.modelSelected(SectionModel.self).subscribe(onNext: { (teamInfo) in
+//
 //                Console.log("梦想：\(teamInfo.1.dream)")
+//
 //        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
         
         /*测试数据-固定的数据
-        
         let items = Observable.just([SectionModel(model: "*", items: ["2","7"]),
                                       SectionModel(model: "#", items: ["1","5","9"]),
                                       SectionModel(model: "_", items: ["3","4","6","8"])])
