@@ -51,6 +51,7 @@
 		9234D7B222547A05009679B8 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7B122547A05009679B8 /* Common.swift */; };
 		9234D7B522547D66009679B8 /* IWDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7B422547D66009679B8 /* IWDevice.swift */; };
 		9234D7B72254933C009679B8 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234D7B62254933C009679B8 /* View+.swift */; };
+		923697F72259AC5C002A0FFA /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923697F62259AC5C002A0FFA /* Configs.swift */; };
 		923F0E692251A6980079551E /* IWMagicApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E682251A6980079551E /* IWMagicApi.swift */; };
 		923F0E6B2251A6D70079551E /* IWMagicApiPact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E6A2251A6D70079551E /* IWMagicApiPact.swift */; };
 		923F0E6D225208E50079551E /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F0E6C225208E50079551E /* ResponseModel.swift */; };
@@ -155,6 +156,7 @@
 		9234D7B122547A05009679B8 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9234D7B422547D66009679B8 /* IWDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWDevice.swift; sourceTree = "<group>"; };
 		9234D7B62254933C009679B8 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		923697F62259AC5C002A0FFA /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		923F0E682251A6980079551E /* IWMagicApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWMagicApi.swift; sourceTree = "<group>"; };
 		923F0E6A2251A6D70079551E /* IWMagicApiPact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWMagicApiPact.swift; sourceTree = "<group>"; };
 		923F0E6C225208E50079551E /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		922AA817224DF21E00C8549F /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				923697F52259AC50002A0FFA /* Common */,
 				922AA819224DF22B00C8549F /* Model */,
 				922AA818224DF22200C8549F /* Modules */,
 			);
@@ -373,6 +376,14 @@
 				9256FDA02254BA0700307395 /* IWRegex.swift */,
 			);
 			path = CustomerClass;
+			sourceTree = "<group>";
+		};
+		923697F52259AC50002A0FFA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				923697F62259AC5C002A0FFA /* Configs.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		92613688224C60FE007CC47A /* Instance */ = {
@@ -752,6 +763,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -769,6 +781,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -877,6 +890,7 @@
 				9234D7A722544FD3009679B8 /* RectCorner+.swift in Sources */,
 				F632441F22559BC100DC46BF /* JLearnBoxViewModel.swift in Sources */,
 				922AA824224DF44800C8549F /* FirstRootViewModel.swift in Sources */,
+				923697F72259AC5C002A0FFA /* Configs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
