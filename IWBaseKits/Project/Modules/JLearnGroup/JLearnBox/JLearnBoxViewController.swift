@@ -32,6 +32,22 @@ class JLearnBoxViewController: IWViewController {
         // datas[section].datasSrouces.count
     }
     
+    @objc func editTable() -> Void{
+        
+        tableView.beginUpdates()
+        if self.navigationItem.rightBarButtonItem?.title=="编辑" {
+            Console.debug(" 编辑 tableView")
+            self.navigationItem.rightBarButtonItem?.title = "完成"
+            tableView.setEditing(true, animated: true) //开始编辑
+        }else{
+            Console.debug(" tableView 编辑完成")
+            self.navigationItem.rightBarButtonItem?.title = "编辑"
+            tableView.setEditing(false, animated: true) //结束编辑
+        }
+        tableView.endUpdates()
+        //        mainTable.reloadData()
+    }
+    
     override func prepareUI() {
         
         super.prepareUI()
@@ -42,10 +58,14 @@ class JLearnBoxViewController: IWViewController {
             let boxType:String!
         }
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "编辑", style: .plain, target: self, action: #selector(editTable))
+        
         tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.backgroundColor = UIColor.white
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "mycell")
+        
+//        tableView.setEditing(true, animated: true)
         
         vm.datas.asObservable().bind(to:tableView.rx.items) {(tableView,row,item) in
             //注意：! 与 ?

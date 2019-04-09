@@ -77,7 +77,6 @@ class JLearnTestMoreViewModel: IWViewModel {
 //
 //        }.disposed(by: rx.disposeBag)
         
-        
         tableDatas.accept([SectionModel(model: "草帽海贼团",
                                         items: [UserInfo(name: "路飞", title: "船长", dream: "集结一群优秀的伙伴，成为海贼王！"),
                                                 UserInfo(name: "索隆", title: "副船长", dream: "成为天下第一的剑客"),
@@ -97,9 +96,12 @@ class JLearnTestMoreViewModel: IWViewModel {
                                         items: [UserInfo(name: "白胡子", title: "船长", dream: ""),
                                                 UserInfo(name: "艾斯", title: "第二队队长", dream: "")])
                            ])
+        
     }
     
-    
-    
+    //模拟数据请求
+    func netWork() {
+        Console.log("netWork")
+    }
 
 }

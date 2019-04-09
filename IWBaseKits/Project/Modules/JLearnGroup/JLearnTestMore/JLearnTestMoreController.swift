@@ -27,9 +27,31 @@ class JLearnTestMoreController: IWViewController {
     override func prepareUI() {
         super.prepareUI()
         
+//        mainTable.setEditing(true, animated: true) //开始编辑
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "编辑", style: .plain, target: self, action: #selector(editTable))
+        
+        vm.netWork()
+        
         self.learnBinderTest()
         self.learnObservableTest()
         self.learnTableTest()
+        
+    }
+    
+    @objc func editTable() -> Void{
+        
+        mainTable.beginUpdates()
+        if self.navigationItem.rightBarButtonItem?.title=="编辑" {
+            Console.debug(" 编辑 tableView")
+            self.navigationItem.rightBarButtonItem?.title = "完成"
+            mainTable.setEditing(true, animated: true) //开始编辑
+        }else{
+            Console.debug(" tableView 编辑完成")
+            self.navigationItem.rightBarButtonItem?.title = "编辑"
+            mainTable.setEditing(false, animated: true) //结束编辑
+        }
+        mainTable.endUpdates()
+//        mainTable.reloadData()
     }
     
     /* Binder  的学习*/
@@ -130,24 +152,22 @@ class JLearnTestMoreController: IWViewController {
     
     /* table 的学习*/
     func learnTableTest() {
-        mainTable = UITableView(frame: CGRect(x: 0, y: infoLabel.y + infoLabel.height + 20, width: self.view.width, height: self.view.height-200), style: .grouped)
+        mainTable = UITableView(frame: CGRect(x: 0, y: infoLabel.y + infoLabel.height + 20, width: ScreenWidth, height: ScreenHeight-200), style: .grouped)
         mainTable.backgroundColor = UIColor.white
         view.addSubview(mainTable)
+        mainTable.setEditing(true, animated: true) //开始编辑
+
         
         mainTable.register(UITableViewCell.self, forCellReuseIdentifier: "teamCell")
-        
-//        mainTable.rx.modelSelected(String.self).onNext { (values) in
-//
-//        }.disposed(by: rx.disposeBag)
         
         //ViewModel处的数据
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String,JLearnTestMoreViewModel.UserInfo>> (configureCell: {(datas, mainTable, indexPath, userInfo) -> UITableViewCell in
             
-            var cell:UITableViewCell!
-            cell = mainTable.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
-            if (cell == nil){
-                cell = UITableViewCell(style: .subtitle, reuseIdentifier: "teamCell")
-            }
+//            var cell:UITableViewCell!
+            let cell = mainTable.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
+//            if (cell == nil){
+//                cell = UITableViewCell(style: .subtitle, reuseIdentifier: "teamCell")
+//            }
             cell.textLabel?.text = "\(userInfo.title)---\(userInfo.name)"
             cell.detailTextLabel?.text = "梦想：\(userInfo.dream)"
             return cell
@@ -160,26 +180,53 @@ class JLearnTestMoreController: IWViewController {
         //因为vm.tableDatas是BehaviorRelay，进行bind时需要转成可观察者“.asObservable()”
         vm.tableDatas.asObservable().bind(to: mainTable.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
         
-        
         //Table 选中的索引
-        mainTable.rx.itemSelected.subscribe(onNext: { indexPath in
-            print("选中项的indexPath为：\(indexPath)")
+        mainTable.rx.itemSelected.subscribe(onNext:{ indexPath in
+            Console.log(self.vm.tableDatas.value[indexPath.section].items[indexPath.row].name)
         }).disposed(by: rx.disposeBag)
-//        mainTable.rx.itemSelected.sub
         
-        //table 选中事件  JLearnTestMoreViewModel.UserInfo-UserInfo是JLearnTestMoreViewModel.UserInfo中的struct
+        //table 选中的内容  JLearnTestMoreViewModel.UserInfo-UserInfo是JLearnTestMoreViewModel.UserInfo中的struct，是当前item绑定的数据类型
+        mainTable.rx.modelSelected(JLearnTestMoreViewModel.UserInfo.self).onNext { (userInfo) in
+            Console.log("梦想：\(userInfo.dream)")
+        }.disposed(by: rx.disposeBag)
         
-//        mainTable.rx.modelSelected(SectionModel.self).subscribe(onNext: { (teamInfo) in
-//
-//                Console.log("梦想：\(teamInfo.1.dream)")
-//
-//        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        //选中的索引  和  内容
+        Observable.zip(mainTable.rx.itemSelected,mainTable.rx.modelSelected(JLearnTestMoreViewModel.UserInfo.self))
+            .bind{ indexPath,items in
+                //Console.debug(indexPath)
+                //Console.log(items.name)
+            }.disposed(by: rx.disposeBag)
+        
+        //取消选中的索引
+        mainTable.rx.modelDeselected(JLearnTestMoreViewModel.UserInfo.self).onNext { (userInfo) in
+            
+        }.disposed(by: rx.disposeBag)
+        
+        //取消选中的内容
+        mainTable.rx.itemDeselected.subscribe(onNext: { indexPath in
+            
+        }).disposed(by: rx.disposeBag)
+        
+        //取消选中项的索引 和内容
+        Observable.zip(mainTable.rx.itemDeselected,mainTable.rx.modelDeselected(JLearnTestMoreViewModel.UserInfo.self))
+            .bind{ indexPath ,items in
+                
+                Console.log("取消选中:"+self.vm.tableDatas.value[indexPath.section].model+items.title)
+        }.disposed(by: rx.disposeBag)
+        
+        //获取删除项的索引
+        mainTable.rx.itemDeleted.subscribe({ indexPath in
+            Console.log("删除项的索引\(indexPath)")
+        }).disposed(by: rx.disposeBag)
+        
+        //        mainTable.rx.modelSelected(String.self).onNext { (values) in
+        //
+        //        }.disposed(by: rx.disposeBag)
         
         /*测试数据-固定的数据
         let items = Observable.just([SectionModel(model: "*", items: ["2","7"]),
                                       SectionModel(model: "#", items: ["1","5","9"]),
                                       SectionModel(model: "_", items: ["3","4","6","8"])])
-        
     
         RxTableViewSectionedReloadDataSource<SectionModel...固定写法，可看做是     var datas = BehaviorRelay<[[String]]>.init(value: [])//BehaviorRelay<[(String,[UserInfo])]>.init(value: [])  //相当于一个可变数组-添加观察时用“.asObservable()”
          参照：    public typealias ConfigureCell = (CollectionViewSectionedDataSource<S>, UICollectionView, IndexPath, I) -> UICollectionViewCell

@@ -5,7 +5,10 @@ PODS:
     - CocoaLumberjack/Core
   - Differentiator (3.1.0)
   - HandyJSON (4.2.0)
+<<<<<<< HEAD
   - Localize-Swift (2.0.0)
+=======
+>>>>>>> 2dab78567fd1af513531bd4f4c1d555fd7bc6a7d
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
@@ -42,7 +45,10 @@ PODS:
 DEPENDENCIES:
   - CocoaLumberjack/Swift
   - HandyJSON (= 4.2.0)
+<<<<<<< HEAD
   - Localize-Swift (~> 2.0)
+=======
+>>>>>>> 2dab78567fd1af513531bd4f4c1d555fd7bc6a7d
   - Moya/RxSwift (~> 12.0)
   - "NSObject+Rx (~> 4.4.1)"
   - R.swift (~> 5.0.3)
@@ -60,7 +66,10 @@ SPEC REPOS:
     - CocoaLumberjack
     - Differentiator
     - HandyJSON
+<<<<<<< HEAD
     - Localize-Swift
+=======
+>>>>>>> 2dab78567fd1af513531bd4f4c1d555fd7bc6a7d
     - Moya
     - "NSObject+Rx"
     - R.swift
@@ -80,7 +89,10 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   HandyJSON: 9dfc026c7d7adc1f0f8ba8b181495f0e0763b0f4
+<<<<<<< HEAD
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
+=======
+>>>>>>> 2dab78567fd1af513531bd4f4c1d555fd7bc6a7d
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
@@ -95,6 +107,10 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: 5bb1ba5d9efed6257c45d7e6ad95fe7690f341f0
+=======
+PODFILE CHECKSUM: da16ed7d67b3e245ae910d7b13f571babfee9a0d
+>>>>>>> 2dab78567fd1af513531bd4f4c1d555fd7bc6a7d
 
 COCOAPODS: 1.5.3
