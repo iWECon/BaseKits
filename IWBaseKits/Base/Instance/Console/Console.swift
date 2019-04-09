@@ -10,6 +10,7 @@ import UIKit
 import CocoaLumberjack
 import RxSwift
 import RxCocoa
+import Localize_Swift
 
 class LogFormatter: DDDispatchQueueLogFormatter {
     let dateFormatter: DateFormatter
@@ -58,6 +59,8 @@ public struct Console {
      是否越狱: \(IWDevice.isJailbroken.yesOrNo)
 是否异型全面屏: \(IWDevice.isShaped.yesOrNo)
  本次运行UUID: \(NSUUID.init().uuidString)
+------
+     多语言包: \(Localize.availableLanguages(true))
 ------------
 """)
     }

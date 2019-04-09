@@ -532,10 +532,10 @@ public extension String {
         return randomString
     }
     
-    /// (本地语言).
-    func localized(comment: String = "") -> String {
-        return NSLocalizedString(self, comment: comment)
-    }
+//    /// (本地语言).
+//    func localized(comment: String = "") -> String {
+//        return NSLocalizedString(self, comment: comment)
+//    }
     
 }
 

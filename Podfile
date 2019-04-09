@@ -25,17 +25,10 @@ pod 'ReachabilitySwift', '~> 4.0' # https://github.com/ashleymills/Reachability.
 
 
 # Model
-<<<<<<< HEAD
 # for Xcode 10.2
 #pod 'HandyJSON', :tag=> '5.0.0-beta.1', :git => 'https://github.com/alibaba/HandyJSON'     # https://github.com/alibaba/HandyJSON
 # for Xcode 10.1
-=======
-# Xcode 10.2
-#pod 'HandyJSON', :tag=> '5.0.0-beta.1', :git => 'https://github.com/alibaba/HandyJSON'     # https://github.com/alibaba/HandyJSON
-# Xcode 10.1
->>>>>>> 2dab78567fd1af513531bd4f4c1d555fd7bc6a7d
 pod 'HandyJSON', '= 4.2.0'
-
 
 # layout
 pod 'SnapKit', '~> 4.2.0'       # https://github.com/SnapKit/SnapKit

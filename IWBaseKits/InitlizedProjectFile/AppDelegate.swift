@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Moya
+import Localize_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

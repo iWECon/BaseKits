@@ -1,0 +1,11 @@
+/* 
+  Localize.strings
+  IWBaseKits
+
+  Created by 未来 on 2019/4/9.
+  Copyright © 2019 iWECon. All rights reserved.
+*/
+
+"UserProfile.Settings.Login" = "IL Login";
+"UserProfile.Settings.Logout" = "IL Logout";
+"UserProfile.Settings.Settings" = "IL Settings";

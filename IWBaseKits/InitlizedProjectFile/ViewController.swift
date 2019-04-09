@@ -48,14 +48,10 @@ class ViewController: IWViewController {
         output.checkPass.drive(loginButton.rx.isEnabled).disposed(by: rx.disposeBag)
         
         
-//        (loginButton.rx.touchUpInside).onNext { (_) in
-//
-//            self.loginButton.setTitle(R.string.localizable.userProfileSettingsLogout.key.localized(), for: .normal)
-//
-//        }.disposed(by: rx.disposeBag)
-        
-        Languages.shared.language.onNext { (_) in
-            self.loginButton.setTitle(R.string.localizable.userProfileSettingsLogout.key.localized(), for: .normal)
+        Languages.shared.language.onNext { [weak self] (_) in
+            
+            self?.loginButton.setTitle(R.string.localizable.userProfileSettingsLogin.key.localized(), for: .normal)
+            
         }.disposed(by: rx.disposeBag)
         
         /*-----------------------------------------------*/

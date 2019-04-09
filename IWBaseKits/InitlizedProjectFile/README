@@ -1,0 +1,6 @@
+
+R.generated.swift 是通过 R.swift 框架生成的，每次编译项目都会自动生成；一般情况来说，不用管他。
+
+Localizable.strings 是语言文件，这个名字必须为 Localizable，否则框架内的语言切换不生效！
+
+使用 IWViewModel 初始化视图时，需要重写 instanceController 变量，来达到初始化视图并绑定 ViewModel 的过程。

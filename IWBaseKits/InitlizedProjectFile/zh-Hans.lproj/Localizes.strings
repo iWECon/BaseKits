@@ -1,11 +1,9 @@
 /* 
-  Localize.strings
+  Localizes.strings
   IWBaseKits
 
   Created by 未来 on 2019/4/9.
   Copyright © 2019 iWECon. All rights reserved.
 */
-
-"UserProfile.Settings.Login" = "登录";
-"UserProfile.Settings.Logout" = "退出";
+"UserProfile.Settings.Logout" = "退出登录";
 "UserProfile.Settings.Settings" = "设置";
