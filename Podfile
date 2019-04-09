@@ -13,7 +13,7 @@ pod 'RxSwiftExt', '~> 3.4.0'    # https://github.com/RxSwiftCommunity/RxSwiftExt
 
 # Tools
 pod 'R.swift', '~> 5.0.3'       # https://github.com/mac-cain13/R.swift
-
+pod 'Localize-Swift', '~> 2.0'  # https://github.com/marmelroy/Localize-Swift
 
 # TableView & CollectionView
 pod 'RxDataSources', '~> 3.1.0' # https://github.com/RxSwiftCommunity/RxDataSources
@@ -25,10 +25,10 @@ pod 'ReachabilitySwift', '~> 4.0' # https://github.com/ashleymills/Reachability.
 
 
 # Model
-# Xcode 10.2
-pod 'HandyJSON', :tag=> '5.0.0-beta.1', :git => 'https://github.com/alibaba/HandyJSON'     # https://github.com/alibaba/HandyJSON
-# Xcode 10.1
-#pod 'HandyJSON', '= 4.2.0'
+# for Xcode 10.2
+#pod 'HandyJSON', :tag=> '5.0.0-beta.1', :git => 'https://github.com/alibaba/HandyJSON'     # https://github.com/alibaba/HandyJSON
+# for Xcode 10.1
+pod 'HandyJSON', '= 4.2.0'
 
 
 # layout

@@ -16,6 +16,24 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `JLearnMoreCell`.
+    static let jLearnMoreCell = _R.nib._JLearnMoreCell()
+    
+    /// `UINib(name: "JLearnMoreCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.jLearnMoreCell) instead")
+    static func jLearnMoreCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.jLearnMoreCell)
+    }
+    
+    static func jLearnMoreCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JLearnMoreCell? {
+      return R.nib.jLearnMoreCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JLearnMoreCell
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
@@ -31,6 +49,39 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    struct localizable {
+      /// zh-Hans translation: 设置
+      /// 
+      /// Locales: zh-Hans, en
+      static let userProfileSettingsSettings = Rswift.StringResource(key: "UserProfile.Settings.Settings", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans", "en"], comment: nil)
+      /// zh-Hans translation: 退出登录
+      /// 
+      /// Locales: zh-Hans, en
+      static let userProfileSettingsLogout = Rswift.StringResource(key: "UserProfile.Settings.Logout", tableName: "Localizable", bundle: R.hostingBundle, locales: ["zh-Hans", "en"], comment: nil)
+      
+      /// zh-Hans translation: 设置
+      /// 
+      /// Locales: zh-Hans, en
+      static func userProfileSettingsSettings(_: Void = ()) -> String {
+        return NSLocalizedString("UserProfile.Settings.Settings", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// zh-Hans translation: 退出登录
+      /// 
+      /// Locales: zh-Hans, en
+      static func userProfileSettingsLogout(_: Void = ()) -> String {
+        return NSLocalizedString("UserProfile.Settings.Logout", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
     }
     
     fileprivate init() {}
@@ -52,6 +103,21 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+  }
+  
+  struct nib {
+    struct _JLearnMoreCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "JLearnMoreCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JLearnMoreCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JLearnMoreCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {

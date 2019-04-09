@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Localize_Swift
 
 class ViewController: IWViewController {
     
@@ -32,11 +33,6 @@ class ViewController: IWViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-//        view.rx.frame.onNext { (value) in
-//
-//            Console.debug(value!)
-//
-//        }.disposed(by: rx.disposeBag)
     }
     
     override func bindViewModel() {
@@ -46,12 +42,22 @@ class ViewController: IWViewController {
                 accountDriver: accountTexiField.rx.text.orEmpty.asObservable(),
                 passwordDriver: passwordTextField.rx.text.orEmpty.asObservable(),
                 switchDriver: switchServiceModeButton.rx.tap.asDriver())
-        
+
         let output = vm.transform(input: input)
-        
+
         output.checkPass.drive(loginButton.rx.isEnabled).disposed(by: rx.disposeBag)
         
-
+        
+//        (loginButton.rx.touchUpInside).onNext { (_) in
+//
+//            self.loginButton.setTitle(R.string.localizable.userProfileSettingsLogout.key.localized(), for: .normal)
+//
+//        }.disposed(by: rx.disposeBag)
+        
+        Languages.shared.language.onNext { (_) in
+            self.loginButton.setTitle(R.string.localizable.userProfileSettingsLogout.key.localized(), for: .normal)
+        }.disposed(by: rx.disposeBag)
+        
         /*-----------------------------------------------*/
         /*                     Learn_box                 */
         /*-----------------------------------------------*/

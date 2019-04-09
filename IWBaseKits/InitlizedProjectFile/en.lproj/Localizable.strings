@@ -5,3 +5,6 @@
   Created by 未来 on 2019/4/8.
   Copyright © 2019 iWECon. All rights reserved.
 */
+
+"UserProfile.Settings.Settings" = "Settings";
+"UserProfile.Settings.Logout" = "Logout";

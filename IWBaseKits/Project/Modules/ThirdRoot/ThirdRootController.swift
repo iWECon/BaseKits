@@ -9,6 +9,8 @@
 import UIKit
 
 class ThirdRootController: IWViewController {
+    
+    var tableView: IWTableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +21,15 @@ class ThirdRootController: IWViewController {
     override func prepareUI() {
         super.prepareUI()
         
-        view.backgroundColor = .groupTableViewBackground
+        tableView = IWTableView(frame: ScreenBounds, style: UITableView.Style.plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
+
+//extension ThirdRootController: UITableViewDelegate, UITableViewDataSource {
+//    
+//    
+//}

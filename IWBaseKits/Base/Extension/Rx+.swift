@@ -36,6 +36,11 @@ extension ObservableType {
         return self.subscribe(onNext: onNext, onError: nil, onCompleted: nil, onDisposed: nil)
     }
     
+    /// 空函数
+    func mapToVoid() -> Observable<Void> {
+        return map { _ in }
+    }
+    
 }
 
 extension IWViewBridge where Base: UIView {

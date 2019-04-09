@@ -45,11 +45,11 @@ class ViewModel: IWViewModel {
     func transform(input: Input) -> Output {
         
         let loginTriggered = input.loginControlEvent
-        loginTriggered.onNext { (_) in
-            
-            //self?.request(.login(account: "13203007472", password: "111111"))
-            
-        }.disposed(by: rx.disposeBag)
+//        loginTriggered.onNext { (_) in
+//
+//            //self?.request(.login(account: "13203007472", password: "111111"))
+//
+//        }.disposed(by: rx.disposeBag)
         
         input.switchDriver.onNext({ (_) in
             IWService.shared.switchMode()

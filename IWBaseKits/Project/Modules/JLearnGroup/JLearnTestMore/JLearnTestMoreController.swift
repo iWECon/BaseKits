@@ -165,7 +165,7 @@ class JLearnTestMoreController: IWViewController {
         mainTable.rx.itemSelected.subscribe(onNext: { indexPath in
             print("选中项的indexPath为：\(indexPath)")
         }).disposed(by: rx.disposeBag)
-        mainTable.rx.itemSelected.sub
+//        mainTable.rx.itemSelected.sub
         
         //table 选中事件  JLearnTestMoreViewModel.UserInfo-UserInfo是JLearnTestMoreViewModel.UserInfo中的struct
         
