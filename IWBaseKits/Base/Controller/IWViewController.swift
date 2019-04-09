@@ -19,11 +19,12 @@ class IWViewController: UIViewController, IWViewControllerable {
     
     var snapshot: UIView?
     
+    let language = AppDelegate.shared.language
     
     public init() {
         super.init(nibName: nil, bundle: nil)
     }
-//
+    
     public convenience init(viewModel: IWViewModelable) {
         self.init(nibName: nil, bundle: nil)
         

@@ -61,6 +61,8 @@ public struct Console {
  本次运行UUID: \(NSUUID.init().uuidString)
 ------
      多语言包: \(Localize.availableLanguages(true))
+     系统语言: \(Localize.defaultLanguage())
+     当前语言: \(Localize.currentLanguage())
 ------------
 """)
     }

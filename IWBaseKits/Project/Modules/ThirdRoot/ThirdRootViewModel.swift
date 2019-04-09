@@ -22,7 +22,7 @@ class ThirdRootViewModel: IWViewModel {
     override func initialized() {
         super.initialized()
         
-        navigationBarTitle.accept("控制器3")
+        navigationBarTitle.accept("语言")
         
         datas.accept([SectionModel<String?, String>.init(model: "语言选择", items: ["zh-cn", "en", "it", "follow system"])])
     }

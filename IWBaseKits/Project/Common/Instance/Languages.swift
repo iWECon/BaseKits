@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 import Localize_Swift
 
+fileprivate let languageKey = "languageKey"
+
 class Languages: NSObject {
     
     enum Language {
@@ -58,32 +60,37 @@ class Languages: NSObject {
     
     func use(_ lang: Language) -> Void {
         if lang == .system {
-            Languages.removeCurrentLanguage()
+            removeCurrentLanguage()
+            Localize.setCurrentLanguage(Localize.defaultLanguage())
         } else {
             Localize.setCurrentLanguage(lang.value)
-            save()
         }
         _language.accept(lang)
+        save()
     }
     
     private func save() {
-        Console.debug(Bundle.main)
+        if _language.value == .system {
+            return
+        }
         if Localize.availableLanguages(true).contains(_language.value.value) {
-            UserDefaults.standard.set(_language.value.value, forKey: "languageKey")
+            UserDefaults.standard.set(_language.value.value, forKey: languageKey)
+            UserDefaults.standard.synchronize()
             return
         }
         Console.error("The language(\(_language.value.value)) save failed. Bcz is not contains in available languages!")
     }
     
     static func currentLanguage() -> Language? {
-        if let lang = UserDefaults.standard.string(forKey: "languageKey") {
+        if let lang = UserDefaults.standard.string(forKey: languageKey) {
             return Language.init(lang)
         }
-        return nil
+        return .system
     }
     
-    static func removeCurrentLanguage() {
-        UserDefaults.standard.removeObject(forKey: "languageKey")
+    private func removeCurrentLanguage() {
+        UserDefaults.standard.removeObject(forKey: languageKey)
+        UserDefaults.standard.synchronize()
     }
 }
 

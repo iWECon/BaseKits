@@ -48,11 +48,12 @@ class ViewController: IWViewController {
         output.checkPass.drive(loginButton.rx.isEnabled).disposed(by: rx.disposeBag)
         
         
-        Languages.shared.language.onNext { [weak self] (_) in
+        
+        language?.onNext({ [weak self] (_) in
             
             self?.loginButton.setTitle(R.string.localizable.userProfileSettingsLogin.key.localized(), for: .normal)
             
-        }.disposed(by: rx.disposeBag)
+        }).disposed(by: rx.disposeBag)
         
         /*-----------------------------------------------*/
         /*                     Learn_box                 */

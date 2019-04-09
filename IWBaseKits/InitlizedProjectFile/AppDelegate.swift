@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let router: IWRouter = IWRouter.init()
     /// router stack for navigation
     var routerStack: IWRouterNavigationControllerStack!
+    let language = Languages.shared.language
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

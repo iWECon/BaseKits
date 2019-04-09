@@ -23,7 +23,7 @@ class EntranceController: IWEntranceTabBarController {
     override func prepareUI() {
         super.prepareUI()
         
-        set(tabBarItemTitles: ["首页", "第二页", "第三页"])
+        set(tabBarItemTitles: ["首页", "第二页", "语言"])
         set(normalColor: UIColor.gray)
         set(selectedColor: UIColor.black)
         

@@ -33,6 +33,8 @@ class IWViewModel: NSObject, IWViewModelable {
     
     /// 网络请求通用实例
     let provider: IWProvider<CommonAPI> = AppDelegate.shared.provider
+    /// 语言切换 Drive
+    let language = AppDelegate.shared.language
     
     /// 初始化的时候带上的 params, 虽然叫 params 但类型是 Any 可以给任意值
     var params: Any?

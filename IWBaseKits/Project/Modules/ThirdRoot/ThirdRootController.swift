@@ -49,7 +49,6 @@ class ThirdRootController: IWViewController {
         
         (tableView.rx.itemSelected).onNext { (idx) in
             
-            Console.debug(idx)
             if idx.row == 0 {
                 Languages.shared.use(.zh_cn)
             } else if idx.row == 1 {
