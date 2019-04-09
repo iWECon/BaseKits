@@ -16,6 +16,24 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `JLearnMoreCell`.
+    static let jLearnMoreCell = _R.nib._JLearnMoreCell()
+    
+    /// `UINib(name: "JLearnMoreCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.jLearnMoreCell) instead")
+    static func jLearnMoreCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.jLearnMoreCell)
+    }
+    
+    static func jLearnMoreCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JLearnMoreCell? {
+      return R.nib.jLearnMoreCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JLearnMoreCell
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
@@ -52,6 +70,21 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+  }
+  
+  struct nib {
+    struct _JLearnMoreCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "JLearnMoreCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JLearnMoreCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JLearnMoreCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {
