@@ -47,7 +47,7 @@ class Languages: NSObject {
         }
     }
     
-    static let shared = Languages.init(use: Languages.currentLanguage() ?? Language.init(Localize.defaultLanguage()))
+    static let shared = Languages.init(use: Languages.currentLanguage())
     
     private var _language = BehaviorRelay<Language>.init(value: .zh_cn)
     public var language: Driver<Void>!
@@ -81,7 +81,7 @@ class Languages: NSObject {
         Console.error("The language(\(_language.value.value)) save failed. Bcz is not contains in available languages!")
     }
     
-    static func currentLanguage() -> Language? {
+    static func currentLanguage() -> Language {
         if let lang = UserDefaults.standard.string(forKey: languageKey) {
             return Language.init(lang)
         }

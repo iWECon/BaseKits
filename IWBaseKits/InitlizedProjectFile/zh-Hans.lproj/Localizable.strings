@@ -9,3 +9,8 @@
 "UserProfile.Settings.Login" = "登录";
 "UserProfile.Settings.Logout" = "退出";
 "UserProfile.Settings.Settings" = "设置";
+
+"Languages.ChineseHans" = "简体中文";
+"Languages.English" = "English";
+"Languages.Italian" = "Italian";
+"Languages.FollowSystem" = "跟随系统";
