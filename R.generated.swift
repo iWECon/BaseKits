@@ -30,15 +30,27 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `JCollectionViewItemCell`.
+    static let jCollectionViewItemCell = _R.nib._JCollectionViewItemCell()
     /// Nib `JLearnMoreCell`.
     static let jLearnMoreCell = _R.nib._JLearnMoreCell()
+    
+    /// `UINib(name: "JCollectionViewItemCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.jCollectionViewItemCell) instead")
+    static func jCollectionViewItemCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.jCollectionViewItemCell)
+    }
     
     /// `UINib(name: "JLearnMoreCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.jLearnMoreCell) instead")
     static func jLearnMoreCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.jLearnMoreCell)
+    }
+    
+    static func jCollectionViewItemCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JCollectionViewItemCell? {
+      return R.nib.jCollectionViewItemCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JCollectionViewItemCell
     }
     
     static func jLearnMoreCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JLearnMoreCell? {
@@ -186,6 +198,17 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
+    struct _JCollectionViewItemCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "JCollectionViewItemCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JCollectionViewItemCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JCollectionViewItemCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _JLearnMoreCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "JLearnMoreCell"

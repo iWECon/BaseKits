@@ -50,13 +50,9 @@ class ViewController: IWViewController {
                 switchDriver: switchServiceModeButton.rx.tap.asDriver(),
                 chooseLanguageTrigger: navigationItem.rightBarButtonItem!.rx.tap.asDriver())
         
-<<<<<<< HEAD
         let output = vm.transform(input: input)
         
         output.checkPass.drive(loginButton.rx.isEnabled).disposed(by: rx.disposeBag)
-        
-=======
->>>>>>> 881573968bd7f158e035cd7a35276ad055237011
         language?.onNext({ [weak self] (_) in
             
             self?.loginButton.setTitle(R.string.localizable.userProfileSettingsLogin.key.localized(), for: .normal)
