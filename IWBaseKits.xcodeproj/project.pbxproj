@@ -89,6 +89,12 @@
 		929220A72249FC77009F6DF8 /* IWService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929220A62249FC77009F6DF8 /* IWService.swift */; };
 		929220A9224A09C2009F6DF8 /* IWServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929220A8224A09C2009F6DF8 /* IWServiceModel.swift */; };
 		A88C0845D1FF64BD673DBD6A /* Pods_IWBaseKits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAE22ED6470B075B2D28DD9C /* Pods_IWBaseKits.framework */; };
+		F62019D0225D877800410066 /* MyAlertControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62019CF225D877800410066 /* MyAlertControlle.swift */; };
+		F62019D3225DBF1C00410066 /* JCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62019D2225DBF1C00410066 /* JCollectionViewController.swift */; };
+		F62019D5225DBF3B00410066 /* JCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62019D4225DBF3B00410066 /* JCollectionViewModel.swift */; };
+		F62019D7225DD82C00410066 /* JCollectionItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62019D6225DD82C00410066 /* JCollectionItemViewModel.swift */; };
+		F62019DA225DD84B00410066 /* JCollectionViewItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62019D8225DD84B00410066 /* JCollectionViewItemCell.swift */; };
+		F62019DB225DD84B00410066 /* JCollectionViewItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F62019D9225DD84B00410066 /* JCollectionViewItemCell.xib */; };
 		F63244122255908000DC46BF /* JLearnTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63244112255908000DC46BF /* JLearnTestViewModel.swift */; };
 		F63244142255909800DC46BF /* JLearnTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63244132255909800DC46BF /* JLearnTestController.swift */; };
 		F6324416225590B000DC46BF /* JLearnTestMoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6324415225590B000DC46BF /* JLearnTestMoreController.swift */; };
@@ -212,6 +218,12 @@
 		929220A62249FC77009F6DF8 /* IWService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWService.swift; sourceTree = "<group>"; };
 		929220A8224A09C2009F6DF8 /* IWServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWServiceModel.swift; sourceTree = "<group>"; };
 		DAE22ED6470B075B2D28DD9C /* Pods_IWBaseKits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IWBaseKits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F62019CF225D877800410066 /* MyAlertControlle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlertControlle.swift; sourceTree = "<group>"; };
+		F62019D2225DBF1C00410066 /* JCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCollectionViewController.swift; sourceTree = "<group>"; };
+		F62019D4225DBF3B00410066 /* JCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCollectionViewModel.swift; sourceTree = "<group>"; };
+		F62019D6225DD82C00410066 /* JCollectionItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCollectionItemViewModel.swift; sourceTree = "<group>"; };
+		F62019D8225DD84B00410066 /* JCollectionViewItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCollectionViewItemCell.swift; sourceTree = "<group>"; };
+		F62019D9225DD84B00410066 /* JCollectionViewItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JCollectionViewItemCell.xib; sourceTree = "<group>"; };
 		F63244112255908000DC46BF /* JLearnTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestViewModel.swift; sourceTree = "<group>"; };
 		F63244132255909800DC46BF /* JLearnTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestController.swift; sourceTree = "<group>"; };
 		F6324415225590B000DC46BF /* JLearnTestMoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnTestMoreController.swift; sourceTree = "<group>"; };
@@ -604,6 +616,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F62019CE225D873B00410066 /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				F62019CF225D877800410066 /* MyAlertControlle.swift */,
+			);
+			path = AlertController;
+			sourceTree = "<group>";
+		};
+		F62019D1225DBEE200410066 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F62019D4225DBF3B00410066 /* JCollectionViewModel.swift */,
+				F62019D2225DBF1C00410066 /* JCollectionViewController.swift */,
+				F62019D6225DD82C00410066 /* JCollectionItemViewModel.swift */,
+				F62019D8225DD84B00410066 /* JCollectionViewItemCell.swift */,
+				F62019D9225DD84B00410066 /* JCollectionViewItemCell.xib */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		F63244022254B99000DC46BF /* JLearnGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +668,7 @@
 		F632441B22559B6000DC46BF /* JLearnTestMore */ = {
 			isa = PBXGroup;
 			children = (
+				F62019CE225D873B00410066 /* AlertController */,
 				F6324417225590C400DC46BF /* JLearnTestMoreViewModel.swift */,
 				F6324415225590B000DC46BF /* JLearnTestMoreController.swift */,
 				F692D090225ADFF900B478FB /* JLearnMoreItemViewModel.swift */,
@@ -648,6 +681,7 @@
 		F6911E032255ADE300E93670 /* JLearnTestOther */ = {
 			isa = PBXGroup;
 			children = (
+				F62019D1225DBEE200410066 /* CollectionView */,
 				F6911E042255ADF800E93670 /* JLearnTestOtherViewModel.swift */,
 				F6911E062255AE0E00E93670 /* JLearnTestOtherController.swift */,
 			);
@@ -741,6 +775,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 				"zh-Hans",
 				it,
@@ -767,6 +802,7 @@
 				929220772249FADC009F6DF8 /* LaunchScreen.storyboard in Resources */,
 				929220742249FADC009F6DF8 /* Assets.xcassets in Resources */,
 				F692D08F225ADFD900B478FB /* JLearnMoreCell.xib in Resources */,
+				F62019DB225DD84B00410066 /* JCollectionViewItemCell.xib in Resources */,
 				929220722249FADB009F6DF8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -893,6 +929,7 @@
 				F692D091225ADFF900B478FB /* JLearnMoreItemViewModel.swift in Sources */,
 				9256FD952254AE8E00307395 /* Optional+.swift in Sources */,
 				92613697224CA2F0007CC47A /* IWProvider.swift in Sources */,
+				F62019D5225DBF3B00410066 /* JCollectionViewModel.swift in Sources */,
 				9234D7B72254933C009679B8 /* View+.swift in Sources */,
 				F6911E072255AE0E00E93670 /* JLearnTestOtherController.swift in Sources */,
 				9226448C224B7D6900373746 /* IWServiceConfigs.swift in Sources */,
@@ -920,6 +957,7 @@
 				922AA80E224DE72E00C8549F /* IWTabBarController.swift in Sources */,
 				F63244122255908000DC46BF /* JLearnTestViewModel.swift in Sources */,
 				9256FD972254B1A200307395 /* TextField+.swift in Sources */,
+				F62019DA225DD84B00410066 /* JCollectionViewItemCell.swift in Sources */,
 				922AA810224DE7A000C8549F /* IWTabBar.swift in Sources */,
 				922AA809224DE39300C8549F /* IWRouter.swift in Sources */,
 				9256FD9D2254B37700307395 /* URLRequest+.swift in Sources */,
@@ -927,6 +965,7 @@
 				922AA831224DF94500C8549F /* FirstRootController.swift in Sources */,
 				922AA835224DF95600C8549F /* ThirdRootController.swift in Sources */,
 				922AA833224DF94D00C8549F /* SecondRootController.swift in Sources */,
+				F62019D0225D877800410066 /* MyAlertControlle.swift in Sources */,
 				929220A9224A09C2009F6DF8 /* IWServiceModel.swift in Sources */,
 				922AA7FF224DB4F600C8549F /* Rx+.swift in Sources */,
 				9256FD9F2254B3D800307395 /* Color+.swift in Sources */,
@@ -954,6 +993,7 @@
 				9234D7AB22545067009679B8 /* CollectionView+.swift in Sources */,
 				92613690224C8FA2007CC47A /* IWRoutable.swift in Sources */,
 				92499CC4225C498600F66AA8 /* R.generated.swift in Sources */,
+				F62019D7225DD82C00410066 /* JCollectionItemViewModel.swift in Sources */,
 				929220A72249FC77009F6DF8 /* IWService.swift in Sources */,
 				922AA814224DE9BD00C8549F /* IWRouterNavigationControllerStack.swift in Sources */,
 				9200DAB2224F041F000E3D4E /* Controller+.swift in Sources */,
@@ -962,6 +1002,7 @@
 				922AA812224DE91500C8549F /* IWEntranceTabBarController.swift in Sources */,
 				929220A42249FB70009F6DF8 /* IWViewModel.swift in Sources */,
 				9234D7AD2254547D009679B8 /* Dictionary+.swift in Sources */,
+				F62019D3225DBF1C00410066 /* JCollectionViewController.swift in Sources */,
 				9234D7A722544FD3009679B8 /* RectCorner+.swift in Sources */,
 				F632441F22559BC100DC46BF /* JLearnBoxViewModel.swift in Sources */,
 				922AA824224DF44800C8549F /* FirstRootViewModel.swift in Sources */,

@@ -47,8 +47,6 @@ class ViewController: IWViewController {
 
         output.checkPass.drive(loginButton.rx.isEnabled).disposed(by: rx.disposeBag)
         
-        
-        
         language?.onNext({ [weak self] (_) in
             
             self?.loginButton.setTitle(R.string.localizable.userProfileSettingsLogin.key.localized(), for: .normal)

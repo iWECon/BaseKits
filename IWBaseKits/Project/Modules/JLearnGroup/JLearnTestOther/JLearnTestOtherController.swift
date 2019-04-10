@@ -50,13 +50,22 @@ class JLearnTestOtherController: IWViewController {
             
             self.vm.popToRoot() //无效
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        
+        
+        view.addSubview(collectionViewButton)
+        collectionViewButton.rx.controlEvent(.touchUpInside).subscribe(onNext: { (_) in
+            let collectionVm = JCollectionViewModel.init()
+            collectionVm.push(true)
+            
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
     
     }
     
     private lazy var nextButton: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 20, y: 80, width: UIScreen.main.bounds.width-40, height: 44)
-        button.backgroundColor = .magenta
+//        button.backgroundColor = .magenta
+        button.setTitleColor(.black, for: .normal)
         button.setTitle("🌺 进入下一页 🌺",for: .normal)
         return button
     }()
@@ -64,7 +73,8 @@ class JLearnTestOtherController: IWViewController {
     private lazy var aButton: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 20, y: 80+70, width: UIScreen.main.bounds.width-40, height: 44)
-        button.backgroundColor = .orange
+//        button.backgroundColor = .orange
+        button.setTitleColor(.black, for: .normal)
         button.setTitle("🌺   返回上一页",for: .normal)
         return button
     }()
@@ -72,8 +82,19 @@ class JLearnTestOtherController: IWViewController {
     private lazy var bButton: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 20, y: 80+120, width: UIScreen.main.bounds.width-40, height: 44)
-        button.backgroundColor = .cyan
+//        button.backgroundColor = .cyan
+        button.setTitleColor(.black, for: .normal)
         button.setTitle("🌺    返回root页",for: .normal)
+        return button
+    }()
+    
+    
+    private lazy var collectionViewButton: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(x: 20, y: 80+200, width: UIScreen.main.bounds.width-40, height: 44)
+//        button.backgroundColor = .cyan
+        button.setTitleColor(.black, for: .normal)
+        button.setTitle("🌺    collectionView",for: .normal)
         return button
     }()
     
