@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxDataSources
 
 class JLearnBoxViewController: IWViewController {
     
@@ -64,14 +63,12 @@ class JLearnBoxViewController: IWViewController {
         tableView.backgroundColor = UIColor.white
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "mycell")
-        
-//        tableView.setEditing(true, animated: true)
-        
+                
         vm.datas.asObservable().bind(to:tableView.rx.items) {(tableView,row,item) in
             //注意：! 与 ?
             let cell = tableView.dequeueReusableCell(withIdentifier: "mycell")!
-            //            let cell = tableView.dequeueReusableCell(withIdentifier: "mycell")
             cell.textLabel?.text = String(item.1) + "-" + "\(item.0)"
+            cell.accessoryType = .disclosureIndicator
             return cell
             
             }.disposed(by: rx.disposeBag)
@@ -91,14 +88,13 @@ class JLearnBoxViewController: IWViewController {
             }else{
                 
             }
-
-            
             
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
         
         tableView.rx.modelDeselected((String,Int,String).self).onNext { (item) in
             Console.log("拜拜")
             }.disposed(by: rx.disposeBag)
+        
         
         
     }

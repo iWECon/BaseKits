@@ -10,7 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-class JLearnTestMoreController: IWViewController {
+class JLearnTestMoreController: IWViewController ,UITableViewDataSource,UITableViewDelegate{
+    
     
     var mainTable : UITableView!
     
@@ -27,31 +28,26 @@ class JLearnTestMoreController: IWViewController {
     override func prepareUI() {
         super.prepareUI()
         
-//        mainTable.setEditing(true, animated: true) //开始编辑
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "编辑", style: .plain, target: self, action: #selector(editTable))
         
         vm.netWork()
         
         self.learnBinderTest()
         self.learnObservableTest()
-        self.learnTableTest()
         
     }
     
     @objc func editTable() -> Void{
         
-        mainTable.beginUpdates()
         if self.navigationItem.rightBarButtonItem?.title=="编辑" {
-            Console.debug(" 编辑 tableView")
+            Console.debug("开始编辑 tableView")
             self.navigationItem.rightBarButtonItem?.title = "完成"
             mainTable.setEditing(true, animated: true) //开始编辑
         }else{
-            Console.debug(" tableView 编辑完成")
+            Console.debug("tableView 编辑完成")
             self.navigationItem.rightBarButtonItem?.title = "编辑"
             mainTable.setEditing(false, animated: true) //结束编辑
         }
-        mainTable.endUpdates()
-//        mainTable.reloadData()
     }
     
     /* Binder  的学习*/
@@ -69,7 +65,7 @@ class JLearnTestMoreController: IWViewController {
             
             self.infoLabel.text = text
             
-            }.disposed(by: rx.disposeBag) //直接使用by:disposeBag() 不起作用啊啊--不是不起作用，而是disposed是注销，那么此时bind这系列操作直接无效了
+            }.disposed(by: rx.disposeBag) //直接使用by:disposeBag() 不起作用啊啊--不是不起作用，而是disposed是注销，那么此时bind这系列操作直接注销无效了
         
         observable.map{ CGFloat($0) }.bind(to: infoLabel.fontSize).disposed(by: rx.disposeBag)
         
@@ -77,6 +73,7 @@ class JLearnTestMoreController: IWViewController {
             if (fontSize>18){
                 return CGFloat(18.0)
             }
+            
             return CGFloat(fontSize)
             
             }.subscribe(onNext: { (fontSize) in
@@ -150,33 +147,170 @@ class JLearnTestMoreController: IWViewController {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        
+        //注意操作符号的间隔
+        if mainTable != nil {
+            mainTable.removeFromSuperview()
+        }
+
+        //或者
+//        if (self.view.viewWithTag(199) != nil) {
+//            mainTable.removeFromSuperview()
+//        }
+        
+        self.showAlert() //点击页面空白处出现弹框 ，然后再以不同方式实现Table
+    }
+    
+    /*Alert 使用：用于选择Table的实现方式*/
+    func showAlert() -> Void {
+        let alertCtrl:MyAlertControlle = MyAlertControlle.init(title: "温馨提示", message: "请选择学习模块", preferredStyle: .actionSheet)
+        alertCtrl.addAction(UIAlertAction.init(title: "Swift", style: .default, handler: { action in
+            Console.log("选择了-Swift")
+            self.initTabelView()
+            self.learnSwiftTableTest()
+        }))
+        alertCtrl.addAction(UIAlertAction.init(title: "RxSwift", style: .default, handler: { action in
+            Console.log("选择了-RxSwift")
+            self.initTabelView()
+            self.learnRXSwiftTableTest()
+        }))
+        alertCtrl.addAction(UIAlertAction.init(title: "RxDataSource", style: .default, handler: { action in
+            Console.log("选择了-RxDataSource")
+            self.initTabelView()
+            self.learnRxDataSourceTableTest()
+        }))
+        alertCtrl.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: { action in
+            Console.log("取消")
+        }))
+        
+        self.present(alertCtrl, animated: true, completion: nil)
+    }
+    
     /* table 的学习*/
-    func learnTableTest() {
-        mainTable = UITableView(frame: CGRect(x: 0, y: infoLabel.y + infoLabel.height + 20, width: ScreenWidth, height: ScreenHeight-200), style: .grouped)
+    func initTabelView() -> Void {
+        // 0-设置tableView
+        mainTable = UITableView(frame: CGRect(x: 0,
+                                              y: infoLabel.y + infoLabel.height + 20,
+                                              width: ScreenWidth,
+                                              height: ScreenHeight-200),
+                                style: .grouped)
+        mainTable.tag = 199
         mainTable.backgroundColor = UIColor.white
         view.addSubview(mainTable)
-        mainTable.setEditing(true, animated: true) //开始编辑
-
-        
+        //注册单元格
         mainTable.register(UITableViewCell.self, forCellReuseIdentifier: "teamCell")
         
-        //ViewModel处的数据
+        //添加tableView的页眉
+        let headerView:UIView = UIView.init(frame: CGRect(x: 0,
+                                                          y: 0,
+                                                          width: ScreenWidth,
+                                                          height: ScreenWidth*0.15))
+        
+        let headerLab:UILabel = UILabel.init(frame: CGRect(x: 10,
+                                                           y: ScreenWidth*0.05/2,
+                                                           width: ScreenWidth-20,
+                                                           height: ScreenWidth*0.1))
+        
+        headerLab.text = "这是海贼的新时代"
+        headerLab.textColor = .red
+        headerView.addSubview(headerLab)
+        headerView.backgroundColor = .black
+        mainTable.tableHeaderView = headerView
+        
+        //添加TableView的页脚
+        let footerView:UIView = UIView(frame: CGRect(x: 0,
+                                                     y: 0,
+                                                     width: ScreenWidth,
+                                                     height: ScreenWidth*0.15))
+        let footerLab:UILabel = UILabel(frame: CGRect(x: 10,
+                                                      y: ScreenWidth*0.05/2,
+                                                      width: ScreenWidth-20,
+                                                      height: ScreenWidth*0.1))
+        footerLab.text = "海上皇帝"
+        footerLab.textColor = .blue
+        footerLab.textAlignment = .right
+        footerView.addSubview(footerLab)
+        footerView.backgroundColor = .yellow
+        mainTable.tableFooterView = footerView
+    }
+    func learnSwiftTableTest() {
+        //dataSource - vm.tableDatas
+        
+        mainTable.delegate = self
+        mainTable.dataSource = self
+
+    }
+    
+    //table delegate
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return vm.datas.value.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
+        cell.textLabel?.text = "only swift -"+vm.datas.value[indexPath.row]
+        return cell
+    }
+    
+    func learnRXSwiftTableTest() {
+        //dataSource - vm.tableDatas
+   
+        vm.datas.asObservable().bind(to:mainTable.rx.items) {(table,row,item) in
+            
+            let cell = table.dequeueReusableCell(withIdentifier: "teamCell")
+            
+            cell?.textLabel!.text =  "RxSwift -"+item
+            
+            return cell!
+        }.disposed(by: rx.disposeBag)
+        
+       
+    }
+    
+    func learnRxDataSourceTableTest() {
+        
+        //dataSource - vm.tableDatas
+        
+        //1-ViewModel处的数据-给item进行设置
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String,JLearnTestMoreViewModel.UserInfo>> (configureCell: {(datas, mainTable, indexPath, userInfo) -> UITableViewCell in
             
-//            var cell:UITableViewCell!
+            //var cell:UITableViewCell!
             let cell = mainTable.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
-//            if (cell == nil){
-//                cell = UITableViewCell(style: .subtitle, reuseIdentifier: "teamCell")
-//            }
+            //if (cell == nil){
+            //   cell = UITableViewCell(style: .subtitle, reuseIdentifier: "teamCell")
+            //}
             cell.textLabel?.text = "\(userInfo.title)---\(userInfo.name)"
             cell.detailTextLabel?.text = "梦想：\(userInfo.dream)"
             return cell
         })
         
+        //2-给分区设置title
         dataSource.titleForHeaderInSection = {(datas,section) in
             return datas.sectionModels[section].model
         }
+        //3-允许tableView进行编辑 RxDataSource重写了函数，默认FALSE：即使设置了isEditing=true，也不能编辑，需要进行下面的设置
+        dataSource.canEditRowAtIndexPath = { (ds,indexPath) in
+            return true
+        }
+        //4-允许tableView进行移动 RxDataSource重写了函数，默认FALSE( 注意查看源码-CanMoveRowAtIndexPath = (TableViewSectionedDataSource<S>, IndexPath) -> Bool)
+        dataSource.canMoveRowAtIndexPath = { (ds,indexPath) in
+            if indexPath.row==0 {
+                //Console.log("船长不能换队伍")  //不能根据当前船长的位置来确定船长，还是要根据userinfo来确定身份
+                //return false
+            }
+            if ds[indexPath.section].items[indexPath.row].title=="船长" {
+                Console.log("船长不能换队伍") //当前是设置了船长不能移动，未满足不能换队伍的需求
+                return false
+            }
+            return true
+        }
         
+        //数据源必须全部设置后才能绑定（bind To，drive等）
         //因为vm.tableDatas是BehaviorRelay，进行bind时需要转成可观察者“.asObservable()”
         vm.tableDatas.asObservable().bind(to: mainTable.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
         
@@ -219,9 +353,10 @@ class JLearnTestMoreController: IWViewController {
             Console.log("删除项的索引\(indexPath)")
         }).disposed(by: rx.disposeBag)
         
-        //        mainTable.rx.modelSelected(String.self).onNext { (values) in
+        
+        //mainTable.rx.modelSelected(String.self).onNext { (values) in
         //
-        //        }.disposed(by: rx.disposeBag)
+        //}.disposed(by: rx.disposeBag)
         
         /*测试数据-固定的数据
         let items = Observable.just([SectionModel(model: "*", items: ["2","7"]),
@@ -249,8 +384,6 @@ class JLearnTestMoreController: IWViewController {
         items.bind(to: mainTable.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
     */
         
-        
-       
         
 //        vm.datas.asObservable().bind(to:mainTable.rx.items(dataSource: RxTableViewDataSourceType & UITableViewDataSource)){ (mainTable,row,item) in
 //            ()

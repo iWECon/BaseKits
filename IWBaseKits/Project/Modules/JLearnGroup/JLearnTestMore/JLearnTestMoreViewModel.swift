@@ -19,10 +19,11 @@ class JLearnTestMoreViewModel: IWViewModel {
         var dream:String
     }
 //    var datas : Observable<[(String,[UserInfo])]>? //简单地，固定的数据时可以用这个 ，不能变
-    var datas = BehaviorRelay<[[String]]>.init(value: [])//BehaviorRelay<[(String,[UserInfo])]>.init(value: [])  //相当于一个可变数组-添加观察时用“.asObservable()”
+//    var lists = BehaviorRelay<>
+    
+    var datas = BehaviorRelay<[String]>.init(value: [])//BehaviorRelay<[(String,[UserInfo])]>.init(value: [])  //相当于一个可变数组-添加观察时用“.asObservable()”
     
     var tableDatas = BehaviorRelay<[SectionModel]>.init(value: [SectionModel(model: "", items: [UserInfo(name: "", title: "", dream: "")])])
-    
     
     
     override var instanceController: IWViewControllerable{
@@ -71,12 +72,17 @@ class JLearnTestMoreViewModel: IWViewModel {
         //datas.accept(<#T##event: [(String, [JLearnTestMoreViewModel.UserInfo])]##[(String, [JLearnTestMoreViewModel.UserInfo])]#>)
 //        let sources = BehaviorRelay<[[String]]>.init(value: [])
         
-        datas.accept([["1", "2"], ["5", "6", "7", "8"]])
+        datas.accept(["1", "2", "5", "6", "7", "8"])
         
 //        datas.asObservable().onNext { (userInfo) in
 //
 //        }.disposed(by: rx.disposeBag)
         
+    }
+    
+    //模拟数据请求
+    func netWork() {
+        Console.log("netWorking.....")
         tableDatas.accept([SectionModel(model: "草帽海贼团",
                                         items: [UserInfo(name: "路飞", title: "船长", dream: "集结一群优秀的伙伴，成为海贼王！"),
                                                 UserInfo(name: "索隆", title: "副船长", dream: "成为天下第一的剑客"),
@@ -95,13 +101,30 @@ class JLearnTestMoreViewModel: IWViewModel {
                            SectionModel(model: "白胡子海贼团",
                                         items: [UserInfo(name: "白胡子", title: "船长", dream: ""),
                                                 UserInfo(name: "艾斯", title: "第二队队长", dream: "")])
-                           ])
+            ])
         
+        //给数据源追加数据
+        var asdf = tableDatas.value
+        asdf.append(SectionModel.init(model: "这是新增的数据", items: []))
+        tableDatas.accept(asdf)
+    }
+}
+
+//自定义一个Section:PiratesSection
+struct PiratesSection {
+    var header:String
+    var items:[Item]
+}
+
+extension PiratesSection :AnimatableSectionModelType{
+    typealias Item = String  //string类型设置别名为 Item
+    var identity:String {
+        return header
     }
     
-    //模拟数据请求
-    func netWork() {
-        Console.log("netWork")
+    init(original: PiratesSection, items: [Item]) {
+        self = original
+        self.items = items
     }
-
+    
 }
