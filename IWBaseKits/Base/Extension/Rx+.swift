@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import KafkaRefresh
 
 extension Observable {
     
@@ -72,4 +73,18 @@ extension Reactive where Base: UIButton {
         return base.rx.controlEvent(.touchUpOutside).asDriver()
     }
     
+}
+
+
+extension Reactive where Base: KafkaRefreshControl {
+    
+    var isAnimating: Binder<Bool> {
+        return Binder.init(self.base, binding: { (refreshControler, active) in
+            if active {
+//                refreshControler.beginRefreshing()
+            } else {
+                refreshControler.endRefreshing()
+            }
+        })
+    }
 }

@@ -7,48 +7,63 @@
 //
 
 import UIKit
-import RxDataSources
+import RxSwift
+import RxCocoa
+import KafkaRefresh
 
 class IWTableViewController: IWViewController {
     
-    var tViewModel: IWTableViewModel {
-        return viewModel as! IWTableViewModel
+    private var _tableViewStyle: UITableView.Style = .grouped
+    public var tableView: IWTableView!
+    
+    let headerRefreshTrigger = PublishSubject<Void>()
+    let footerLoadMoreTrigger = PublishSubject<Void>()
+
+    let isHeaderRefreshing = BehaviorRelay.init(value: false)
+    let isFooterLoading = BehaviorRelay.init(value: false)
+    
+    /// Deprecated, use `init(viewModel:, style:)`
+    /// The default tableViewStyle is grouped.
+    convenience init(viewModel: IWViewModelable) {
+        self.init(nibName: nil, bundle: nil)
+        
+        self.viewModel = viewModel
+        _tableViewStyle = .grouped
     }
     
-    public var tableView: IWTableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    convenience init(viewModel: IWViewModelable, style: UITableView.Style) {
+        self.init(nibName: nil, bundle: nil)
+        
+        self.viewModel = viewModel
+        _tableViewStyle = style
     }
     
     override func prepareUI() {
         super.prepareUI()
         
-        tableView = IWTableView.init(frame: ScreenBounds, style: tViewModel.tableViewStyle)
-        tViewModel.tableViewBackgroundColor.bind(to: tableView.rx.backgroundColor).disposed(by: rx.disposeBag)
-        tableView.rx.setDelegate(self).disposed(by: rx.disposeBag)
+        let tbv = IWTableView.init(frame: ScreenBounds, style: _tableViewStyle)
+        tbv.rx.setDelegate(self).disposed(by: rx.disposeBag)
+        view.addSubview(tbv)
+        tableView = tbv
         
-        
-        
-        let dts = RxTableViewSectionedReloadDataSource<SectionModel<String?, String>>(configureCell: { (sectionModel, tableView, indexPath, userModel) -> UITableViewCell in
-            
-            var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-            if cell.isNone {
-                cell = UITableViewCell.init(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
-            }
-            cell!.textLabel?.text = userModel
-            cell!.detailTextLabel?.text = "\(indexPath.row)"
-            return cell!
+        tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
+            self?.headerRefreshTrigger.onNext(())
         })
-        
-        tViewModel.datas.bind(to: tableView.rx.items(dataSource: dts)).disposed(by: rx.disposeBag)
-    }
+        tableView.bindGlobalStyle(forFootRefreshHandler: { [weak self] in
+            self?.footerLoadMoreTrigger.onNext(())
+        })
 
+        // isHeaderRefreshing.bind(to: tableView.headRefreshControl.rx.isAnimating).disposed(by: rx.disposeBag)
+        // isFooterLoading.bind(to: tableView.footRefreshControl.rx.isAnimating).disposed(by: rx.disposeBag)
+
+        /// Auto refresh on foot 滑动到底部后自动加载更多
+        tableView.footRefreshControl.autoRefreshOnFoot = false
+    }
+    
 }
 
 
 extension IWTableViewController: UITableViewDelegate {
+    
     
 }

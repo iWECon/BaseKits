@@ -29,6 +29,7 @@ class ViewModel: IWViewModel {
         var accountDriver: Observable<String>
         var passwordDriver: Observable<String>
         var switchDriver: Driver<Void>
+        var chooseLanguageTrigger: Driver<()>
     }
     
     struct Output {
@@ -61,6 +62,13 @@ class ViewModel: IWViewModel {
             let condition2 = tuple.last.check({ $0.count >= 6 })
             return condition1 && condition2
         }.asDriver(onErrorJustReturn: false)
+        
+        input.chooseLanguageTrigger.onNext { (_) in
+
+            let lvm = LanguageViewModel.init()
+            lvm.present(true, completion: nil)
+
+        }.disposed(by: rx.disposeBag)
         
         return Output.init(loginTriggered: loginTriggered, checkPass: checkPass)
     }

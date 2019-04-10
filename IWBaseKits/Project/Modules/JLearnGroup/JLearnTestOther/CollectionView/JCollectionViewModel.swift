@@ -25,7 +25,7 @@ class JCollectionViewModel: IWViewModel {
         super.initialized()
         
         self.navigationBarTitle.accept("CollectionView")
-        self.autoAddBackBarButton = true
+        presentBackTitle = "返回"
         
         lists.accept([("","春困"),("","夏打盹"),("","秋乏"),("","冬眠"),("","阳春"),("","白雪"),("",""),("","阳春"),("","白雪")])
     }

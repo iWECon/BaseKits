@@ -14,7 +14,7 @@ import Localize_Swift
 
 class ThirdRootController: IWViewController {
     
-    var tableView: IWTableView!
+//    var tableView: IWTableView!
     
     var vm: ThirdRootViewModel {
         return viewModel as! ThirdRootViewModel
@@ -30,34 +30,34 @@ class ThirdRootController: IWViewController {
     override func prepareUI() {
         super.prepareUI()
         
-        tableView = IWTableView(frame: ScreenBounds, style: UITableView.Style.grouped)
-        view.addSubview(tableView)
-        
-        let dataSources = RxTableViewSectionedReloadDataSource<SectionModel<String?, LanguageModel>>.init(configureCell: ({ (ds, tv, idx, dt) -> UITableViewCell in
-            
-            var cell = tv.dequeueReusableCell(withIdentifier: "cell")
-            if nil == cell {
-                cell = UITableViewCell.init(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
-            }
-            cell!.textLabel?.text = dt.name
-            if dt.isSelected {
-                cell?.accessoryType = .checkmark
-            } else {
-                cell?.accessoryType = .none
-            }
-            return cell!
-        }), titleForHeaderInSection: { (ds, section) -> String? in
-            
-            ds.sectionModels[safe: 0]?.model
-        })
-        
-        tableView.rx.modelSelected(LanguageModel.self).onNext { (md) in
-            
-            Languages.shared.use(Languages.Language.init(md.mark.or("system")))
-            
-        }.disposed(by: rx.disposeBag)
-        
-        vm.datas.bind(to: tableView.rx.items(dataSource: dataSources)).disposed(by: rx.disposeBag)
+//        tableView = IWTableView(frame: ScreenBounds, style: UITableView.Style.grouped)
+//        view.addSubview(tableView)
+//
+//        let dataSources = RxTableViewSectionedReloadDataSource<SectionModel<String?, LanguageModel>>.init(configureCell: ({ (ds, tv, idx, dt) -> UITableViewCell in
+//
+//            var cell = tv.dequeueReusableCell(withIdentifier: "cell")
+//            if nil == cell {
+//                cell = UITableViewCell.init(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
+//            }
+//            cell!.textLabel?.text = dt.name
+//            if dt.isSelected {
+//                cell?.accessoryType = .checkmark
+//            } else {
+//                cell?.accessoryType = .none
+//            }
+//            return cell!
+//        }), titleForHeaderInSection: { (ds, section) -> String? in
+//
+//            ds.sectionModels[safe: 0]?.model
+//        })
+//
+//        tableView.rx.modelSelected(LanguageModel.self).onNext { (md) in
+//
+//            Languages.shared.use(Languages.Language.init(md.mark.or("system")))
+//
+//        }.disposed(by: rx.disposeBag)
+//
+//        vm.datas.bind(to: tableView.rx.items(dataSource: dataSources)).disposed(by: rx.disposeBag)
         
     }
     

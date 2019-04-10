@@ -92,8 +92,8 @@ public struct Console {
     }
     
     static func logResourcesCount() -> Void {
-//        #if DEBUG
-//            self.warn("RxSwift resources count: \(RxSwift.Resources.total)")
-//        #endif
+        #if DEBUG
+            self.warn("RxSwift resources count: \(RxSwift.Resources.total)")
+        #endif
     }
 }

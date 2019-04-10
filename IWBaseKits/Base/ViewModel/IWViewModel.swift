@@ -55,7 +55,8 @@ class IWViewModel: NSObject, IWViewModelable {
     var navigationBackTitle: String? = ""
     
     var backgroundColor: BehaviorRelay<UIColor> = BehaviorRelay<UIColor>.init(value: .white)
-    var autoAddBackBarButton: Bool = false
+    //var autoAddBackBarButton: Bool = false
+    var presentBackTitle: String? = nil
     func destroy(_ animated: Bool = true) {
         self.back(animated)
     }

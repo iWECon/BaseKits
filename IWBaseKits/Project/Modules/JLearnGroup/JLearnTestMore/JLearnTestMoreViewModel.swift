@@ -33,7 +33,7 @@ class JLearnTestMoreViewModel: IWViewModel {
     override func initialized() {
         super.initialized()
         navigationBarTitle.accept("learn-更多")
-        autoAddBackBarButton = true
+        presentBackTitle = "返回"
         
 //        datas = Observable.just([UserInfo(name: "路飞", title: "船长", dream: "集结一群优秀的伙伴，成为海贼王！"),
 //                                 UserInfo(name: "索隆", title: "副船长", dream: "成为天下第一的剑客"),

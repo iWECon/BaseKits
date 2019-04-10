@@ -22,7 +22,7 @@ class JLearnBoxViewModel: IWViewModel {
         super.initialized()
         
         navigationBarTitle.accept("Learn_Box")
-        autoAddBackBarButton = true
+        presentBackTitle = "返回"
         
         self.initDataForUI();
 

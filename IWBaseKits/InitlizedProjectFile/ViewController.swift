@@ -35,23 +35,30 @@ class ViewController: IWViewController {
         
     }
     
+    override func prepareUI() {
+        super.prepareUI()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "语言", style: .plain, target: nil, action: nil)
+    }
+    
     override func bindViewModel() {
         super.bindViewModel()
         
         let input = ViewModel.Input.init(loginControlEvent: loginButton.rx.tap.asDriver(),
                 accountDriver: accountTexiField.rx.text.orEmpty.asObservable(),
                 passwordDriver: passwordTextField.rx.text.orEmpty.asObservable(),
-                switchDriver: switchServiceModeButton.rx.tap.asDriver())
-
-        let output = vm.transform(input: input)
-
-        output.checkPass.drive(loginButton.rx.isEnabled).disposed(by: rx.disposeBag)
+                switchDriver: switchServiceModeButton.rx.tap.asDriver(),
+                chooseLanguageTrigger: navigationItem.rightBarButtonItem!.rx.tap.asDriver())
         
+        let output = vm.transform(input: input)
+        
+        output.checkPass.drive(loginButton.rx.isEnabled).disposed(by: rx.disposeBag)
         language?.onNext({ [weak self] (_) in
             
             self?.loginButton.setTitle(R.string.localizable.userProfileSettingsLogin.key.localized(), for: .normal)
             
         }).disposed(by: rx.disposeBag)
+        
         
         /*-----------------------------------------------*/
         /*                     Learn_box                 */

@@ -21,7 +21,8 @@ protocol IWViewModelable {
     var backgroundColor: BehaviorRelay<UIColor> { get }
 //    var backgroundColorDriver: Driver<UIColor> { get }
     
-    var autoAddBackBarButton: Bool { get set }
+    //var autoAddBackBarButton: Bool { get set }
+    var presentBackTitle: String? { get set }
     
     func destroy(_ animated: Bool) -> Void
     

@@ -5,6 +5,41 @@ PODS:
     - CocoaLumberjack/Core
   - Differentiator (3.1.0)
   - HandyJSON (5.0.0-beta.1)
+  - KafkaRefresh (1.4.0):
+    - KafkaRefresh/Category (= 1.4.0)
+    - KafkaRefresh/Configuration (= 1.4.0)
+    - KafkaRefresh/Core (= 1.4.0)
+    - KafkaRefresh/Default (= 1.4.0)
+    - KafkaRefresh/Style (= 1.4.0)
+    - KafkaRefresh/UIKit (= 1.4.0)
+  - KafkaRefresh/Category (1.4.0)
+  - KafkaRefresh/Configuration (1.4.0):
+    - KafkaRefresh/UIKit/FootKit
+    - KafkaRefresh/UIKit/HeadKit
+  - KafkaRefresh/Core (1.4.0):
+    - KafkaRefresh/Category
+  - KafkaRefresh/Default (1.4.0):
+    - KafkaRefresh/Style
+  - KafkaRefresh/Style (1.4.0)
+  - KafkaRefresh/UIKit (1.4.0):
+    - KafkaRefresh/UIKit/FootKit (= 1.4.0)
+    - KafkaRefresh/UIKit/HeadKit (= 1.4.0)
+    - KafkaRefresh/UIKit/LayerKit (= 1.4.0)
+  - KafkaRefresh/UIKit/FootKit (1.4.0):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/HeadKit (1.4.0):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/LayerKit (1.4.0):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Default
   - Localize-Swift (2.0.0)
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
@@ -42,6 +77,7 @@ PODS:
 DEPENDENCIES:
   - CocoaLumberjack/Swift
   - HandyJSON (from `https://github.com/alibaba/HandyJSON`, tag `5.0.0-beta.1`)
+  - KafkaRefresh (~> 1.4.0)
   - Localize-Swift (~> 2.0)
   - Moya/RxSwift (~> 12.0)
   - "NSObject+Rx (~> 4.4.1)"
@@ -59,6 +95,7 @@ SPEC REPOS:
     - Alamofire
     - CocoaLumberjack
     - Differentiator
+    - KafkaRefresh
     - Localize-Swift
     - Moya
     - "NSObject+Rx"
@@ -89,6 +126,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
+  KafkaRefresh: 7e40fce9a5fb180da8b9382ab1b5a129f1f8d48d
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
@@ -104,6 +142,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-PODFILE CHECKSUM: 13f36cdc8e5eeaa805d9659eca2e430e5346d020
+PODFILE CHECKSUM: 88d70a203434c08e15b1a7c1f34835e3a06e1688
 
 COCOAPODS: 1.5.3
