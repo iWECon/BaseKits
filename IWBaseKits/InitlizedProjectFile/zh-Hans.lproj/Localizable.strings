@@ -14,3 +14,5 @@
 "Languages.English" = "English";
 "Languages.Italian" = "Italian";
 "Languages.FollowSystem" = "跟随系统";
+
+"Languages.SectionTitle" = "选择语言, 当前";

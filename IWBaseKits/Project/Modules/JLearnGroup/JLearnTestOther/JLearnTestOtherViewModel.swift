@@ -18,7 +18,7 @@ class JLearnTestOtherViewModel: IWViewModel {
     override func initialized() {
         super.initialized()
         navigationBarTitle.accept("other")
-        autoAddBackBarButton = true
+        presentBackTitle = "返回"
     }
 
 }

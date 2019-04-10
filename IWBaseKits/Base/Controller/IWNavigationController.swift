@@ -15,6 +15,10 @@ class IWNavigationController: UINavigationController {
     /// 使用自定义`返回`标题, 默认为 true 使用
     var useCustomerBackTitle = true
     
+    deinit {
+        Console.debug("The <\(type(of: self))> is deinit.")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

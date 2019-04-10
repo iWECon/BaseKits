@@ -19,7 +19,7 @@ class FourthRootViewModel: IWViewModel {
         
         
         navigationBarTitle.accept("控制器4")
-        autoAddBackBarButton = true
+        presentBackTitle = "返回"
 
     }
     

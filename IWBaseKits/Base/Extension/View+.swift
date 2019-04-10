@@ -73,6 +73,21 @@ public extension IWView {
         get { return self.frame.origin.y + self.frame.size.height }
         set { self.frame.origin.y = newValue - self.frame.size.height }
     }
+    
+    convenience init(height: CGFloat) {
+        self.init()
+        self.height = height
+    }
+    
+    convenience init(width: CGFloat) {
+        self.init()
+        self.width = width
+    }
+    
+    convenience init(size: CGSize) {
+        self.init()
+        self.size = size
+    }
 }
 
 

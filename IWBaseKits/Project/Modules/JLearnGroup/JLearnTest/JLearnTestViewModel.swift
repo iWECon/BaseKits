@@ -20,7 +20,7 @@ class JLearnTestViewModel: IWViewModel {
     override func initialized() {
         super.initialized()
         navigationBarTitle.accept("test")
-        autoAddBackBarButton = true
+        presentBackTitle = "返回"
     }
     
     //learn test
@@ -40,8 +40,8 @@ class JLearnTestViewModel: IWViewModel {
         userTouch.onNext { (_) in
 //            Console.log("点击了效验按钮-可以对ViewModel做些什么事")
             let vm = JLearnTestOtherViewModel.init()
-            vm.present(true, completion: nil)
-//            vm.push(true)//push过去后，暂时无法pop返回
+//            vm.present(true, completion: nil)
+            vm.push(true)//push过去后，暂时无法pop返回
             }.disposed(by: rx.disposeBag)
         
         inter.interTextDiver.onNext { (testStr) in

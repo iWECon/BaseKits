@@ -92,8 +92,9 @@ extension IWRouterNavigationControllerStack {
             if !(viewController is UINavigationController) {
                 viewController = IWNavigationController.init(rootViewController: viewController)
             }
-            Console.debug("You entered <\(type(of: viewModel.instanceController))> from <\(type(of: self.navigationControllers.last.value.viewControllers.last.value))> by present.")
-            self.push(navigationController: viewController as! UINavigationController)
+            Console.debug("You entered <\(type(of: (viewController.navControl).viewControllers.first!))> from <\(type(of: self.navigationControllers.last.value.viewControllers.last.value))> by present.")
+            
+            self.push(navigationController: viewController.navControl)
             presentingViewController?.present(viewController, animated: animated, completion: completion)
             
         }.disposed(by: stackDisposeBag)
@@ -102,10 +103,12 @@ extension IWRouterNavigationControllerStack {
             guard let self = self else { return }
             
             let (animated, completion) = tuple as! (Bool, (() -> Void)?)
-            Console.debug("You exited <\(type(of: self.navigationControllers.last!.viewControllers.first.value))> by dimiss.")
+            Console.debug("You exited <\(type(of: self.navigationControllers.last.value.viewControllers.last.value))> from <\(type(of: self.navigationControllers.last.value))> by dimiss.")
+            
             self.popNavigationController()
             self.navigationControllers.last?.dismiss(animated: animated, completion: completion)
-        }.disposed(by: rx.disposeBag)
+            
+        }.disposed(by: stackDisposeBag)
         
         /// ResetRootViewController
         router.resetSubject.bind { [weak self] (tuple) in

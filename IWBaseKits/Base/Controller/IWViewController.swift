@@ -58,9 +58,9 @@ class IWViewController: UIViewController, IWViewControllerable {
     func updateUI() -> Void { }
     func bindViewModel() -> Void {
         
-        if viewModel != nil {
-            viewModel.navigationBarTitle.asObservable().bind(to: navigationItem.rx.title).disposed(by: rx.disposeBag)
-            viewModel.backgroundColor.asObservable().bind(to: view.rx.backgroundColor).disposed(by: rx.disposeBag)
+        if viewModel.isSome {
+            viewModel.navigationBarTitle.bind(to: navigationItem.rx.title).disposed(by: rx.disposeBag)
+            viewModel.backgroundColor.bind(to: view.rx.backgroundColor).disposed(by: rx.disposeBag)
             
             _autoCheck()
         }
@@ -72,8 +72,8 @@ class IWViewController: UIViewController, IWViewControllerable {
     }
     
     private func _autoCheck() -> Void {
-        if viewModel.autoAddBackBarButton && self.iwe.isPresentered {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(_autoBack))
+        if viewModel.presentBackTitle.isSome && self.iwe.isPresentered {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: viewModel.presentBackTitle.value, style: .plain, target: self, action: #selector(_autoBack))
         }
     }
     @objc private func _autoBack() -> Void {
