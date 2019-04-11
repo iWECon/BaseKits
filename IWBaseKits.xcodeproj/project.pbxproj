@@ -375,8 +375,8 @@
 		922AA81A224DF22E00C8549F /* Entrance */ = {
 			isa = PBXGroup;
 			children = (
-				922AA81B224DF34A00C8549F /* EntranceController.swift */,
 				922AA81D224DF3AD00C8549F /* EntranceViewModel.swift */,
+				922AA81B224DF34A00C8549F /* EntranceController.swift */,
 			);
 			path = Entrance;
 			sourceTree = "<group>";

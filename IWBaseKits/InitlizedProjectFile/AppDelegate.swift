@@ -28,15 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        Console.initialize()
         initRequires()
-        
-        self.routerStack = IWRouterNavigationControllerStack.init(with: router)
-        
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        window!.backgroundColor = .white
-        router.reset(root: EntranceViewModel.init())
-        window!.makeKeyAndVisible()
         
         return true
     }
@@ -72,7 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     private func initRequires() -> Void {
+        Console.initialize()
         initForProvider()
+        
+        self.routerStack = IWRouterNavigationControllerStack.init(with: router)
+        
+        initForWindow()
     }
     
     private func initForProvider() -> Void {
@@ -81,6 +78,13 @@ extension AppDelegate {
         IWService.shared.bind(release: release, debug: nil)
     }
     
+    /// 若需要根据状态调整根视图控制器, 修改对应的 EntranceViewModel 中的内容即可
+    private func initForWindow() -> Void {
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window!.backgroundColor = .white
+        router.reset(root: EntranceViewModel.init())
+        window!.makeKeyAndVisible()
+    }
 }
 
 extension AppDelegate {

@@ -24,4 +24,9 @@ extension IWViewControllerable {
     static var `class`: String {
         return "\(self)"
     }
+    
+    /// self as! UIViewController
+//    var controller: UIViewController {
+//        return self as! UIViewController
+//    }
 }

@@ -19,6 +19,10 @@ class IWNavigationController: UINavigationController {
         Console.debug("The <\(type(of: self))> is deinit.")
     }
     
+    convenience init(viewControllable: IWViewControllerable) {
+        self.init(rootViewController: viewControllable as! UIViewController)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

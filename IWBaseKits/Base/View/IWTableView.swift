@@ -11,10 +11,6 @@ import Then
 
 class IWTableView: UITableView {
     
-    deinit {
-        Console.debug("The <\(type(of: self))> was deinit.")
-    }
-    
     init() {
         super.init(frame: CGRect.init(), style: .grouped)
         

@@ -23,17 +23,17 @@ class EntranceController: IWEntranceTabBarController {
     override func prepareUI() {
         super.prepareUI()
         
-        set(tabBarItemTitles: ["首页", "第二页", "语言"])
+        set(tabBarItemTitles: ["首页", "次页", "次次页", "次次次页"])
         set(normalColor: UIColor.gray)
         set(selectedColor: UIColor.black)
         
         let firstNavController = IWNavigationController.init(rootViewController: vm.first.instanceController as! UIViewController)
         let secondNavController = IWNavigationController.init(rootViewController: vm.second.instanceController as! UIViewController)
         let thirdNavController = IWNavigationController.init(rootViewController: vm.third.instanceController as! UIViewController)
-//        let fourthNavController = IWNavigationController.init(rootViewController: vm.fourth.instanceController)
+        let fourthNavController = IWNavigationController.init(rootViewController: vm.fourth.instanceController as! UIViewController)
         
-        set(navigationControllers: [firstNavController, secondNavController, thirdNavController])
-        
+        set(navigationControllers: [firstNavController, secondNavController, thirdNavController, fourthNavController])
+         
         installNavigationControllers()
     }
 }

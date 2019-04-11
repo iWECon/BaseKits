@@ -39,8 +39,15 @@ class IWViewModel: NSObject, IWViewModelable {
     /// 初始化的时候带上的 params, 虽然叫 params 但类型是 Any 可以给任意值
     var params: Any?
     
-    init(with params: Any? = nil) {
+    override init() {
         super.init()
+
+        self.params = nil
+        self.initialized()
+    }
+    
+    convenience init(with params: Any?) {
+        self.init()
         
         self.params = params
         self.initialized()
