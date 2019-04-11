@@ -30,6 +30,19 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `TestshowImage`.
+    static let testshowImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "TestshowImage")
+    
+    /// `UIImage(named: "TestshowImage", bundle: ..., traitCollection: ...)`
+    static func testshowImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.testshowImage, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
     /// Nib `JCollectionViewItemCell`.
@@ -195,15 +208,26 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
   }
   
-  struct nib {
-    struct _JCollectionViewItemCell: Rswift.NibResourceType {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _JCollectionViewItemCell.validate()
+    }
+    
+    struct _JCollectionViewItemCell: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "JCollectionViewItemCell"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JCollectionViewItemCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JCollectionViewItemCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "TestshowImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TestshowImage' is used in nib 'JCollectionViewItemCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
       }
       
       fileprivate init() {}

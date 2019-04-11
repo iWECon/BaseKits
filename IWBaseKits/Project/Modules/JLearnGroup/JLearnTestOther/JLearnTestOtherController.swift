@@ -58,7 +58,6 @@ class JLearnTestOtherController: IWViewController {
             collectionVm.push(true)
             
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
-    
     }
     
     private lazy var nextButton: UIButton = {
@@ -66,7 +65,7 @@ class JLearnTestOtherController: IWViewController {
         button.frame = CGRect(x: 20, y: 80, width: UIScreen.main.bounds.width-40, height: 44)
 //        button.backgroundColor = .magenta
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("🌺 进入下一页 🌺",for: .normal)
+        button.setTitle("进入下一页",for: .normal)
         return button
     }()
     
@@ -75,7 +74,7 @@ class JLearnTestOtherController: IWViewController {
         button.frame = CGRect(x: 20, y: 80+70, width: UIScreen.main.bounds.width-40, height: 44)
 //        button.backgroundColor = .orange
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("🌺   返回上一页",for: .normal)
+        button.setTitle("返回上一页",for: .normal)
         return button
     }()
     
@@ -84,7 +83,7 @@ class JLearnTestOtherController: IWViewController {
         button.frame = CGRect(x: 20, y: 80+120, width: UIScreen.main.bounds.width-40, height: 44)
 //        button.backgroundColor = .cyan
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("🌺    返回root页",for: .normal)
+        button.setTitle("返回root页",for: .normal)
         return button
     }()
     
@@ -94,7 +93,7 @@ class JLearnTestOtherController: IWViewController {
         button.frame = CGRect(x: 20, y: 80+200, width: UIScreen.main.bounds.width-40, height: 44)
 //        button.backgroundColor = .cyan
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("🌺    collectionView",for: .normal)
+        button.setTitle("collectionView",for: .normal)
         return button
     }()
     

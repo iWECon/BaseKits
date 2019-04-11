@@ -14,6 +14,8 @@ import RxDataSources
 class JCollectionViewController: IWViewController {
 
 
+    var isNightModel:Bool!
+    
     var vm:JCollectionViewModel {
         return viewModel as! JCollectionViewModel
     }
@@ -29,6 +31,8 @@ class JCollectionViewController: IWViewController {
     override func prepareUI() {
         super.prepareUI()
         
+        
+        isNightModel = false
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(title: "设置", style: .plain, target: self, action: #selector(setting)), animated: true)
         
         let flowLayout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -55,11 +59,10 @@ class JCollectionViewController: IWViewController {
             let indexPath = IndexPath(row: row, section: 0)
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectCell", for: indexPath) as! JCollectionViewItemCell
-            
-            cell.backgroundColor = .clear
+            let itemModel = JCollectionItemViewModel.init()
+            cell.bindViewModel(vModel: itemModel.bindItemViewModel(vModel:element,isNight: self.isNightModel))
             return cell
             }.disposed(by: rx.disposeBag)
-        
     }
     
     
@@ -71,6 +74,7 @@ class JCollectionViewController: IWViewController {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        return 5
         return vm.lists.value.count
     }
     
@@ -83,25 +87,40 @@ class JCollectionViewController: IWViewController {
     @objc func setting() {
         Console.log("_________setting_________")
         
-        let alert = MyAlertControlle.init(title: "设置", message: "请选择设置", preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "设置", message: "请选择设置", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction.init(title: "Night", style: .default, handler: { (action) in
             
-            UIView.animate(withDuration: 1.0, animations: {
-                self.collectionView.backgroundColor = .black
+            UIView.animate(withDuration: 0.5, animations: {
+                self.setUIModel(isNight: true)
             })
         }))
         alert.addAction(UIAlertAction.init(title: "Day", style: .default, handler: { (action) in
-            UIView.animate(withDuration: 1.0, animations: {
-                self.collectionView.backgroundColor = .white
+            UIView.animate(withDuration: 0.5, animations: {
+                self.setUIModel(isNight: false)
             })
-        }))
-        alert.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: { (action) in
-            
         }))
         
         self.present(alert, animated: true) {
             Console.log("_________进行设置_________")
+        }
+        
+    }
+    
+    func setUIModel(isNight:Bool) -> Void {
+        
+        if self.isNightModel==isNight {
+            return
+        }
+                
+        self.isNightModel = isNight
+        //更改页面显示，数据未变化，需要手动对页面进行reload，不然CollectionView的item内不会变化
+        self.collectionView.reloadData()
+        
+        if isNight==true {
+            collectionView.backgroundColor = .black
+        }else{
+            collectionView.backgroundColor = .white
         }
     }
 }

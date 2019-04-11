@@ -19,6 +19,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="92" height="82"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-Td-M5b">
+                        <rect key="frame" x="0.0" y="0.0" width="92" height="82"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 花花" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNz-iH-Si6">
                         <rect key="frame" x="0.0" y="57" width="92" height="25"/>
                         <constraints>
@@ -35,20 +38,25 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="jzg-nD-1hB" secondAttribute="trailing" id="5PZ-4R-igd"/>
+                <constraint firstItem="bgg-Td-M5b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HuE-zm-xho"/>
+                <constraint firstAttribute="bottom" secondItem="bgg-Td-M5b" secondAttribute="bottom" id="Qgf-yS-Syi"/>
                 <constraint firstItem="jzg-nD-1hB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="T3F-hD-4eF"/>
                 <constraint firstItem="zNz-iH-Si6" firstAttribute="top" secondItem="jzg-nD-1hB" secondAttribute="bottom" id="X5x-1g-CG7"/>
                 <constraint firstAttribute="trailing" secondItem="zNz-iH-Si6" secondAttribute="trailing" id="emg-CH-6ks"/>
                 <constraint firstItem="zNz-iH-Si6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fvh-yD-LnA"/>
                 <constraint firstItem="jzg-nD-1hB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mML-HY-rSa"/>
+                <constraint firstAttribute="trailing" secondItem="bgg-Td-M5b" secondAttribute="trailing" id="qm0-WO-Fac"/>
                 <constraint firstAttribute="bottom" secondItem="zNz-iH-Si6" secondAttribute="bottom" id="wgu-km-tzR"/>
+                <constraint firstItem="bgg-Td-M5b" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xSD-91-KhT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="92" height="82"/>
             <connections>
                 <outlet property="infoLabel" destination="zNz-iH-Si6" id="RF3-ag-O0Z"/>
+                <outlet property="modelBgImage" destination="bgg-Td-M5b" id="Ebn-mG-hpl"/>
                 <outlet property="showImage" destination="jzg-nD-1hB" id="570-9N-f8q"/>
             </connections>
-            <point key="canvasLocation" x="-297" y="-3"/>
+            <point key="canvasLocation" x="-297.10144927536237" y="-3.3482142857142856"/>
         </collectionViewCell>
     </objects>
     <resources>
