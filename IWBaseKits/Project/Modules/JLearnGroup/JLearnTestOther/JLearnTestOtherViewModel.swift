@@ -17,8 +17,11 @@ class JLearnTestOtherViewModel: IWViewModel {
     
     override func initialized() {
         super.initialized()
-        navigationBarTitle.accept("other")
+        
+        navigationBarTitle.accept("Other")
         presentBackTitle = "返回"
     }
-
 }
+
+
+

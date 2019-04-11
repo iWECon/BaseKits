@@ -2,7 +2,8 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'IWBaseKits' do
-
+#   消除警告
+inhibit_all_warnings!
     
 # Rx
 pod 'RxSwift', '~> 4.4.0'

@@ -48,6 +48,7 @@ class JCollectionViewController: IWViewController {
         collectionView.backgroundColor = .white
 //        collectionView.register(JCollectionViewItemCell.self, forCellWithReuseIdentifier: "collectCell")
         collectionView.register(UINib.init(nibName: "JCollectionViewItemCell", bundle: nil), forCellWithReuseIdentifier: "collectCell")
+        collectionView.register(UINib.init(nibName: "JCollectionViewTextItemCell", bundle: nil), forCellWithReuseIdentifier: "collectTextCell")
 
         self.view.addSubview(collectionView)
         
@@ -62,7 +63,14 @@ class JCollectionViewController: IWViewController {
             let itemModel = JCollectionItemViewModel.init()
             cell.bindViewModel(vModel: itemModel.bindItemViewModel(vModel:element,isNight: self.isNightModel))
             return cell
+            
+//            JCollectionViewTextItemCell //带文本框的编辑的cell
             }.disposed(by: rx.disposeBag)
+        
+        collectionView.rx.modelSelected((String,String).self).subscribe(onNext: { (item) in
+            Console.log("你选择了‘\(item.1)‘进行观看")
+        }).disposed(by: rx.disposeBag)
+        
     }
     
     
@@ -74,7 +82,6 @@ class JCollectionViewController: IWViewController {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 5
         return vm.lists.value.count
     }
     
@@ -104,7 +111,6 @@ class JCollectionViewController: IWViewController {
         self.present(alert, animated: true) {
             Console.log("_________进行设置_________")
         }
-        
     }
     
     func setUIModel(isNight:Bool) -> Void {
@@ -112,7 +118,7 @@ class JCollectionViewController: IWViewController {
         if self.isNightModel==isNight {
             return
         }
-                
+        
         self.isNightModel = isNight
         //更改页面显示，数据未变化，需要手动对页面进行reload，不然CollectionView的item内不会变化
         self.collectionView.reloadData()
