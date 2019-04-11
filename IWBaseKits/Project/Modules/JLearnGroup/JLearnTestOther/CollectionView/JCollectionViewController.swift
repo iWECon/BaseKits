@@ -40,10 +40,11 @@ class JCollectionViewController: IWViewController {
                                           collectionViewLayout: flowLayout)
         // 设置delegate和dateSource 是swift的写法，需要实现对应函数
         //collectionView.delegate = self
-        //collectionView.dataSource = self 
+        //collectionView.dataSource = self
         collectionView.backgroundColor = .white
-        collectionView.register(JCollectionViewItemCell.self, forCellWithReuseIdentifier: "collectCell")
-        
+//        collectionView.register(JCollectionViewItemCell.self, forCellWithReuseIdentifier: "collectCell")
+        collectionView.register(UINib.init(nibName: "JCollectionViewItemCell", bundle: nil), forCellWithReuseIdentifier: "collectCell")
+
         self.view.addSubview(collectionView)
         
         //这里DataSource进行绑定是RxSwift的用法 设置单元格 相当于cellForItemAt 的封装
@@ -54,8 +55,8 @@ class JCollectionViewController: IWViewController {
             let indexPath = IndexPath(row: row, section: 0)
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectCell", for: indexPath) as! JCollectionViewItemCell
-
-            cell.backgroundColor = .lightGray
+            
+            cell.backgroundColor = .clear
             return cell
             }.disposed(by: rx.disposeBag)
         
