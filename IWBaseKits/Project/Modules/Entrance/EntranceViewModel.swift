@@ -26,5 +26,9 @@ class EntranceViewModel: IWViewModel {
         second = SecondRootViewModel.init()
         third = ThirdRootViewModel.init()
         fourth = FourthRootViewModel.init()
+        
+        /**
+         入口配置文件, 这里只写这么多，其他的都在 EntranceController.swift 里面
+         */
     }
 }

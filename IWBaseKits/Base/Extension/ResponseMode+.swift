@@ -81,12 +81,57 @@ extension Observable where Element == MediatorModel {
     
     /// Mediator.data convert to T
     func take<T>(_ cls: T.Type) -> Observable<T> {
-        return self.map({ $0.data! as! T }).asObservable()
+        
+        var dispose: Disposable!
+        return Observable<T>.create { [weak self] (observer) -> Disposable in
+            
+            dispose = self?.subscribe(onNext: { (mediator) in
+                
+                if mediator.data.isNone {
+                    observer.onError(ResponseStatus.mediatorDataNull)
+                    observer.onCompleted()
+                }
+                
+                if let t = mediator.data as? T {
+                    observer.onNext(t)
+                } else {
+                    observer.onError(ResponseStatus.takeFailed)
+                }
+                observer.onCompleted()
+                
+            })
+            
+            return Disposables.create(with: {
+                dispose.dispose()
+            })
+        }
     }
     
     /// Mediator.data convert to [T]
     func takes<T>(_ cls: T.Type) -> Observable<[T]> {
-        return self.map({ $0.data! as! [T] }).asObservable()
+        var dispose: Disposable!
+        return Observable<[T]>.create { [weak self] (observer) -> Disposable in
+            
+            dispose = self?.subscribe(onNext: { (mediator) in
+                
+                if mediator.data.isNone {
+                    observer.onError(ResponseStatus.mediatorDataNull)
+                    observer.onCompleted()
+                }
+                
+                if let t = mediator.data as? [T] {
+                    observer.onNext(t)
+                } else {
+                    observer.onError(ResponseStatus.takeFailed)
+                }
+                observer.onCompleted()
+                
+            })
+            
+            return Disposables.create(with: {
+                dispose.dispose()
+            })
+        }
     }
     
 }

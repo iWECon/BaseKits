@@ -17,10 +17,16 @@ import HandyJSON
 enum ResponseStatus: Swift.Error {
     case success
     case failed
+    /// response.data 返回的内容是空
     case null
+    /// data 转换为 json 失败
     case jsonFailed
+    /// mediator 转换失败
     case mediatorFailed
+    /// mediator 通用数据类型中的 data 为空
     case mediatorDataNull
+    /// 将 data 中的数据转换为范型时失败
+    case takeFailed
     
     var value: String {
         switch self {

@@ -26,8 +26,8 @@ class ViewModel: IWViewModel {
     
     struct Input {
         var loginControlEvent: Driver<Void>
-        var accountDriver: Observable<String>
-        var passwordDriver: Observable<String>
+        var accountObs: Observable<String>
+        var passwordObs: Observable<String>
         var switchDriver: Driver<Void>
         var chooseLanguageTrigger: Driver<()>
     }
@@ -45,19 +45,27 @@ class ViewModel: IWViewModel {
     
     func transform(input: Input) -> Output {
         
+        input.accountObs.bind(to: account).disposed(by: rx.disposeBag)
+        input.passwordObs.bind(to: password).disposed(by: rx.disposeBag)
+        
         let loginTriggered = input.loginControlEvent
-//        loginTriggered.onNext { (_) in
-//
-//            //self?.request(.login(account: "13203007472", password: "111111"))
-//
-//        }.disposed(by: rx.disposeBag)
+        loginTriggered.onNext { [weak self] (_) in
+            guard let self = self else { return }
+            
+            self.request(.login(account: self.account.value, password: self.password.value)).take(UserModel.self).onNext({ (userModel) in
+                
+                Console.debug(userModel)
+                
+            }).disposed(by: self.rx.disposeBag)
+
+        }.disposed(by: rx.disposeBag)
         
         input.switchDriver.onNext({ (_) in
             IWService.shared.switchMode()
             
         }).disposed(by: rx.disposeBag)
         
-        let checkPass = Observable<String>.combineLatest([input.accountDriver, input.passwordDriver]).asObservable().map { (tuple) -> Bool in
+        let checkPass = Observable<String>.combineLatest([input.accountObs, input.passwordObs]).asObservable().map { (tuple) -> Bool in
             let condition1 = tuple.first.check({ $0.count > 0 })
             let condition2 = tuple.last.check({ $0.count >= 6 })
             return condition1 && condition2

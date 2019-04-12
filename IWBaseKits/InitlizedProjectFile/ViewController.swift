@@ -45,10 +45,10 @@ class ViewController: IWViewController {
         super.bindViewModel()
         
         let input = ViewModel.Input.init(loginControlEvent: loginButton.rx.tap.asDriver(),
-                accountDriver: accountTexiField.rx.text.orEmpty.asObservable(),
-                passwordDriver: passwordTextField.rx.text.orEmpty.asObservable(),
-                switchDriver: switchServiceModeButton.rx.tap.asDriver(),
-                chooseLanguageTrigger: navigationItem.rightBarButtonItem!.rx.tap.asDriver())
+                                         accountObs: accountTexiField.rx.text.orEmpty.asObservable(),
+                                         passwordObs: passwordTextField.rx.text.orEmpty.asObservable(),
+                                         switchDriver: switchServiceModeButton.rx.tap.asDriver(),
+                                         chooseLanguageTrigger: navigationItem.rightBarButtonItem!.rx.tap.asDriver())
         
         let output = vm.transform(input: input)
         
