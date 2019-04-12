@@ -89,7 +89,7 @@ class JLearnBoxViewController: IWViewController {
                 
             }
             
-        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        }).disposed(by: rx.disposeBag)
         
         tableView.rx.modelDeselected((String,Int,String).self).onNext { (item) in
             Console.log("拜拜")

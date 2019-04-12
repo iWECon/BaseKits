@@ -22,10 +22,8 @@ class JCollectionItemViewModel: IWViewModel {
     var isHiddenText:Bool!
     var isHiddenImage:Bool!
     
-    
     var infoTextColor:UIColor!
     var imageHightColor:UIColor!
-
     
     func bindItemViewModel(vModel:(String,String),isNight:Bool) -> JCollectionItemViewModel {
         
@@ -48,7 +46,7 @@ class JCollectionItemViewModel: IWViewModel {
 
         return item
     }
-
 }
+
 //ViewModel 作为View和Model的中介，用数据控制视图上的内容，与OC基本没差，因为使用了Rx ，要注意不在观察者范围内的需要手动刷新
 

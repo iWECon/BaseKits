@@ -79,20 +79,14 @@ class JLearnTestMoreController: IWViewController ,UITableViewDataSource,UITableV
             }.subscribe(onNext: { (fontSize) in
                 
                 self.infoLabel.font = UIFont.systemFont(ofSize: fontSize)
-            }, onError: { (error) in
-                
-            }, onCompleted: {
-                
-            }) {
-                
-            }.disposed(by: rx.disposeBag)
+            }).disposed(by: rx.disposeBag)
         
         //let bableVar = Observable.of(1,2,3)
         
         Observable.just("what").subscribe(onNext: { (item) in
             
             Console.log(item)
-        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: rx.disposeBag)
+        }).disposed(by: rx.disposeBag)
     }
     
     /*  页面显示一个label展示选择的盒子 点击后出现弹框（使用-原来的数量改变、不使用-返回） */
