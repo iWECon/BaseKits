@@ -19,6 +19,8 @@ pod 'Localize-Swift', '~> 2.0'  # https://github.com/marmelroy/Localize-Swift
 # TableView & CollectionView
 pod 'RxDataSources', '~> 3.1.0' # https://github.com/RxSwiftCommunity/RxDataSources
 pod 'KafkaRefresh', '~> 1.4.0'  # https://github.com/OpenFeyn/KafkaRefresh
+pod 'CollectionKit’
+
 
 # Network
 pod 'Moya/RxSwift', '~> 12.0'

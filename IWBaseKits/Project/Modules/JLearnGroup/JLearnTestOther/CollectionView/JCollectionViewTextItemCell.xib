@@ -20,16 +20,20 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqa-1W-2mv">
-                        <rect key="frame" x="51.5" y="50" width="55" height="46"/>
+                        <rect key="frame" x="69" y="67" width="55" height="29"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="t0w-T6-L4n"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="查看">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwx-Rt-cVV">
-                        <rect key="frame" x="8" y="50" width="33.5" height="46"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="8" y="67" width="51" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0m-Yv-03O">
@@ -46,17 +50,22 @@
             <constraints>
                 <constraint firstItem="wwx-Rt-cVV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="5ut-BP-hjO"/>
                 <constraint firstAttribute="bottom" secondItem="wwx-Rt-cVV" secondAttribute="bottom" constant="8" id="9gi-yA-AjO"/>
-                <constraint firstItem="Vqa-1W-2mv" firstAttribute="top" secondItem="E0m-Yv-03O" secondAttribute="bottom" constant="10" id="MBt-aT-sS3"/>
                 <constraint firstItem="Vqa-1W-2mv" firstAttribute="top" secondItem="wwx-Rt-cVV" secondAttribute="top" id="Y1v-Kf-oKE"/>
                 <constraint firstAttribute="bottom" secondItem="Vqa-1W-2mv" secondAttribute="bottom" constant="8" id="a6l-C8-hSd"/>
                 <constraint firstItem="E0m-Yv-03O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="aBe-JE-lH9"/>
                 <constraint firstItem="E0m-Yv-03O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="o5i-6b-UNh"/>
                 <constraint firstAttribute="trailing" secondItem="E0m-Yv-03O" secondAttribute="trailing" constant="8" id="sna-jl-8Ia"/>
+                <constraint firstAttribute="trailing" secondItem="Vqa-1W-2mv" secondAttribute="trailing" constant="10" id="vIC-zn-e7S"/>
                 <constraint firstItem="Vqa-1W-2mv" firstAttribute="leading" secondItem="wwx-Rt-cVV" secondAttribute="trailing" constant="10" id="yZd-wa-mjU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="134" height="104"/>
-            <point key="canvasLocation" x="-88" y="119"/>
+            <connections>
+                <outlet property="checkButton" destination="Vqa-1W-2mv" id="pUQ-kN-GuX"/>
+                <outlet property="interTextField" destination="E0m-Yv-03O" id="X8X-rr-Zge"/>
+                <outlet property="serialLabel" destination="wwx-Rt-cVV" id="8T2-QU-Afw"/>
+            </connections>
+            <point key="canvasLocation" x="-429" y="84"/>
         </collectionViewCell>
     </objects>
 </document>

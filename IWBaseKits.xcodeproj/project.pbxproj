@@ -119,6 +119,11 @@
 		F692D08E225ADFD900B478FB /* JLearnMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F692D08C225ADFD900B478FB /* JLearnMoreCell.swift */; };
 		F692D08F225ADFD900B478FB /* JLearnMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F692D08D225ADFD900B478FB /* JLearnMoreCell.xib */; };
 		F692D091225ADFF900B478FB /* JLearnMoreItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F692D090225ADFF900B478FB /* JLearnMoreItemViewModel.swift */; };
+		F6C7E34822602F3100CEFBFC /* CollectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C7E34722602F3100CEFBFC /* CollectionKit.framework */; };
+		F6C7E3C822605B2300CEFBFC /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7E3C722605B2300CEFBFC /* CustomView.swift */; };
+		F6C7E3CF2260973A00CEFBFC /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7E3CC2260973A00CEFBFC /* ZoomAnimator.swift */; };
+		F6C7E3D02260973A00CEFBFC /* EdgeShrinkAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7E3CD2260973A00CEFBFC /* EdgeShrinkAnimator.swift */; };
+		F6C7E3D2226181F600CEFBFC /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7E3D1226181F600CEFBFC /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,6 +266,11 @@
 		F692D08C225ADFD900B478FB /* JLearnMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnMoreCell.swift; sourceTree = "<group>"; };
 		F692D08D225ADFD900B478FB /* JLearnMoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JLearnMoreCell.xib; sourceTree = "<group>"; };
 		F692D090225ADFF900B478FB /* JLearnMoreItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLearnMoreItemViewModel.swift; sourceTree = "<group>"; };
+		F6C7E34722602F3100CEFBFC /* CollectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CollectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6C7E3C722605B2300CEFBFC /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		F6C7E3CC2260973A00CEFBFC /* ZoomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
+		F6C7E3CD2260973A00CEFBFC /* EdgeShrinkAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeShrinkAnimator.swift; sourceTree = "<group>"; };
+		F6C7E3D1226181F600CEFBFC /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C7E34822602F3100CEFBFC /* CollectionKit.framework in Frameworks */,
 				A88C0845D1FF64BD673DBD6A /* Pods_IWBaseKits.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +303,7 @@
 		717A58DF1BBC6959EF8EFC74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6C7E34722602F3100CEFBFC /* CollectionKit.framework */,
 				DAE22ED6470B075B2D28DD9C /* Pods_IWBaseKits.framework */,
 			);
 			name = Frameworks;
@@ -736,9 +748,13 @@
 		F6911E032255ADE300E93670 /* JLearnTestOther */ = {
 			isa = PBXGroup;
 			children = (
+				F6C7E3D1226181F600CEFBFC /* Util.swift */,
+				F6C7E3CD2260973A00CEFBFC /* EdgeShrinkAnimator.swift */,
+				F6C7E3CC2260973A00CEFBFC /* ZoomAnimator.swift */,
 				F62019D1225DBEE200410066 /* CollectionView */,
 				F6911E042255ADF800E93670 /* JLearnTestOtherViewModel.swift */,
 				F6911E062255AE0E00E93670 /* JLearnTestOtherController.swift */,
+				F6C7E3C722605B2300CEFBFC /* CustomView.swift */,
 			);
 			path = JLearnTestOther;
 			sourceTree = "<group>";
@@ -886,9 +902,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-IWBaseKits/Pods-IWBaseKits-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-IWBaseKits/Pods-IWBaseKits-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
@@ -910,6 +927,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
@@ -929,7 +947,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IWBaseKits/Pods-IWBaseKits-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IWBaseKits/Pods-IWBaseKits-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		92709C3B225AFEBF000A39CF /* ShellScript */ = {
@@ -937,12 +955,8 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"$TEMP_DIR/rswift-lastrun",
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 				$SRCROOT/R.generated.swift,
@@ -985,6 +999,7 @@
 				925B0A8F225C965000B08F97 /* UIStoryboard+IWReusable.swift in Sources */,
 				F62019E6225F28FE00410066 /* JCollectionViewTextItemCell.swift in Sources */,
 				922AA837224DF95E00C8549F /* FourthRootController.swift in Sources */,
+				F6C7E3C822605B2300CEFBFC /* CustomView.swift in Sources */,
 				9234D7A92254502C009679B8 /* Control+.swift in Sources */,
 				9261369B224CB386007CC47A /* IWReachability.swift in Sources */,
 				923BE200225DC223007EC3CA /* ViewController+.swift in Sources */,
@@ -1042,6 +1057,7 @@
 				9234D7AF22545563009679B8 /* Array+.swift in Sources */,
 				925B0A8D225C965000B08F97 /* UICollectionView+IWReusable.swift in Sources */,
 				92709C2C225AEF6F000A39CF /* IWTableViewController.swift in Sources */,
+				F6C7E3D2226181F600CEFBFC /* Util.swift in Sources */,
 				9200DAB0224F01C5000E3D4E /* String+.swift in Sources */,
 				9256FD992254B27600307395 /* UserDefault+.swift in Sources */,
 				925B0A8E225C965000B08F97 /* IWNibLoadable.swift in Sources */,
@@ -1051,8 +1067,10 @@
 				9234D7A322544ADE009679B8 /* DispatchQueue+.swift in Sources */,
 				92613692224C9014007CC47A /* IWRouterParams.swift in Sources */,
 				9292206F2249FADB009F6DF8 /* ViewController.swift in Sources */,
+				F6C7E3CF2260973A00CEFBFC /* ZoomAnimator.swift in Sources */,
 				922AA826224DF46800C8549F /* SecondRootViewModel.swift in Sources */,
 				9234D7A522544C0B009679B8 /* BasicType+.swift in Sources */,
+				F6C7E3D02260973A00CEFBFC /* EdgeShrinkAnimator.swift in Sources */,
 				921856D4224A2F4300B52702 /* IWServiceHeadersModel.swift in Sources */,
 				922AA81C224DF34A00C8549F /* EntranceController.swift in Sources */,
 				923F0E692251A6980079551E /* IWMagicApi.swift in Sources */,
