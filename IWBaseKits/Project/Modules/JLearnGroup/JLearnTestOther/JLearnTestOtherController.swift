@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CollectionKit
 
 var viewNo:Int! = 0
 
@@ -16,6 +17,8 @@ class JLearnTestOtherController: IWViewController {
     }
     
 //    var viewNo:Int! = 0
+    let collectView:CollectionView! = CollectionView.init(frame: CGRect(x: 10, y: NavBarHeight + 10, width: ScreenWidth-20, height: ScreenHeight-(NavBarHeight+10)-(TabBarHeight+44+50+80)))
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +33,29 @@ class JLearnTestOtherController: IWViewController {
         if (self.navigationController?.viewControllers.count)!<3 {
             Console.log("Other部分-首页")
             
+            view.addSubview(collectView)
+            
+            
+            let animationButton:UIButton! = UIButton.init(type: .custom)
+            animationButton.backgroundColor = .red
+            animationButton.frame = CGRect(x: 20, y: collectionViewButton.y-60, width: (ScreenWidth-60)/2, height: 44)
+            animationButton.setTitle("Animation", for: .normal)
+            animationButton.addTarget(self, action: #selector(animationing), for: .touchDown)
+            view.addSubview(animationButton)
+            
+            let reSetButton:UIButton! = UIButton.init(type: .custom)
+            reSetButton.backgroundColor = .red
+            reSetButton.frame = CGRect(x: 40+(ScreenWidth-60)/2, y: animationButton.y, width: (ScreenWidth-60)/2, height: 44)
+            reSetButton.setTitle("Reset", for: .normal)
+            reSetButton.addTarget(self, action: #selector(reSetting), for: .touchDown)
+            view.addSubview(reSetButton)
+            
             view.addSubview(collectionViewButton)
             collectionViewButton.rx.controlEvent(.touchUpInside).subscribe(onNext: { (_) in
                 let collectionVm = JCollectionViewModel.init()
                 collectionVm.push(true)
             }).disposed(by: rx.disposeBag)
+            
         }
         
         view.addSubview(aButton)
@@ -122,8 +143,137 @@ class JLearnTestOtherController: IWViewController {
      
      so:Swift中一定要注意不要主动清理视图或空间，因为懒加载不会再次创建
      */
+    
+    //CollectionKit learn
+    func learnCollectionViewTest() {
+        
+        
+        
+        collectView.backgroundColor  = .lightGray
+        let dataSource = ArrayDataSource(data: ["可乐", "雪碧", "哇哈哈", "橙汁","可乐", "雪碧", "哇哈哈", "橙汁","可乐", "雪碧", "哇哈哈", "橙汁"])
+        let dataSource2 = ArrayDataSource(data: ["苹果", "香蕉", "芒果", "椰子", "橘子", "樱桃", "甘蔗","苹果", "香蕉", "芒果", "椰子", "橘子", "樱桃", "甘蔗","苹果", "香蕉", "芒果", "椰子", "橘子", "樱桃", "甘蔗"])
 
+        let viewSource = ClosureViewSource(viewUpdater: { (view: CustomView, data: String, index: Int) in
+            view.backgroundColor = .yellow
+            view.infoLabel.text = data
+            view.infoLabel.textAlignment = .center
+            view.collectionAnimator = FadeAnimator()
+        })
+        let viewSource2 = ClosureViewSource(viewUpdater: { (view: CustomView, data: String, index: Int) in
+            view.backgroundColor = .yellow
+            view.infoLabel.text = data
+            view.infoLabel.textAlignment = .center
+            view.collectionAnimator = FadeAnimator()
+        })
+        let sizeSource = { (index: Int, data: String, collectionSize: CGSize) -> CGSize in
+            return CGSize(width: 75, height: 40)
+        }
+        let sizeSource2 = { (index: Int, data: String, collectionSize: CGSize) -> CGSize in
+            return CGSize(width: 100, height: 60)
+        }
+        let provider = BasicProvider(
+            dataSource: dataSource,
+            viewSource: viewSource,
+            sizeSource: sizeSource,
+            layout: FlowLayout(spacing: 15).inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 15, right: 10)), //transposed()
+            animator:  ScaleAnimator(),
+            tapHandler:{[weak self] context in
+                context.view.backgroundColor = .blue
+                Console.log(context.data)
+                Console.log(self?.navigationItem.title)
+            }
+        )
+        
+        let provider2 = BasicProvider(
+            dataSource: dataSource2,
+            viewSource: viewSource2,
+            sizeSource: sizeSource2,
+            layout: FlowLayout(spacing: 15).inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 15, right: 10)),
+            animator:  SimpleAnimator(),
+            tapHandler:{[weak self] context in
+                context.view.backgroundColor = .blue
+                context.view.infoLabel.text = ""
+                Console.log(context.data)
+                Console.log(self?.navigationItem.title)
+            }
+        )
+        let sPovider = ComposedProvider( sections:[provider,provider2]) //不同分区设置
+    
+        collectView.provider = sPovider
+        collectView.animator = FadeAnimator()
+    }
+  
+//    func getLabHeigh(labelStr:String,font:UIFont,width:CGFloat) -> CGFloat {
+//
+//        let statusLabelText: NSString! = labelStr as NSString
+//
+//        let size = CGSize(width: width, height: 900.0)
+//
+//        let dic = NSDictionary(object: font, forKey: NSAttributedString.Key.font as NSCopying)
+//
+//        let strSize = statusLabelText.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: dic as? [String : AnyObject], context: nil).size
+//
+//        return strSize.height
+//
+//    }
+//
+//
+//
+//    func getLabWidth(labelStr:String,font:UIFont,height:CGFloat) -> CGFloat {
+//
+//        let statusLabelText: NSString = labelStr as NSString
+//
+//        let size = CGSize(width: 900.0, height: height)
+//
+//        let dic = NSDictionary(object: font, forKey: NSAttributedString.Key.font as NSCopying)
+//
+//        let strSize = statusLabelText.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: dic as? [String : AnyObject], context: nil).size
+//
+//        return strSize.width
+//
+//    }
+    
+    @objc func animationing() {
+        
+        self.learnCollectionViewTest()
+        
+//        let alert = UIAlertController.init(title: <#T##String?#>, message: <#T##String?#>, preferredStyle: <#T##UIAlertController.Style#>)
+        
+        
+    }
+    
+    @objc func reSetting() {
+        
+        let kGridCellSize = CGSize(width: 50, height: 50)
+        let kGridSize = (width: 20, height: 20)
+        let kGridCellPadding:CGFloat = 10
+        
+        let dataSource = ArrayDataSource(data: Array(1...kGridSize.width * kGridSize.height), identifierMapper: { (_, data) in
+            return "\(data)"
+        })
+        let visibleFrameInsets = UIEdgeInsets(top: -150, left: -150, bottom: -150, right: -150)
+        let layout = Closurelayout(frameProvider: { (i: Int, _) in
+            CGRect(x: CGFloat(i % kGridSize.width) * (kGridCellSize.width + kGridCellPadding),
+                   y: CGFloat(i / kGridSize.width) * (kGridCellSize.height + kGridCellPadding),
+                   width: kGridCellSize.width,
+                   height: kGridCellSize.height)
+        }).insetVisibleFrame(by: visibleFrameInsets)
+        
+        collectView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        collectView.provider = BasicProvider(
+            dataSource: dataSource,
+            viewSource: { (view: CustomView, data: Int, index: Int) in
+                view.backgroundColor = UIColor(hue: CGFloat(index) / CGFloat(kGridSize.width * kGridSize.height),
+                                               saturation: 0.68, brightness: 0.98, alpha: 1)
+                view.infoLabel.text = "\(data)"
+        },
+            layout: layout,
+            animator: ZoomAnimator()
+        )
+        
+        collectView.reloadData()
 
+    }
 }
 
 

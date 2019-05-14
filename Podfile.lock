@@ -3,6 +3,9 @@ PODS:
   - CocoaLumberjack/Core (3.5.2)
   - CocoaLumberjack/Swift (3.5.2):
     - CocoaLumberjack/Core
+  - CollectionKit (2.4.0):
+    - CollectionKit/Core (= 2.4.0)
+  - CollectionKit/Core (2.4.0)
   - Differentiator (3.1.0)
   - HandyJSON (5.0.0-beta.1)
   - KafkaRefresh (1.4.0):
@@ -76,6 +79,7 @@ PODS:
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
+  - CollectionKit
   - HandyJSON (from `https://github.com/alibaba/HandyJSON`, tag `5.0.0-beta.1`)
   - KafkaRefresh (~> 1.4.0)
   - Localize-Swift (~> 2.0)
@@ -94,6 +98,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - CocoaLumberjack
+    - CollectionKit
     - Differentiator
     - KafkaRefresh
     - Localize-Swift
@@ -124,6 +129,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
+  CollectionKit: 8f01e7629185bb81072c4aa734d105df5c2d1c8b
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
   KafkaRefresh: 7e40fce9a5fb180da8b9382ab1b5a129f1f8d48d
@@ -142,6 +148,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-PODFILE CHECKSUM: 451efb0dde34dd4d6b6a9d2b613b25dad854637c
+PODFILE CHECKSUM: 22faa34ff15371d80a85d9142e6ef7ccfefbe2bc
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
