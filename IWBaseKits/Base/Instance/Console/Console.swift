@@ -6,11 +6,21 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-import UIKit
-import CocoaLumberjack
+#if os(macOS)
+    import Cocoa
+#else
+    import UIKit
+#endif
+
 import RxSwift
 import RxCocoa
-import Localize_Swift
+
+#if canImport(Localize_Swift)
+    import Localize_Swift
+#endif
+
+#if canImport(CocoaLumberjack)
+import CocoaLumberjack
 
 class LogFormatter: DDDispatchQueueLogFormatter {
     let dateFormatter: DateFormatter
@@ -45,11 +55,21 @@ public struct Console {
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7; // 日志保存一周
         DDLog.add(fileLogger)
         
+        #if os(iOS)
         _infos()
+        #endif
     }
     
+    #if os(iOS)
     /// 初始化时写出的设备信息
     private static func _infos() -> Void {
+        
+        #if canImport(Localize_Swift)
+            let mutilLanguageInfo = "\n多语言包: \(Localize.availableLanguages(true))\n系统语言: \(Localize.defaultLanguage())\n当前语言: \(Localize.currentLanguage())\n------------"
+        #else
+            let mutilLanguageInfo = ""
+        #endif
+        
         self.debug("""
 日志初始化成功...
 ------------ 本次运行设备信息
@@ -60,12 +80,10 @@ public struct Console {
 是否异型全面屏: \(IWDevice.isShaped.yesOrNo)
  本次运行UUID: \(NSUUID.init().uuidString)
 ------
-     多语言包: \(Localize.availableLanguages(true))
-     系统语言: \(Localize.defaultLanguage())
-     当前语言: \(Localize.currentLanguage())
-------------
-""")
+""" + mutilLanguageInfo)
+        
     }
+    #endif
     
     static func log(_ str: String?) -> Void {
         self.verbose(str ?? "")
@@ -91,9 +109,16 @@ public struct Console {
         DDLogWarn("💛    WARN: " + (str ?? ""))
     }
     
+    #if canImport(RxSwift) && canImport(RxCocoa)
     static func logResourcesCount() -> Void {
+        // 这里需要在 Pod 中进行 RxSwift 资源配置, 详情请自行搜索
         #if DEBUG
-            self.warn("RxSwift resources count: \(RxSwift.Resources.total)")
+//            self.warn("RxSwift resources count: \(RxSwift.Resources.total)")
         #endif
     }
+    #endif
 }
+
+#else
+    #warning("NEED INSTALL CocoaLumberjack from POD")
+#endif

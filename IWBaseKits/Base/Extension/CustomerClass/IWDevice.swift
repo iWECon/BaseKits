@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 public class IWDevice: UIDevice {
@@ -110,3 +111,4 @@ extension IWDevice {
     }
     
 }
+#endif

@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 protocol IWViewControllerable {
@@ -30,3 +31,4 @@ extension IWViewControllerable {
 //        return self as! UIViewController
 //    }
 }
+#endif

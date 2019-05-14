@@ -6,9 +6,14 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-import UIKit
+#if os(macOS)
+    import Cocoa
+#else
+    import UIKit
+#endif
 import RxSwift
 import RxCocoa
+
 
 public struct Common {
     private init() { }
@@ -21,9 +26,11 @@ public struct Common {
         #endif
     }()
     
+    #if os(iOS)
     static var currentViewController: UIViewController? {
         return GetCurrentViewController
     }
+    
     
     public struct Screen {
         private init() { }
@@ -63,6 +70,7 @@ public struct Common {
         }()
         
     }
+    #endif
     
     public struct Queue {
         private init() { }
@@ -146,14 +154,22 @@ public func =~ (content: String, matchs: String) -> Bool {
 public func MakeSize(_ width: CGFloat, _ height: CGFloat) -> IWSize {
     return IWSize.init(width: width, height: height)
 }
-public func MakeRect(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-    return CGRect.init(x: x, y: y, width: width, height: height)
+public func MakeRect(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> IWRect {
+    return IWRect.init(x: x, y: y, width: width, height: height)
 }
-public func MakePoint(_ x: CGFloat, _ y: CGFloat) -> CGPoint {
-    return CGPoint.init(x: x, y: y)
+public func MakePoint(_ x: CGFloat, _ y: CGFloat) -> IWPoint {
+    return IWPoint.init(x: x, y: y)
 }
 
+public func MakeIndex(_ row: Int, _ section: Int) -> IndexPath {
+    return IndexPath.init(item: row, section: section)
+}
 
+public func MakeEdge(t top: CGFloat, l left: CGFloat, b bottom: CGFloat, r right: CGFloat) -> IWEdgeInsets {
+    return IWEdgeInsets.init(top: top, left: left, bottom: bottom, right: right)
+}
+
+#if os(iOS)
 // MARK:- Constant
 public let NavBarHeight  : CGFloat = IWDevice.isShaped ? 88.0 : 64.0
 public let TopSpacing    : CGFloat = IWDevice.isShaped ? 24.0 : 0.0
@@ -163,3 +179,4 @@ public let ScreenBounds  : CGRect  = Common.Screen.bounds
 public let ScreenSize    : CGSize  = Common.Screen.size
 public let ScreenHeight  : CGFloat = Common.Screen.height
 public let ScreenWidth   : CGFloat = Common.Screen.width
+#endif

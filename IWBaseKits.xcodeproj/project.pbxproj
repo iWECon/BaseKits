@@ -84,6 +84,7 @@
 		92613692224C9014007CC47A /* IWRouterParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92613691224C9014007CC47A /* IWRouterParams.swift */; };
 		92613697224CA2F0007CC47A /* IWProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92613696224CA2F0007CC47A /* IWProvider.swift */; };
 		9261369B224CB386007CC47A /* IWReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261369A224CB386007CC47A /* IWReachability.swift */; };
+		9267919A22869DCF00B07290 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9267919922869DCF00B07290 /* README.md */; };
 		92709C2A225AED88000A39CF /* IWTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92709C29225AED88000A39CF /* IWTableViewModel.swift */; };
 		92709C2C225AEF6F000A39CF /* IWTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92709C2B225AEF6F000A39CF /* IWTableViewController.swift */; };
 		92709C2E225AEFBE000A39CF /* IWTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92709C2D225AEFBE000A39CF /* IWTableView.swift */; };
@@ -98,6 +99,7 @@
 		929220A42249FB70009F6DF8 /* IWViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929220A32249FB70009F6DF8 /* IWViewModel.swift */; };
 		929220A72249FC77009F6DF8 /* IWService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929220A62249FC77009F6DF8 /* IWService.swift */; };
 		929220A9224A09C2009F6DF8 /* IWServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929220A8224A09C2009F6DF8 /* IWServiceModel.swift */; };
+		92C75DA3228A78790040719F /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C75DA2228A78790040719F /* Typealias.swift */; };
 		A88C0845D1FF64BD673DBD6A /* Pods_IWBaseKits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAE22ED6470B075B2D28DD9C /* Pods_IWBaseKits.framework */; };
 		F62019D0225D877800410066 /* MyAlertControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62019CF225D877800410066 /* MyAlertControlle.swift */; };
 		F62019D3225DBF1C00410066 /* JCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62019D2225DBF1C00410066 /* JCollectionViewController.swift */; };
@@ -220,6 +222,7 @@
 		92613691224C9014007CC47A /* IWRouterParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWRouterParams.swift; sourceTree = "<group>"; };
 		92613696224CA2F0007CC47A /* IWProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWProvider.swift; sourceTree = "<group>"; };
 		9261369A224CB386007CC47A /* IWReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWReachability.swift; sourceTree = "<group>"; };
+		9267919922869DCF00B07290 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		92709C29225AED88000A39CF /* IWTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWTableViewModel.swift; sourceTree = "<group>"; };
 		92709C2B225AEF6F000A39CF /* IWTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWTableViewController.swift; sourceTree = "<group>"; };
 		92709C2D225AEFBE000A39CF /* IWTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWTableView.swift; sourceTree = "<group>"; };
@@ -240,6 +243,7 @@
 		929220A32249FB70009F6DF8 /* IWViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWViewModel.swift; sourceTree = "<group>"; };
 		929220A62249FC77009F6DF8 /* IWService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWService.swift; sourceTree = "<group>"; };
 		929220A8224A09C2009F6DF8 /* IWServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWServiceModel.swift; sourceTree = "<group>"; };
+		92C75DA2228A78790040719F /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		DAE22ED6470B075B2D28DD9C /* Pods_IWBaseKits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IWBaseKits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62019CF225D877800410066 /* MyAlertControlle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlertControlle.swift; sourceTree = "<group>"; };
 		F62019D2225DBF1C00410066 /* JCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JCollectionViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 				9256FD9E2254B3D800307395 /* Color+.swift */,
 				9215AEC52255B117009549BB /* ResponseMode+.swift */,
 				923BE1FF225DC223007EC3CA /* ViewController+.swift */,
+				92C75DA2228A78790040719F /* Typealias.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 		9292209A2249FAF7009F6DF8 /* InitlizedProjectFile */ = {
 			isa = PBXGroup;
 			children = (
+				9267919922869DCF00B07290 /* README.md */,
 				92499CC5225C4B8400F66AA8 /* README */,
 				92499CC3225C498600F66AA8 /* R.generated.swift */,
 				9292206C2249FADB009F6DF8 /* AppDelegate.swift */,
@@ -858,6 +864,7 @@
 				929220742249FADC009F6DF8 /* Assets.xcassets in Resources */,
 				F692D08F225ADFD900B478FB /* JLearnMoreCell.xib in Resources */,
 				F62019E7225F28FE00410066 /* JCollectionViewTextItemCell.xib in Resources */,
+				9267919A22869DCF00B07290 /* README.md in Resources */,
 				F62019DB225DD84B00410066 /* JCollectionViewItemCell.xib in Resources */,
 				929220722249FADB009F6DF8 /* Main.storyboard in Resources */,
 			);
@@ -1040,6 +1047,7 @@
 				9256FD912254ABD000307395 /* URL+.swift in Sources */,
 				9256FDA12254BA0700307395 /* IWRegex.swift in Sources */,
 				9234D7AF22545563009679B8 /* Array+.swift in Sources */,
+				92C75DA3228A78790040719F /* Typealias.swift in Sources */,
 				925B0A8D225C965000B08F97 /* UICollectionView+IWReusable.swift in Sources */,
 				92709C2C225AEF6F000A39CF /* IWTableViewController.swift in Sources */,
 				9200DAB0224F01C5000E3D4E /* String+.swift in Sources */,

@@ -8,13 +8,11 @@
 
 #if os(macOS)
     import Cocoa
-    public typealias IWView = NSView
 #else
     import UIKit
-    public typealias IWView = UIView
 #endif
 
-import RxSwift
+//import RxSwift
 
 public extension IWView {
     
@@ -91,7 +89,8 @@ public extension IWView {
 }
 
 
-extension IWViewBridge where Base: UIView {
+#if os(iOS)
+public extension IWViewBridge where Base: UIView {
     
     /// 切成圆形
     func round() -> Void {
@@ -124,4 +123,15 @@ extension IWViewBridge where Base: UIView {
     var image: IWImage? {
         return screenshot
     }
+}
+#endif
+
+
+public extension IWView {
+    
+    /// 移除所有子视图
+    func removeAllSubviews() -> Void {
+        self.subviews.forEach({ $0.removeFromSuperview() })
+    }
+    
 }

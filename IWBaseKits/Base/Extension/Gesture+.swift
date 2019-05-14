@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 fileprivate struct _RecognizerKey {
@@ -31,3 +32,4 @@ extension UIGestureRecognizer {
     }
     
 }
+#endif

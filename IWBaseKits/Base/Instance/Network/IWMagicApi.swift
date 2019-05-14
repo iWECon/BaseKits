@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 import RxSwift
 import RxCocoa
@@ -75,3 +76,4 @@ private extension IWMagicApi {
 //    }
     
 }
+#endif

@@ -8,10 +8,8 @@
 
 #if os(macOS)
     import Cocoa
-    public typealias IWImage = NSImage
 #else
     import UIKit
-    public typealias IWImage = UIImage
 #endif
 
 public extension IWImage {
@@ -24,15 +22,19 @@ public extension IWImage {
         let data = UnsafeMutableRawPointer.allocate(bytes: 4, alignedTo: 1) // unsigned char = 4 bytes
         #endif
         let colorSpace = CGColorSpaceCreateDeviceRGB()
+        
         guard let context = CGContext.init(data: data, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue) else {
             assertionFailure("非法 context.")
             return nil
         }
+        
         #if os(macOS)
-        let cgimg = self.cgImage(forProposedRect: MakeRect(0, 0, 1, 1), context: context, hints: nil)
+            let cgimg = self.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        //let cgimg = self.cgImage(forProposedRect: MakeRect(0, 0, 1, 1), context: context, hints: nil)
         #else
-        let cgimg = self.cgImage
+            let cgimg = self.cgImage
         #endif
+        
         context.draw(cgimg!, in: MakeRect(0, 0, 1, 1))
         let rgba = Array(UnsafeBufferPointer(start: data.assumingMemoryBound(to: UInt8.self), count: 4))
         if rgba[3] > 0 {
@@ -77,7 +79,7 @@ public extension Array where Element: NSImageRep {
     ///   - size: 图片size的最大值
     ///   - pixels: 最大pixels
     /// - Returns: 找到了返回图片，没找到返回nil
-    func autoGetImage(maxSize size: CGSize, pixels: Int) -> Image? {
+    func autoGetImage(maxSize size: CGSize, pixels: Int) -> IWImage? {
         var sizeWidth = size.width
         var sizeHeight = size.height
         var _pixels = pixels
@@ -96,7 +98,7 @@ public extension Array where Element: NSImageRep {
         // 确实没有找到指定参数的图片
         if imgReps.count == 0 { return nil }
         
-        let newImage = Image.init(size: MakeSize(sizeWidth, sizeHeight))
+        let newImage = IWImage.init(size: MakeSize(sizeWidth, sizeHeight))
         newImage.addRepresentation(imgReps[0])
         return newImage
     }

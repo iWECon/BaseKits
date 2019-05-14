@@ -12,6 +12,7 @@
  2. 需要配置相关的接口信息, 参见 CommonAPI.swift
  */
 
+#if os(iOS)
 import UIKit
 import Moya
 import RxSwift
@@ -118,3 +119,4 @@ private extension IWService {
     }
     
 }
+#endif

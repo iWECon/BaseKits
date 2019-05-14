@@ -6,31 +6,35 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-import UIKit
+#if os(macOS)
+    import Cocoa
+#else
+    import UIKit
+#endif
 
-class IWViewBridge<Base> {
+public class IWViewBridge<Base> {
     let base: Base
     init(view: Base) {
         self.base = view
     }
 }
 
-protocol IWViewable {
+public protocol IWViewable {
     associatedtype Base
     var iwe: Base { get }
 }
 
-extension IWViewable {
+public extension IWViewable {
     var iwe: IWViewBridge<Self> {
         return IWViewBridge(view: self)
     }
 }
 
-extension UIView: IWViewable { }
+extension IWView: IWViewable { }
 
-
+#if os(iOS)
 fileprivate let _TAPKEY: String = "_iwe_tap"
-extension IWViewBridge where Base: UIView {
+public extension IWViewBridge where Base: IWView {
     
     var tap: UITapGestureRecognizer {
         if base.gestureRecognizers != nil {
@@ -55,3 +59,4 @@ extension IWViewBridge where Base: UIView {
     }
     
 }
+#endif

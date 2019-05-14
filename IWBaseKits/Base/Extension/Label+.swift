@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 public extension UILabel {
@@ -24,3 +25,4 @@ public extension UILabel {
         self.backgroundColor = label.backgroundColor
     }
 }
+#endif

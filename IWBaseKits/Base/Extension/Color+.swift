@@ -8,10 +8,8 @@
 
 #if os(macOS)
     import Cocoa
-    public typealias IWColor = NSColor
 #else
     import UIKit
-    public typealias IWColor = UIColor
 #endif
 
 #if !os(watchOS)
@@ -19,6 +17,18 @@
 #endif
 
 public extension IWColor {
+    
+    convenience init(red: CGFloat, green: CGFloat, blue: CGFloat) {
+        self.init(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
+    }
+    
+    convenience init(hex: UInt) {
+        let limit = 255.0.cgFloat
+        let r: CGFloat = CGFloat((hex & 0xFF000000) >> 24) / limit
+        let g: CGFloat = CGFloat((hex & 0x00FF0000) >> 16) / limit
+        let b: CGFloat = CGFloat((hex & 0x0000FF00) >> 8) / limit
+        self.init(red: r, green: g, blue: b)
+    }
     
     /// (返回一个随机颜色).
     static var random: IWColor {

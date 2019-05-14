@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 class IWTabBarController: IWViewController {
@@ -56,3 +57,4 @@ extension IWTabBarController: UITabBarControllerDelegate {
     }
     
 }
+#endif

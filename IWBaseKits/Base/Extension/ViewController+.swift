@@ -6,9 +6,10 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
     /// self as! UINavigationController
     var navControl: UINavigationController {
@@ -16,3 +17,4 @@ extension UIViewController {
     }
     
 }
+#endif

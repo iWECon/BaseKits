@@ -9,9 +9,9 @@
 import RxSwift
 import RxCocoa
 #if os(iOS)
-import UIKit
+    import UIKit
 #elseif os(macOS)
-import AppKit
+    import AppKit
 #endif
 
 // Two way binding operator between control property and relay, that's all it takes.

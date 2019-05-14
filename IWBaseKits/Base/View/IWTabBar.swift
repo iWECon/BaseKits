@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 class IWTabBar: UITabBar {
@@ -44,3 +45,4 @@ class IWTabBar: UITabBar {
     
 }
 
+#endif

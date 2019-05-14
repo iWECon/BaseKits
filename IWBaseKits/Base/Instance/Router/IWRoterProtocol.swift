@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 import RxSwift
 import RxCocoa
@@ -38,3 +39,4 @@ protocol IWRouterViewModelable: NSObjectProtocol {
     func back(_ animated: Bool) -> Void
     func reset() -> Void
 }
+#endif

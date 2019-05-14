@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 extension IWViewBridge where Base: UICollectionView {
@@ -34,3 +35,4 @@ extension IWViewBridge where Base: UICollectionView {
     }
     
 }
+#endif

@@ -6,5 +6,3 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-import UIKit
-

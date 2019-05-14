@@ -6,12 +6,8 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-#if os(macOS)
-    import Cocoa
-#else
-    import UIKit
-#endif
-
+#if os(iOS)
+import UIKit
 import HandyJSON
 
 enum ResponseStatus: Swift.Error {
@@ -64,3 +60,4 @@ struct MediatorModel: HandyJSON {
     var message: String?
     var data: Any?
 }
+#endif

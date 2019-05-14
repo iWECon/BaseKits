@@ -16,14 +16,22 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
+    /// Resource file `README.md`.
+    static let readmeMd = Rswift.FileResource(bundle: R.hostingBundle, name: "README", pathExtension: "md")
     /// Resource file `README`.
     static let readmE = Rswift.FileResource(bundle: R.hostingBundle, name: "README", pathExtension: "")
     
     /// `bundle.url(forResource: "README", withExtension: "")`
     static func readmE(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.readmE
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "README", withExtension: "md")`
+    static func readmeMd(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.readmeMd
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -43,10 +51,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `JCollectionViewItemCell`.
     static let jCollectionViewItemCell = _R.nib._JCollectionViewItemCell()
+    /// Nib `JCollectionViewTextItemCell`.
+    static let jCollectionViewTextItemCell = _R.nib._JCollectionViewTextItemCell()
     /// Nib `JLearnMoreCell`.
     static let jLearnMoreCell = _R.nib._JLearnMoreCell()
     
@@ -54,6 +64,12 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.jCollectionViewItemCell) instead")
     static func jCollectionViewItemCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.jCollectionViewItemCell)
+    }
+    
+    /// `UINib(name: "JCollectionViewTextItemCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.jCollectionViewTextItemCell) instead")
+    static func jCollectionViewTextItemCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.jCollectionViewTextItemCell)
     }
     
     /// `UINib(name: "JLearnMoreCell", in: bundle)`
@@ -64,6 +80,10 @@ struct R: Rswift.Validatable {
     
     static func jCollectionViewItemCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JCollectionViewItemCell? {
       return R.nib.jCollectionViewItemCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JCollectionViewItemCell
+    }
+    
+    static func jCollectionViewTextItemCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JCollectionViewTextItemCell? {
+      return R.nib.jCollectionViewTextItemCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JCollectionViewTextItemCell
     }
     
     static func jLearnMoreCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JLearnMoreCell? {
@@ -228,6 +248,17 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "TestshowImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TestshowImage' is used in nib 'JCollectionViewItemCell', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _JCollectionViewTextItemCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "JCollectionViewTextItemCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> JCollectionViewTextItemCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? JCollectionViewTextItemCell
       }
       
       fileprivate init() {}

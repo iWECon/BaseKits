@@ -6,7 +6,11 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-import UIKit
+#if os(macOS)
+    import Cocoa
+#else
+    import UIKit
+#endif
 
 public extension Dictionary {
     

@@ -8,11 +8,10 @@
 
 #if os(macOS)
     import Cocoa
-    public typealias IWSize = NSSize
 #else
     import UIKit
-    public typealias IWSize = CGSize
 #endif
+
 import Foundation
 
 protocol BasicTypeable {
@@ -536,6 +535,11 @@ public extension String {
 //    func localized(comment: String = "") -> String {
 //        return NSLocalizedString(self, comment: comment)
 //    }
+    
+    /// (拼接路径/链接).
+    func splicing(_ path: String) -> String {
+        return (self as NSString).appendingPathComponent(path)
+    }
     
 }
 

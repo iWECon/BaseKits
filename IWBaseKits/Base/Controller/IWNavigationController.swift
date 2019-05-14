@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 class IWNavigationController: UINavigationController {
@@ -69,3 +70,4 @@ class IWNavigationController: UINavigationController {
     }
     
 }
+#endif

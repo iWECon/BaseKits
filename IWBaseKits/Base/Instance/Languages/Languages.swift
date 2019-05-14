@@ -6,6 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 import RxSwift
 import RxCocoa
@@ -79,5 +80,4 @@ class Languages: NSObject {
         return String()
     }
 }
-
-
+#endif
