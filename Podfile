@@ -6,10 +6,10 @@ target 'IWBaseKits' do
 inhibit_all_warnings!
     
 # Rx
-pod 'RxSwift', '~> 4.4.0'
-pod 'RxCocoa', '~> 4.4.0'
-pod 'NSObject+Rx', '~> 4.4.1'   # https://github.com/RxSwiftCommunity/NSObject-Rx
-pod 'RxSwiftExt', '~> 3.4.0'    # https://github.com/RxSwiftCommunity/RxSwiftExt
+pod 'RxSwift', '~> 5.0.0'
+pod 'RxCocoa', '~> 5.0.0'
+pod 'NSObject+Rx', '~> 5.0.0'   # https://github.com/RxSwiftCommunity/NSObject-Rx
+pod 'RxSwiftExt', '~> 5.0.0'    # https://github.com/RxSwiftCommunity/RxSwiftExt
 
 
 # Tools
@@ -17,13 +17,13 @@ pod 'R.swift', '~> 5.0.3'       # https://github.com/mac-cain13/R.swift
 pod 'Localize-Swift', '~> 2.0'  # https://github.com/marmelroy/Localize-Swift
 
 # TableView & CollectionView
-pod 'RxDataSources', '~> 3.1.0' # https://github.com/RxSwiftCommunity/RxDataSources
+pod 'RxDataSources', '~> 4.0.1' # https://github.com/RxSwiftCommunity/RxDataSources
 pod 'KafkaRefresh', '~> 1.4.0'  # https://github.com/OpenFeyn/KafkaRefresh
 pod 'CollectionKit’
 
 
 # Network
-pod 'Moya/RxSwift', '~> 12.0'
+pod 'Moya/RxSwift', '~> 14.0.0-alpha.1' # https://github.com/Moya/Moya
 pod 'ReachabilitySwift', '~> 4.0' # https://github.com/ashleymills/Reachability.swift
 
 

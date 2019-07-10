@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.2)
   - CocoaLumberjack/Core (3.5.2)
   - CocoaLumberjack/Swift (3.5.2):
     - CocoaLumberjack/Core
   - CollectionKit (2.4.0):
     - CollectionKit/Core (= 2.4.0)
   - CollectionKit/Core (2.4.0)
-  - Differentiator (3.1.0)
+  - Differentiator (4.0.1)
   - HandyJSON (5.0.0-beta.1)
   - KafkaRefresh (1.4.0):
     - KafkaRefresh/Category (= 1.4.0)
@@ -44,35 +44,36 @@ PODS:
     - KafkaRefresh/Category
     - KafkaRefresh/Default
   - Localize-Swift (2.0.0)
-  - Moya/Core (12.0.1):
+  - Moya/Core (14.0.0-alpha.1):
     - Alamofire (~> 4.1)
-    - Result (~> 4.0)
-  - Moya/RxSwift (12.0.1):
+    - Result (~> 4.1)
+  - Moya/RxSwift (14.0.0-alpha.1):
     - Moya/Core
-    - RxSwift (~> 4.0)
-  - "NSObject+Rx (4.4.1)":
-    - RxSwift (~> 4.3)
+    - RxSwift (~> 5.0)
+  - "NSObject+Rx (5.0.0)":
+    - RxSwift (~> 5.0)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
   - ReachabilitySwift (4.3.0)
   - Result (4.1.0)
-  - RxAtomic (4.4.2)
-  - RxCocoa (4.4.2):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.4.2):
-    - RxAtomic (>= 4.4.2, ~> 4.4)
-  - RxSwiftExt (3.4.0):
-    - RxSwiftExt/Core (= 3.4.0)
-    - RxSwiftExt/RxCocoa (= 3.4.0)
-  - RxSwiftExt/Core (3.4.0):
-    - RxSwift (~> 4.0)
-  - RxSwiftExt/RxCocoa (3.4.0):
-    - RxCocoa (~> 4.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - RxSwiftExt (5.0.0):
+    - RxSwiftExt/Core (= 5.0.0)
+    - RxSwiftExt/RxCocoa (= 5.0.0)
+  - RxSwiftExt/Core (5.0.0):
+    - RxSwift (~> 5.0)
+  - RxSwiftExt/RxCocoa (5.0.0):
+    - RxCocoa (~> 5.0)
     - RxSwiftExt/Core
   - SnapKit (4.2.0)
   - Then (2.4.0)
@@ -83,14 +84,14 @@ DEPENDENCIES:
   - HandyJSON (from `https://github.com/alibaba/HandyJSON`, tag `5.0.0-beta.1`)
   - KafkaRefresh (~> 1.4.0)
   - Localize-Swift (~> 2.0)
-  - Moya/RxSwift (~> 12.0)
-  - "NSObject+Rx (~> 4.4.1)"
+  - Moya/RxSwift (~> 14.0.0-alpha.1)
+  - "NSObject+Rx (~> 5.0.0)"
   - R.swift (~> 5.0.3)
   - ReachabilitySwift (~> 4.0)
-  - RxCocoa (~> 4.4.0)
-  - RxDataSources (~> 3.1.0)
-  - RxSwift (~> 4.4.0)
-  - RxSwiftExt (~> 3.4.0)
+  - RxCocoa (~> 5.0.0)
+  - RxDataSources (~> 4.0.1)
+  - RxSwift (~> 5.0.0)
+  - RxSwiftExt (~> 5.0.0)
   - SnapKit (~> 4.2.0)
   - Then (~> 2.4.0)
 
@@ -108,9 +109,9 @@ SPEC REPOS:
     - R.swift.Library
     - ReachabilitySwift
     - Result
-    - RxAtomic
     - RxCocoa
     - RxDataSources
+    - RxRelay
     - RxSwift
     - RxSwiftExt
     - SnapKit
@@ -127,27 +128,27 @@ CHECKOUT OPTIONS:
     :tag: 5.0.0-beta.1
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   CollectionKit: 8f01e7629185bb81072c4aa734d105df5c2d1c8b
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
   KafkaRefresh: 7e40fce9a5fb180da8b9382ab1b5a129f1f8d48d
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
-  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
-  "NSObject+Rx": 9884a92f19b610795c431e10b4e601913b59c9e9
+  Moya: 65485239114b3b327a17dc2e839f6c8b7143aae9
+  "NSObject+Rx": 6151a97d171f7187c4183746acc42d9451952a7b
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
-  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
-  RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxSwiftExt: 4564187392cc53823ef241fa4a11647861567026
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-PODFILE CHECKSUM: 22faa34ff15371d80a85d9142e6ef7ccfefbe2bc
+PODFILE CHECKSUM: f0cf13bca28f3f12261d5dd62753bba13a23f81e
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0

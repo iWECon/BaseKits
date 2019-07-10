@@ -171,6 +171,10 @@ public extension Optional where Wrapped: Collection {
     var unwrapCount: Int {
         return self?.count ?? 0
     }
+    
+    var safeCount: Int {
+        return unwrapCount
+    }
 }
 
 public extension Optional where Wrapped: Any {

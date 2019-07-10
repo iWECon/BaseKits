@@ -11,6 +11,7 @@
 		9200DAB0224F01C5000E3D4E /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200DAAF224F01C5000E3D4E /* String+.swift */; };
 		9200DAB2224F041F000E3D4E /* Controller+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200DAB1224F041F000E3D4E /* Controller+.swift */; };
 		9200DAB4224F4769000E3D4E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200DAB3224F4769000E3D4E /* UserModel.swift */; };
+		92141D952292FB720001148A /* ExtensionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92141D942292FB720001148A /* ExtensionProtocol.swift */; };
 		9215AEC62255B117009549BB /* ResponseMode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215AEC52255B117009549BB /* ResponseMode+.swift */; };
 		9215AEC82255B7A9009549BB /* IWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215AEC72255B7A9009549BB /* IWModel.swift */; };
 		921856D0224A2C6D00B52702 /* CommonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921856CF224A2C6D00B52702 /* CommonAPI.swift */; };
@@ -152,6 +153,7 @@
 		9200DAAF224F01C5000E3D4E /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		9200DAB1224F041F000E3D4E /* Controller+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Controller+.swift"; sourceTree = "<group>"; };
 		9200DAB3224F4769000E3D4E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		92141D942292FB720001148A /* ExtensionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionProtocol.swift; sourceTree = "<group>"; };
 		9215AEC52255B117009549BB /* ResponseMode+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResponseMode+.swift"; sourceTree = "<group>"; };
 		9215AEC72255B7A9009549BB /* IWModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWModel.swift; sourceTree = "<group>"; };
 		921856CF224A2C6D00B52702 /* CommonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAPI.swift; sourceTree = "<group>"; };
@@ -313,9 +315,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		92141D932292FB410001148A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				92141D942292FB720001148A /* ExtensionProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		921856CC224A222700B52702 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				92141D932292FB410001148A /* Protocol */,
 				925B0A85225C963100B08F97 /* Reuseable */,
 				9234D7B322547D58009679B8 /* CustomerClass */,
 				922AA7FE224DB4F600C8549F /* Rx+.swift */,
@@ -908,49 +919,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IWBaseKits/Pods-IWBaseKits-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
-				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IWBaseKits/Pods-IWBaseKits-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IWBaseKits/Pods-IWBaseKits-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -966,7 +940,7 @@
 				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1100,6 +1074,7 @@
 				F62019E3225F28E300410066 /* JCollectionViewTextItemViewModel.swift in Sources */,
 				F62019D3225DBF1C00410066 /* JCollectionViewController.swift in Sources */,
 				9234D7A722544FD3009679B8 /* RectCorner+.swift in Sources */,
+				92141D952292FB720001148A /* ExtensionProtocol.swift in Sources */,
 				F632441F22559BC100DC46BF /* JLearnBoxViewModel.swift in Sources */,
 				922AA824224DF44800C8549F /* FirstRootViewModel.swift in Sources */,
 				923697F72259AC5C002A0FFA /* Configs.swift in Sources */,
@@ -1300,7 +1275,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cc.iwecon.IWBaseKits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1320,7 +1295,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cc.iwecon.IWBaseKits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

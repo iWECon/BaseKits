@@ -66,8 +66,8 @@ class ViewModel: IWViewModel {
         }).disposed(by: rx.disposeBag)
         
         let checkPass = Observable<String>.combineLatest([input.accountObs, input.passwordObs]).asObservable().map { (tuple) -> Bool in
-            let condition1 = tuple.first.check({ $0.count > 0 })
-            let condition2 = tuple.last.check({ $0.count >= 6 })
+            let condition1 = tuple.first.checkCount(more: 0)
+            let condition2 = tuple.last.checkCount(greaterOrEqual: 6)
             return condition1 && condition2
         }.asDriver(onErrorJustReturn: false)
         

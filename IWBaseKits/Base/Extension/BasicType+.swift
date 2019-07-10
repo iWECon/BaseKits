@@ -165,7 +165,7 @@ public extension Bool {
     /// eg: a || b || c || d
     /// ->: a.or(b).or(c).or(d)
     ///
-    /// - Parameter other: 条件
+    /// urlValue Parameter other: 条件
     /// - Returns: 最总结果
     func or(_ other: @autoclosure () -> Bool) -> Bool {
         return self || other()
@@ -292,6 +292,26 @@ public extension Optional where Wrapped == String {
     func check(_ process: (String) -> Bool) -> Bool {
         return process(self ?? "")
     }
+    
+    
+    /// Check if the value.count meets the more than value
+    ///
+    /// - Parameter than: Check value
+    /// - Returns: Bool
+    func checkCount(more than: Int) -> Bool {
+        return (self ?? "").count > than
+    }
+    func checkCount(less than: Int) -> Bool {
+        return (self ?? "").count < than
+    }
+    
+    func checkCount(greaterOrEqual to: Int) -> Bool {
+        return (self ?? "").count >= to
+    }
+    func checkCount(lessOrEqual to: Int) -> Bool {
+        return (self ?? "").count <= to
+    }
+    
 }
 
 // MARK:- String Variable
