@@ -15,7 +15,7 @@ public protocol IWModelProtocol: HandyJSON {
 #if os(iOS)
 public class IWModel: NSObject, IWModelProtocol {
     
-    required override init() { }
+    required override public init() { }
 }
 #endif
 
