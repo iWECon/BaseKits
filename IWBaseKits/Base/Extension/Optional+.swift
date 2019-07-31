@@ -179,12 +179,14 @@ public extension Optional where Wrapped: Collection {
 
 public extension Optional where Wrapped: Any {
     
+    #if os(iOS)
     var string: String? {
         return self as? String
     }
     var stringValue: String {
         return self as! String
     }
+    #endif
     
     var int: Int? {
         return self as? Int
@@ -212,5 +214,12 @@ public extension Optional where Wrapped: Any {
     }
     var sizeValue: IWSize {
         return self as! IWSize
+    }
+    
+    var dictionary: [String: Any]? {
+        return self as? [String: Any]
+    }
+    var dictionaryValue: [String: Any] {
+        return self as! [String: Any]
     }
 }

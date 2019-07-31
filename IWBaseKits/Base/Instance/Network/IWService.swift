@@ -12,8 +12,7 @@
  2. 需要配置相关的接口信息, 参见 CommonAPI.swift
  */
 
-#if os(iOS)
-import UIKit
+#if (os(iOS) || os(macOS)) && canImport(Moya) && canImport(RxSwift) && canImport(RxCocoa) && canImport(NSObject_Rx)
 import Moya
 import RxSwift
 import RxCocoa
@@ -21,7 +20,7 @@ import NSObject_Rx
 
 public class IWService: NSObject {
     
-    public static let shared: IWService! = IWService.init()
+    public static let shared: IWService = IWService.init()
     
     /// The mode of request host
     public enum Mode {

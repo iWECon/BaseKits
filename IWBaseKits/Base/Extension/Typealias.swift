@@ -16,6 +16,7 @@
     public typealias IWPoint = NSPoint
     public typealias IWImageView = NSImageView
     public typealias IWEdgeInsets = NSEdgeInsets
+    public typealias IWStoryboard = NSStoryboard
 #else
     import UIKit
     public typealias IWView = UIView
@@ -26,4 +27,5 @@
     public typealias IWPoint = CGPoint
     public typealias IWImageView = UIImageView
     public typealias IWEdgeInsets = UIEdgeInsets
+    public typealias IWStoryboard = UIStoryboard
 #endif

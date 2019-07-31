@@ -6,8 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-#if os(iOS)
-import UIKit
+#if (os(iOS) || os(macOS)) && canImport(Moya)
 import Moya
 
 public class IWServiceModel: NSObject {

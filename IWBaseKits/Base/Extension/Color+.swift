@@ -22,12 +22,18 @@ public extension IWColor {
         self.init(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
     }
     
+    @available(iOS 9.3, *)
     convenience init(hex: UInt) {
         let limit = 255.0.cgFloat
-        let r: CGFloat = CGFloat((hex & 0xFF000000) >> 24) / limit
-        let g: CGFloat = CGFloat((hex & 0x00FF0000) >> 16) / limit
-        let b: CGFloat = CGFloat((hex & 0x0000FF00) >> 8) / limit
+        let r: CGFloat = CGFloat((hex & 0xFF0000) >> 24) / limit
+        let g: CGFloat = CGFloat((hex & 0x00FF00) >> 16) / limit
+        let b: CGFloat = CGFloat((hex & 0x0000FF) >> 8) / limit
         self.init(red: r, green: g, blue: b)
+    }
+    
+    @available(OSX 10.12, *)
+    convenience init(hex: Int) {
+        self.init(red: CGFloat((hex >> 16) & 0xFF), green: CGFloat((hex >> 8) & 0xFF), blue: CGFloat(hex & 0xFF))
     }
     
     /// (返回一个随机颜色).

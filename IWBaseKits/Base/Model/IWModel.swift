@@ -6,12 +6,23 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-#if os(iOS)
-import UIKit
+#if (os(iOS) || os(macOS)) && canImport(HandyJSON)
 import HandyJSON
 
-class IWModel: NSObject, HandyJSON {
+public protocol IWModelProtocol: HandyJSON {
+}
+
+#if os(iOS)
+public class IWModel: NSObject, IWModelProtocol {
     
     required override init() { }
 }
+#endif
+
+#if os(macOS)
+public class IWModel: IWModelProtocol {
+    required public init() { }
+}
+#endif
+
 #endif

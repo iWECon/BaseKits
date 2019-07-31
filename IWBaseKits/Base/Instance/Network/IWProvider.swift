@@ -6,8 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-#if os(iOS)
-import UIKit
+#if (os(iOS) || os(macOS)) && canImport(Moya) && canImport(RxSwift) && canImport(RxCocoa)
 import Moya
 import RxSwift
 import RxCocoa
@@ -68,6 +67,7 @@ protocol IWNetworkingType {
     var provider: IWProvider<T> { get }
 }
 
+#if os(iOS)
 struct IWNetworking: IWNetworkingType {
     typealias T = CommonAPI
     let provider: IWProvider<CommonAPI>
@@ -88,10 +88,8 @@ extension IWNetworking {
         return request
     }
     
-    
-    
 }
-
+#endif
 
 extension IWNetworkingType {
     

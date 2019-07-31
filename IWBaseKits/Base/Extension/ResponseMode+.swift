@@ -6,14 +6,14 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-#if os(iOS)
-import UIKit
+#if os(iOS) || os(macOS)
+#if canImport(RxSwift) && canImport(RxCocoa) && canImport(HandyJSON) && canImport(Moya)
 import RxSwift
 import RxCocoa
 import HandyJSON
 import Moya
 
-enum TakeError: Error {
+public enum TakeError: Error {
     case jsonFailed
     case responseFailed
     case modelFailed
@@ -54,9 +54,18 @@ extension Observable where Element: Moya.Response {
             if model.isNone {
                 throw TakeError.responseFailed
             }
-            if dic![safe: "data"].isSome && model!.data.isNone {
+            
+            #if os(iOS)
+            let key = "data"
+            let dataIsNone = model!.data.isNone
+            #elseif os(macOS)
+            let key = "datas"
+            let dataIsNone = model!.datas.isNone
+            #endif
+            
+            if dic![safe: key].isSome && dataIsNone {
                 throw TakeError.modelFailed
-            } else if (dic![safe: "data"].isNone) {
+            } else if (dic![safe: key].isNone) {
                 throw TakeError.dataNone
             }
             Console.debug(model.any)
@@ -65,11 +74,14 @@ extension Observable where Element: Moya.Response {
     }
 
     /// 解析为 ResponseModels
-    func responseModels<T>(_ cls: T.Type) -> Observable<ResponseModels<T>> where T: IWModel {
+    func responseModels<T>(_ cls: T.Type) -> Observable<ResponseModels<T>> where T: IWModelProtocol {
 
         return self.map({ (element) -> ResponseModels<T> in
 
             let dic = try? JSONSerialization.jsonObject(with: element.data, options: .mutableContainers) as? [String: Any]
+            if dic.isNone {
+                throw TakeError.responseFailed
+            }
             let model = ResponseModels<T>.deserialize(from: dic!)
             return model!
         }).share(replay: 1, scope: .forever).asObservable()
@@ -136,4 +148,5 @@ extension Observable where Element == MediatorModel {
     }
     
 }
+#endif
 #endif

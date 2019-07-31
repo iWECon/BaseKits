@@ -6,8 +6,7 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-#if os(iOS)
-import UIKit
+#if os(iOS) && canImport(Moya) && canImport(RxSwift) && canImport(RxCocoa)
 import Moya
 import RxSwift
 import RxCocoa

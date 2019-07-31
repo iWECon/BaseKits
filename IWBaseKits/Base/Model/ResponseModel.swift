@@ -6,11 +6,10 @@
 //  Copyright © 2019 iWECon. All rights reserved.
 //
 
-#if os(iOS)
-import UIKit
+#if (os(iOS) || os(macOS)) && canImport(HandyJSON)
 import HandyJSON
 
-enum ResponseStatus: Swift.Error {
+public enum ResponseStatus: Swift.Error {
     case success
     case failed
     /// response.data 返回的内容是空
@@ -41,17 +40,25 @@ enum ResponseStatus: Swift.Error {
 // 可自行调整键名
 
 /// 拿到数据后生成的通用 Model
-struct ResponseModel<T>: HandyJSON where T: IWModel {
+struct ResponseModel<T>: HandyJSON where T: IWModelProtocol {
     var status: String?
     var message: String?
+    #if os(iOS)
     var data: T?
+    #elseif os(macOS)
+    var datas: T?
+    #endif
 }
 
 /// 拿到数据后生成的通用 Models
-struct ResponseModels<T>: HandyJSON where T: IWModel {
+struct ResponseModels<T>: HandyJSON where T: IWModelProtocol {
     var status: String?
     var message: String?
+    #if os(iOS)
     var data: [T]?
+    #elseif os(macOS)
+    var datas: [T]?
+    #endif
 }
 
 /// 生成通用数据模型，然后通过 take(model cls:) 去转换

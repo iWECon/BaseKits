@@ -12,8 +12,6 @@
     import UIKit
 #endif
 
-//import RxSwift
-
 public extension IWView {
     
     var x: CGFloat {
@@ -88,7 +86,6 @@ public extension IWView {
     }
 }
 
-
 #if os(iOS)
 public extension IWViewBridge where Base: UIView {
     
@@ -126,12 +123,28 @@ public extension IWViewBridge where Base: UIView {
 }
 #endif
 
-
 public extension IWView {
     
     /// 移除所有子视图
     func removeAllSubviews() -> Void {
-        self.subviews.forEach({ $0.removeFromSuperview() })
+        self.subviews.makeObjects(perform: #selector(removeFromSuperview))
     }
+    
+    #if os(macOS)
+    var backgroundColor: IWColor? {
+        get {
+            if let cgColor = self.layer?.backgroundColor {
+                return NSColor.init(cgColor: cgColor)
+            }
+            return nil
+        }
+        set {
+            if !self.wantsLayer {
+                self.wantsLayer = true
+            }
+            self.layer!.backgroundColor = newValue?.cgColor
+        }
+    }
+    #endif
     
 }

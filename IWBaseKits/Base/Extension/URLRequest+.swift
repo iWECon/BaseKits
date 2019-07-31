@@ -15,8 +15,8 @@
 
 public extension URLRequest {
     
-    init?(urlString: String) {
-        guard let url = urlString.url else { return nil }
+    init?(string: String) {
+        guard let url = string.url else { return nil }
         self.init(url: url)
     }
     

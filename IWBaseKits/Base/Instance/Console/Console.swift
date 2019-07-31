@@ -90,23 +90,44 @@ public struct Console {
     }
     
     static func debug(_ item: Any) -> Void {
-        DDLogDebug("💚   DEBUG: \(item)")
+        #if os(macOS)
+            print("   DEUBG💚: \(item)")
+        #else
+            DDLogDebug("💚   DEBUG: \(item)")
+        #endif
     }
     
     static func info(_ str: String?) -> Void {
-        DDLogInfo("💙    INFO: " + (str ?? ""))
+        #if os(macOS)
+            print("    INFO💙: " + (str ?? ""))
+        #else
+            DDLogInfo("💙    INFO: " + (str ?? ""))
+        #endif
     }
     
     static func verbose(_ str: String?) -> Void {
-        DDLogVerbose("💜 VERBOSE: " + (str ?? ""))
+        #if os(macOS)
+            print(" VERBOSE💜: " + (str ?? ""))
+        #else
+        DDLogInfo("💜 VERBOSE: " + (str ?? ""))
+        #endif
+        
     }
     
     static func error(_ str: String?) -> Void {
-        DDLogError("❤️   ERROR: " + (str ?? ""))
+        #if os(macOS)
+        print("    ERROR❤️: " + (str ?? ""))
+        #else
+        DDLogInfo("❤️   ERROR: " + (str ?? ""))
+        #endif
     }
     
     static func warn(_ str: String?) -> Void {
-        DDLogWarn("💛    WARN: " + (str ?? ""))
+        #if os(macOS)
+        print("    WARN💛: " + (str ?? ""))
+        #else
+        DDLogInfo("💛    WARN: " + (str ?? ""))
+        #endif
     }
     
     #if canImport(RxSwift) && canImport(RxCocoa)
