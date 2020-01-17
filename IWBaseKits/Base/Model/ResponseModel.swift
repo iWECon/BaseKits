@@ -43,22 +43,14 @@ public enum ResponseStatus: Swift.Error {
 struct ResponseModel<T>: HandyJSON where T: IWModelProtocol {
     var status: String?
     var message: String?
-    #if os(iOS)
     var data: T?
-    #elseif os(macOS)
-    var datas: T?
-    #endif
 }
 
 /// 拿到数据后生成的通用 Models
 struct ResponseModels<T>: HandyJSON where T: IWModelProtocol {
     var status: String?
     var message: String?
-    #if os(iOS)
     var data: [T]?
-    #elseif os(macOS)
-    var datas: [T]?
-    #endif
 }
 
 /// 生成通用数据模型，然后通过 take(model cls:) 去转换

@@ -419,6 +419,14 @@ public extension String {
         return self
     }
     
+    var removeSpace: String {
+        guard self == "" else {
+            var temp = self
+            return temp.replacingOccurrences(of: " ", with: "")
+        }
+        return self
+    }
+    
     /// (获取文件名, 无扩展名).
     var lastPathNotHasPathExtension: String? {
         return (self as NSString).pathComponents.last.and(then: { ($0.nsString).deletingPathExtension })

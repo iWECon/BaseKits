@@ -55,13 +55,8 @@ extension Observable where Element: Moya.Response {
                 throw TakeError.responseFailed
             }
             
-            #if os(iOS)
             let key = "data"
             let dataIsNone = model!.data.isNone
-            #elseif os(macOS)
-            let key = "datas"
-            let dataIsNone = model!.datas.isNone
-            #endif
             
             if dic![safe: key].isSome && dataIsNone {
                 throw TakeError.modelFailed
@@ -77,9 +72,10 @@ extension Observable where Element: Moya.Response {
     func responseModels<T>(_ cls: T.Type) -> Observable<ResponseModels<T>> where T: IWModelProtocol {
 
         return self.map({ (element) -> ResponseModels<T> in
-
             let dic = try? JSONSerialization.jsonObject(with: element.data, options: .mutableContainers) as? [String: Any]
             if dic.isNone {
+                let __utf8 = String(data: element.data, encoding: .utf8).any
+                Console.error("Respond data: \(__utf8)")
                 throw TakeError.responseFailed
             }
             let model = ResponseModels<T>.deserialize(from: dic!)

@@ -36,12 +36,19 @@ public extension NSTableView {
 
 public extension NSCollectionView {
     
-    func useComponent<T: NSCollectionViewItem>(_ cls: T.Type, for indexpath: IndexPath) -> T {
-        return self.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(String(describing: cls)), for: indexpath) as! T
+    func useComponent<T: NSCollectionViewItem>(_ cls: T.Type, for indexPath: IndexPath) -> T {
+        return self.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(String(describing: cls)), for: indexPath) as! T
     }
     
     func registerComponent<T: NSCollectionViewItem>(_ cls: T.Type) -> Void {
         register(cls, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: String(describing: cls)))
+    }
+    
+    func registerSupplementary<T: NSView>(_ cls: T.Type, kind: NSCollectionView.SupplementaryElementKind) -> Void {
+        register(cls, forSupplementaryViewOfKind: kind, withIdentifier: NSUserInterfaceItemIdentifier(String(describing: cls)))
+    }
+    func reuseSupplementary<T: NSView>(_ cls: T.Type, kind: NSCollectionView.SupplementaryElementKind, for indexPath: IndexPath) -> T {
+        return makeSupplementaryView(ofKind: kind, withIdentifier: NSUserInterfaceItemIdentifier(String(describing: cls)), for: indexPath) as! T
     }
     
     // It's Invalid in Swift

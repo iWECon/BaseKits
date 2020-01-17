@@ -52,6 +52,7 @@ class IWViewController: UIViewController, IWViewControllerable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        UILabel.chain.text("what the fuck")
         Console.logResourcesCount()
     }
     

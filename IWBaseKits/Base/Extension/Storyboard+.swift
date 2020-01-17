@@ -30,4 +30,10 @@ public extension IWStoryboard {
         let sb = self.instance(name, bundle: .main)
         return sb.instantiate(identifier)
     }
+    
+    static func instantiate<T: NSResponder>(_ name: String! = "Main", _ cls: T.Type, bundle: Bundle? = .main) -> T {
+        let identifier = String(describing: cls)
+        let sb = self.instance(name, bundle: bundle)
+        return sb.instantiate(identifier) as! T
+    }
 }
